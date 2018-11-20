@@ -8,4 +8,5 @@ export class WidgetItem {
   formConfig?: string;
   children?: any[];
   result?: {};
+  group?: string
 }

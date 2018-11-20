@@ -8,6 +8,7 @@ import {
   MatToolbarModule,
   MatTooltipModule, 
   MatSidenavModule, 
+  MatExpansionModule, 
   MatIconModule
   /*
   MatAutocompleteModule, 
@@ -30,7 +31,6 @@ import {
   MatSnackBarModule, 
   MatTableModule, 
   MatFormFieldModule, 
-  MatExpansionModule, 
   MatStepperModule
   */
 } from '@angular/material';
@@ -45,6 +45,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatSidenavModule,
+    MatExpansionModule,
     MatIconModule
     /*
     MatAutocompleteModule,
@@ -52,7 +53,6 @@ import {
     MatCheckboxModule,
     MatChipsModule,
     MatDatepickerModule,
-    MatExpansionModule,
     MatFormFieldModule,
     MatGridListModule,
     MatInputModule,

@@ -4,7 +4,7 @@
       "name": "widget-placeholder",
       "label": "Placeholder Widget",
       "class": "widget",
-      "inputType": "content-list",
+      "inputType": "content",
       "icon": "pets",
       "formConfig": "assets/forms/placeholder-widget.json"
     },
@@ -63,27 +63,24 @@
       "name": "widget-sample",
       "label": "Sample Mega",
       "class": "widget",
-      "inputType": "content-list",
+      "inputType": "content",
       "icon": "list",
-      "done": "check_box_outline_blank",
       "formConfig": "assets/forms/mega-config.json"
     },
     {
       "name": "widget-content-list",
       "label": "Content List",
       "class": "widget",
-      "inputType": "content-list",
+      "inputType": "content",
       "icon": "list",
-      "done": "check_box_outline_blank",
       "formConfig": "assets/forms/content-list.json"
     },
     {
       "name": "widget-labeled-text",
       "label": "Labeled Text List",
       "class": "widget",
-      "inputType": "content-list",
+      "inputType": "content",
       "icon": "list",
-      "done": "check_box_outline_blank",
       "group": "main",
       "formConfig": "assets/forms/labeled-text.json"
     },
@@ -91,7 +88,7 @@
       "name": "widget-hero",
       "label": "Hero Widget",
       "class": "widget",
-      "inputType": "content-list",
+      "inputType": "content",
       "icon": "photo",
       "group": "main",
       "formConfig": "assets/forms/placeholder-widget.json"

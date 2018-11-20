@@ -14,20 +14,35 @@
                fixedBottomGap="0">
     <div class="sidenav">
       <h2>Widgets</h2>
+      
       <div *ngIf="isReady">
-       <ngx-dnd-container
-         class="widget-list"
-         [model]="widgets"
-         [dropZones]="['builder-target']"
-         [copy]="true"
-         [droppableItemClass]="droppableItemClass"
-         >
-         <ng-template let-item="model">
-           <mat-icon>{{item.icon}}</mat-icon>
-           <div class="widget-item">{{item.label}}</div>
-         </ng-template>
-       </ngx-dnd-container>
-      </div>
+      <ng-template ngFor let-wid [ngForOf]="groupedWidgets" let-i="index" [ngForTrackBy]="trackByFn">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{wid.group}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+             <ngx-dnd-container
+               class="widget-list"
+               [model]="wid.items"
+               [dropZones]="['builder-target']"
+               [copy]="true"
+               [droppableItemClass]="droppableItemClass"
+               >
+               <ng-template let-item="model">
+                 <mat-icon>{{item.icon}}</mat-icon>
+                 <div class="widget-item">{{item.label}}</div>
+               </ng-template>
+             </ngx-dnd-container>
+        </mat-expansion-panel>
+        
+        
+      </mat-accordion>
+      </ng-template>
+    </div>
     </div>
   </mat-sidenav>
 
@@ -74,7 +89,7 @@
                 </ngx-dnd-container>
               
             </div>
-            <div *ngSwitchCase="'content-list'" class="widget-container">
+            <div *ngSwitchCase="'content'" class="widget-container">
               <hg-widget [qpath]="model.formConfig" [title]="model.label"  (widgetConfig)="attachConfig($event, model)" ></hg-widget>
               <!--Model Data: {{model.result|json}}-->
             

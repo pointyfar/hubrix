@@ -26,6 +26,8 @@ export class LayoutComponent implements OnInit {
   droppableItemClass = (item: any) => `${item.class} ${item.inputType}`;
 
   formattedConfig: any = {};
+  
+  groupedWidgets: any[] = [];
 
   constructor(
     public dialog: MatDialog,
@@ -41,16 +43,45 @@ export class LayoutComponent implements OnInit {
       .subscribe(
         wi => {
           this.widgets = wi;
+          this.groupedWidgets = this.processWidgets(wi)
         },
         err => {
           console.log(err)
         },
         () => {
           this.isReady = true;
-          console.log("ready");
         }
       )
       ;
+  }
+  
+  processWidgets(w){
+    let groups = [];
+    let processed = [];
+    
+    for (let i=0; i<w.length; i++) {
+      let g = ""
+      
+      if(w[i].hasOwnProperty('group')) {
+        g = w[i]['group']; 
+      } else {
+        g = "UNGROUPED";
+      }
+      
+      if( groups.indexOf(g) >= 0 ){
+        for(let j = 0; j< processed.length; j++){
+          if(processed[j]['group'] === g){
+            processed[j]['items'].push(w[i])
+          }
+        }
+      } else {
+        groups.push(g);
+        let item = [w[i]];
+        processed.push({group: g, items: item});
+      }
+    }
+    
+    return processed
   }
 
   loadComponent(e) {
