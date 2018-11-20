@@ -1,4 +1,4 @@
-![Hubrix](/assets/img/hubrix-light.png)
+![Hubrix](/src/assets/img/hubrix-light.png)
 
 # Hubrix: A Hugo Site Builder
 
