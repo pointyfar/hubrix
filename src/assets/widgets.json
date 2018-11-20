@@ -1,0 +1,101 @@
+{
+  "widgets" : [
+    {
+      "name": "widget-placeholder",
+      "label": "Placeholder Widget",
+      "class": "widget",
+      "inputType": "content-list",
+      "icon": "pets",
+      "formConfig": "assets/forms/placeholder-widget.json"
+    },
+    {
+      "name": "section-quarter",
+      "label": "Section: Quarter",
+      "class": "column is-one-quarter",
+      "parent": true,
+      "inputType": "section",
+      "flex": 25,
+      "group": "sections",
+      "icon": "view_compact"
+    },
+    {
+      "name": "section-third",
+      "label": "Section: One Third",
+      "class": "column is-one-third",
+      "parent": true,
+      "inputType": "section",
+      "flex": 33.33,
+      "group": "sections",
+      "icon": "view_compact"
+    },
+    {
+      "name": "section-half",
+      "label": "Section: Half",
+      "class": "column is-one-half",
+      "parent": true,
+      "inputType": "section",
+      "flex": 50,
+      "group": "sections",
+      "icon": "view_compact"
+    },
+    {
+      "name": "section-full",
+      "label": "Section: Full Width",
+      "class": "column is-full",
+      "parent": true,
+      "inputType": "section",
+      "flex": 100,
+      "group": "sections",
+      "icon": "view_compact"
+    },
+    {
+      "name": "section-flex",
+      "label": "Section: Flex Width",
+      "class": "column flex",
+      "parent": true,
+      "inputType": "section",
+      "flex": 25,
+      "group": "sections",
+      "icon": "view_compact"
+      
+    },
+    {
+      "name": "widget-sample",
+      "label": "Sample Mega",
+      "class": "widget",
+      "inputType": "content-list",
+      "icon": "list",
+      "done": "check_box_outline_blank",
+      "formConfig": "assets/forms/mega-config.json"
+    },
+    {
+      "name": "widget-content-list",
+      "label": "Content List",
+      "class": "widget",
+      "inputType": "content-list",
+      "icon": "list",
+      "done": "check_box_outline_blank",
+      "formConfig": "assets/forms/content-list.json"
+    },
+    {
+      "name": "widget-labeled-text",
+      "label": "Labeled Text List",
+      "class": "widget",
+      "inputType": "content-list",
+      "icon": "list",
+      "done": "check_box_outline_blank",
+      "group": "main",
+      "formConfig": "assets/forms/labeled-text.json"
+    },
+    {
+      "name": "widget-hero",
+      "label": "Hero Widget",
+      "class": "widget",
+      "inputType": "content-list",
+      "icon": "photo",
+      "group": "main",
+      "formConfig": "assets/forms/placeholder-widget.json"
+    }
+  ]
+  
+  }

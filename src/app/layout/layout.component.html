@@ -1,0 +1,95 @@
+<mat-toolbar class="header" fxFlexLayout="row">
+  <span fxFlex="auto"><img src="assets/img/hubrix-h.png" style="height:50px; margin-right: 1rem;"></span>
+  <span fxFlex="auto">HUBRIX: A Hugo Site Builder</span>
+  <span fxFlex="flex"></span>
+  <span fxFlex="auto">
+    <button mat-raised-button color="primary" (click)="generateConfig()">Generate Config</button>
+  </span>
+  
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened 
+               fixedInViewport="false" fixedTopGap="0"
+               fixedBottomGap="0">
+    <div class="sidenav">
+      <h2>Widgets</h2>
+      <div *ngIf="isReady">
+       <ngx-dnd-container
+         class="widget-list"
+         [model]="widgets"
+         [dropZones]="['builder-target']"
+         [copy]="true"
+         [droppableItemClass]="droppableItemClass"
+         >
+         <ng-template let-item="model">
+           <mat-icon>{{item.icon}}</mat-icon>
+           <div class="widget-item">{{item.label}}</div>
+         </ng-template>
+       </ngx-dnd-container>
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <h2>Drag widgets here</h2>
+    <div class="main-section">
+      
+      <ngx-dnd-container
+        class="root-container"
+        [model]="mainSection"
+        dropZone="builder-target"
+        [removeOnSpill]="true"
+        [droppableItemClass]="droppableItemClass"
+        
+        >
+        <!-- (drag)="log($event)"
+        (drop)="loadComponent($event)"
+        (drop)="log($event)"
+        (over)="log($event)"
+        (out)="log($event)"
+        (remove)="log($event)"
+        -->
+        <ng-template let-model="model" let-template="template">
+          <div [ngSwitch]="model.inputType">
+            <div *ngSwitchCase="'section'">
+              
+                <div class="section-label">
+                  <div class="label">{{model.label}}</div>
+                  <mat-icon ngxDragHandle>pan_tool</mat-icon>
+                </div>
+                <ngx-dnd-container
+                  dropZone="builder-target"
+                  [model]="model.children"
+                  [removeOnSpill]="true"
+                  [template]="template"
+                  [droppableItemClass]="droppableItemClass"
+                  >
+                  <!-- (drag)="log($event)"
+                  (remove)="log($event)"
+                  (cancel)="log($event)"
+                  (drop)="log($event)"
+                  (out)="log($event)"
+                  -->                
+                </ngx-dnd-container>
+              
+            </div>
+            <div *ngSwitchCase="'content-list'" class="widget-container">
+              <hg-widget [qpath]="model.formConfig" [title]="model.label"  (widgetConfig)="attachConfig($event, model)" ></hg-widget>
+              <!--Model Data: {{model.result|json}}-->
+            
+              <div class="icons">
+                <mat-icon ngxDragHandle>pan_tool</mat-icon>
+              </div>
+              
+            </div>
+            <div *ngSwitchDefault>
+              <label>{{model.name}}</label>
+              <input [attr.type]="model.inputType" [ngModel]="model.data">
+            </div>
+          </div>
+        </ng-template>
+      </ngx-dnd-container>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,28 @@
+.mat-sidenav-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+.mat-sidenav-content {
+  padding: 1rem;
+  
+}
+.mat-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  width: 30%;
+  max-width: 500px;
+
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+

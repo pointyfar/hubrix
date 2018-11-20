@@ -1,0 +1,30 @@
+{
+  "modelJson" : {
+    "labeledtext": {
+      "label": "Label",
+      "text": "Text"
+    }
+  },
+  "jsonFields" : {
+    "title": "Labeled Text",
+    "type": "object",
+    "required": [
+      "title"
+    ],
+    "properties": {
+      "label": {
+        "type" : "string",
+        "title": "Label"
+      },
+      "sections": {
+        "type": "array",
+        "title": "List of sections to display entries from",
+        "items": {
+          "type": "string",
+          "default": "posts"
+        }
+      }
+      
+    }
+  }
+}

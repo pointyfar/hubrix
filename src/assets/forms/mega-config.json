@@ -1,0 +1,162 @@
+{
+  "modelJson" : {
+    "params": {
+      "copyright": "(c) Pointy 2018",
+      "subtitle": "Pointy's subtitle"      
+    }
+  },
+  "jsonFields" : {
+    "title": "A list of tasks",
+    "type": "object",
+    "required": [
+      "title"
+    ],
+    "properties": {
+      "params" : {
+        "title": "Params",
+        "type" : "object",
+        "properties": {
+          "copyright": {
+            "type" : "string",
+            "title": "Copyright Notice"
+          },
+          "subtitle": {
+            "type" : "string",
+            "title": "Site Subtitle"
+          },
+          "mainSections": {
+            "type": "array",
+            "title": "List of main sections",
+            "items": {
+              "type": "string",
+              "default": "post"
+            }
+          },
+          "socialdata": {
+            "type" : "string",
+            "title": "data file for social box"
+          },
+          
+          "scss": {
+            "type" : "object",
+            "title": "SCSS Options",
+            "properties": {
+              "customFontBody": {
+                "type" : "string",
+                "title": "Custom Body Font"
+              },
+              "brandFont": {
+                "type" : "string",
+                "title": "Custom Brand Font"
+              },
+              "primary": {
+                "type" : "string",
+                "title": "Primary Color (Hex Value)"
+              },
+              "primaryInvert": {
+                "type" : "string",
+                "title": "Contrast Color for Primary (Usually #fff or #000)"
+              },
+              "footnote": {
+                "type" : "string",
+                "title": "Footnote Text"
+              }
+            }
+          },
+          
+          "hero": {
+            "type" : "object",
+            "title": "Featured Hero",
+            "properties": {
+              "background": {
+                "type" : "string",
+                "title": "Path to img background"
+              },
+              "bgislight": {
+                "type" : "boolean",
+                "title": "Is hero image light colored?"
+              }
+            }
+          },
+          
+          "author": {
+            "type" : "object",
+            "title": "Site Author",
+            "properties": {
+              "name": {
+                "type" : "string",
+                "title": "Author Name"
+              },
+              "short": {
+                "type" : "string",
+                "title": "Display name"
+              },
+              "photo": {
+                "type" : "string",
+                "title": "Path to author photo"
+              },
+              "header": {
+                "type" : "string",
+                "title": "Author box title"
+              },
+              "blurb": {
+                "type" : "string",
+                "title": "Author blurb"
+              },
+              "aboutSection": {
+                "type" : "string",
+                "title": "path to author 'About' section"
+              }
+            }
+          },
+          
+          "subnav": {
+            "type" : "object",
+            "title": "Subnav Configuration",
+            "properties": {
+              "usetaxonomy": {
+                "type" : "string",
+                "title": "Which Taxonomy to use"
+              },
+              "taxonomycount": {
+                "type" : "integer",
+                "title": "How many terms to display?"
+              },
+              "featuredterms": {
+                "type" : "array",
+                "title": "Must include these terms",
+                "items": {
+                  "type" : "string"
+                  
+                }
+              }
+            }
+          },
+          
+          "footer": {
+            "type" : "object",
+            "title": "Footer Configuration",
+            "properties": {
+              "left": {
+                "type" : "array",
+                "title": "Left side data files",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "right": {
+                "type" : "array",
+                "title": "Right side data files",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+          
+        }
+      }
+      
+    }
+  }
+}

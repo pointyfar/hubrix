@@ -1,0 +1,54 @@
+{
+  "modelJson" : {
+    "labelposition": "above",
+    "arrangetext": "column",
+    "labeledtext": [
+      {
+        "label": "Label",
+        "text": "Text"
+      }
+    ]
+  },
+  "jsonFields" : {
+    "title": "Labeled Text List",
+    "type": "object",
+    "required": [
+      "title"
+    ],
+    "properties": {
+      "labelposition": {
+        "type": "string",
+        "title": "Select Label Position",
+        "enum": [
+          "above", "left"
+        ]
+      },
+      "arrangetext": {
+        "type": "string",
+        "title": "Select Text Arrangement",
+        "enum": [
+          "column", "row"
+        ]
+      },
+      "labeledtext": {
+        "type": "array",
+        "title": "List of Labeled Text",
+        "items": {
+          "type": "object",
+          "title": "Labeled Text",
+          "properties": {
+            "label": {
+              "type" : "string",
+              "title": "Label"
+            },
+            "text": {
+              "type" : "string",
+              "title": "Text"
+            }
+          }
+        }
+      }
+      
+    }
+  }
+}

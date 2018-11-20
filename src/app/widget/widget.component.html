@@ -1,0 +1,7 @@
+<div *ngIf="qReady" class="widget">
+  <button mat-button color="primary" (click)="openDialog()"><mat-icon>settings</mat-icon></button>
+  <div *ngIf="hasResult">
+    <mat-icon>check</mat-icon>
+  </div>
+  <h3>{{title}}</h3>
+</div>

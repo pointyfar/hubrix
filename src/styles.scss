@@ -1,0 +1,279 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$dark-primary: mat-palette($mat-teal);
+$dark-accent: mat-palette($mat-amber, A200, A100, A400);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+@include angular-material-theme($dark-theme);
+$font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+
+
+/* Material Icons */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/fonts/material-icons/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(assets/fonts/material-icons/MaterialIcons-Regular.woff2) format('woff2'),
+       url(assets/fonts/material-icons/MaterialIcons-Regular.woff) format('woff'),
+       url(assets/fonts/material-icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+/* end Material Icons */
+
+
+body,
+html {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-family: $font-family-sans-serif;
+}
+
+app-root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.sidenav {
+padding: 1rem;  
+}
+
+.code-wrapper {
+  background-color: map-get($mat-grey, 300);
+}
+.widget-list {
+  .ngx-dnd-container {
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+
+    &:nth-child(odd) {
+      background: none;
+    }
+  }
+  .mat-icon {
+    margin-right: 1rem;
+  }
+  .widget-item {
+    
+  }
+  .ngx-dnd-item {
+    border: 1px solid map-get($mat-grey, 800);
+    background: rgba(black, .25);
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    margin: 1rem 0;
+    &:hover {
+      border: 1px solid map-get($mat-grey, 900);
+      
+    }
+
+  }
+}
+
+.main-section {
+  .section-label {
+    display: flex;
+    flex-direction: row;
+    .label {
+      flex: 1 1 auto;
+    }
+  }
+  .ngx-input {
+    margin: 0;
+
+    .ngx-input-wrap {
+      margin: 0;
+    }
+  }
+
+  > * > .ngx-dnd-container {
+    min-height: 400px;
+  }
+
+  .ngx-dnd-container {
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    box-sizing: border-box;
+    background-color: white;
+    min-height: 160px;
+    border: 1px dashed map-get($mat-light-green, 700);
+    margin: 1px;
+    padding: 0px;
+
+    &.gu-over,
+    &.gu-over .ngx-dnd-container,
+    .gu-unselectable & {
+      border: 1px dashed map-get($mat-light-green, 700);
+    }
+
+    &.gu-empty {
+      border: 1px dashed map-get($mat-light-green, 700);
+      
+    }
+
+    &:nth-child(odd) {
+      // background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.1);
+      
+    }
+
+    .ex-moved {
+      background-color: #e74c3c;
+    }
+
+    .ex-over {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid red;
+    }
+
+    .handle {
+      padding: 0 5px;
+      margin-right: 5px;
+      // background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(255, 255, 255, 0.3);
+      cursor: move;
+    }
+    
+  }
+  //////////////////////////////////////////////////////////
+  .ngx-dnd-item {
+    margin: 0.5%;
+    border: 1px solid map-get($mat-teal,500);
+    background: none;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    max-width: 100%;
+    padding: 5px;
+    height: auto;
+    min-height: 50px;
+    
+    &:hover {
+      border: 1px solid map-get($mat-teal,500);
+    }
+    
+    &.section {
+      border: 1px solid map-get($mat-light-green,700);
+      &:hover {
+        border: 1px solid map-get($mat-light-green,500);
+      }
+    }
+
+    &.is-one-half {
+      flex: 1 1 49%;
+      box-sizing: border-box;
+      -webkit-box-flex: 1;
+      max-width: 49%;
+    }
+
+    &.is-one-quarter {
+      flex: 1 1 24%;
+      box-sizing: border-box;
+      -webkit-box-flex: 1;
+      max-width: 24%;
+    }
+
+    &.is-one-third {
+      flex: 1 1 32.3%;
+      
+      box-sizing: border-box;
+      -webkit-box-flex: 1;
+      max-width: 32.3%;
+
+    }
+
+    &.flex {
+      flex: 1 1 auto;
+      box-sizing: border-box;
+      -webkit-box-flex: 1;
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.dialog-body {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 1rem;
+}
+.dialog-buttons {
+  flex: 1 0 auto;
+}
+
+.widget-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .mat-icon {
+    flex: 0 1 auto;
+  }
+  .widget {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1 1 100%;
+    width: 100%;
+    
+    button.mat-button {
+      padding: 0.25rem;
+      min-width: 3rem;
+    }
+    h3 {
+      display: inline-block;
+      flex: 1 0 auto;
+      width: auto;
+      margin: 0 .25rem;
+    }
+  }
+}
+
+.formly-array {
+  margin: 2rem 0;
+  padding: 2rem 1rem;
+  border: 1px solid map-get($mat-grey,600);
+  .formly-array-label {
+    margin-bottom: 1rem;
+  }
+}
+

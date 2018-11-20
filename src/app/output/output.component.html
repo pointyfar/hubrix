@@ -1,0 +1,22 @@
+<div class="dialog-container">
+  <div class="dialog-body">
+    <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="tab($event)">
+      <mat-tab label="JSON" *ngIf="jsonFormat">
+        <pre id="copyJSON">{{jsonFormat | json}}</pre>
+      </mat-tab>
+      <mat-tab label="YAML" *ngIf="hasY">
+          <pre id="copyYAML">{{yamlData}}</pre>
+      </mat-tab>
+      <mat-tab label="TOML" *ngIf="hasT">
+        <pre id="copyTOML">{{tomlData}}</pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div class="dialog-buttons" mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="copyToClipboard(selected.value)">Copy {{codeOptions[selected.value]}}</button>
+    <button mat-raised-button color="primary" cdkFocusInitial (click)="downloadCode(selected.value)">Download {{codeOptions[selected.value]}}</button>
+    <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+  
+  </div>
+</div>

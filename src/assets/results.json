@@ -1,0 +1,112 @@
+{
+  "results": [{
+      "name": "widget-one",
+      "label": "Widget One",
+      "class": "block is-quarter",
+      "inputType": "section",
+      "icon": "web",
+      "formConfig": {},
+      "children": [],
+      "flex": 25
+    },
+    {
+      "name": "widget-one",
+      "label": "Widget One",
+      "class": "block is-quarter",
+      "inputType": "section",
+      "icon": "web",
+      "formConfig": {},
+      "children": [],
+      "flex": 25
+    },
+    {
+      "name": "widget-three",
+      "label": "Widget Three",
+      "class": "block half",
+      "inputType": "section",
+      "icon": "web",
+      "formConfig": {},
+      "children": [],
+      "flex": 50
+    },
+    {
+      "name": "widget-labeled-text",
+      "label": "Labeled Text List",
+      "class": "content",
+      "inputType": "content-list",
+      "icon": "list",
+      "formConfig": "assets/forms/labeled-text.json",
+      "result": {
+        "labelposition": "above",
+        "arrangetext": "column",
+        "labeledtext": [{
+          "label": "Label",
+          "text": "Text"
+        }]
+      }
+    },
+    {
+      "name": "widget-four",
+      "label": "Widget Four",
+      "class": "block is-fullwidth",
+      "inputType": "section",
+      "icon": "web",
+      "formConfig": {},
+      "children": [{
+          "name": "widget-content-list",
+          "label": "Content List",
+          "class": "content",
+          "inputType": "content-list",
+          "icon": "list",
+          "formConfig": "assets/forms/content-list.json",
+          "result": {
+            "label": null,
+            "sections": []
+          }
+        },
+        {
+          "name": "widget-labeled-text",
+          "label": "Labeled Text List",
+          "class": "content",
+          "inputType": "content-list",
+          "icon": "list",
+          "formConfig": "assets/forms/labeled-text.json",
+          "result": {
+            "labelposition": "above",
+            "arrangetext": "column",
+            "labeledtext": [{
+                "label": "Label",
+                "text": "Text"
+              },
+              {
+                "label": null,
+                "text": null
+              }
+            ]
+          }
+        },
+        {
+          "name": "widget-three",
+          "label": "Widget Three",
+          "class": "block half",
+          "inputType": "section",
+          "icon": "web",
+          "formConfig": {},
+          "children": [],
+          "flex": 50
+        },
+        {
+          "name": "widget-three",
+          "label": "Widget Three",
+          "class": "block half",
+          "inputType": "section",
+          "icon": "web",
+          "formConfig": {},
+          "children": [],
+          "flex": 50
+        }
+      ],
+      "flex": 100
+    }
+  ]
+}

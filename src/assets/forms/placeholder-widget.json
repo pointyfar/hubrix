@@ -1,0 +1,18 @@
+{
+  "modelJson" : {
+    "title": "Placeholder Widget"
+  },
+  "jsonFields" : {
+    "title": "Placeholder Widget",
+    "type": "object",
+    "required": [
+      "title"
+    ],
+    "properties": {
+      "title": {
+        "type" : "string",
+        "title": "Title"
+      }
+    }
+  }
+}
