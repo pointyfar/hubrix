@@ -804,6 +804,8 @@ THE SOFTWARE.
 
 @angular/material/icon
 
+@angular/material/expansion
+
 @swimlane/ngx-dnd
 MIT
 MIT License

@@ -92,6 +92,42 @@
       "icon": "photo",
       "group": "main",
       "formConfig": "assets/forms/placeholder-widget.json"
+    },
+    {
+      "name": "widget-navigation",
+      "label": "Navigation",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "more_vert",
+      "group": "main",
+      "formConfig": "assets/forms/placeholder-widget.json"
+    },
+    {
+      "name": "widget-author",
+      "label": "Author Widget",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "account_circle",
+      "group": "sidebar",
+      "formConfig": "assets/forms/placeholder-widget.json"
+    },
+    {
+      "name": "widget-social",
+      "label": "Social Buttons Widget",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "thumb_up",
+      "group": "sidebar",
+      "formConfig": "assets/forms/placeholder-widget.json"
+    },
+    {
+      "name": "widget-tags",
+      "label": "Tag Cloud Widget",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "label",
+      "group": "sidebar",
+      "formConfig": "assets/forms/placeholder-widget.json"
     }
   ]
   
