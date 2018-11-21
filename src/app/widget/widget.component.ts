@@ -21,7 +21,7 @@ export class WidgetComponent implements OnInit {
   model: any = {};
   formFields: FormlyFieldConfig[] = [];
   
-  jsonSchemaFields: any = {};
+  jsonSchemaFields:FormlyFieldConfig[] = [];
   res: any = {};
   hasResult = false;
   
@@ -67,6 +67,7 @@ export class WidgetComponent implements OnInit {
           r => {
             this.model = r.modelJson;
             this.jsonSchemaFields = r.jsonFields;
+            console.log(r, typeof r.jsonFields)
           },
           err => {
             console.log('error:', err)

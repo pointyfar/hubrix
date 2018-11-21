@@ -1,54 +1,60 @@
 {
   "modelJson" : {
     "labelposition": "above",
-    "arrangetext": "column",
-    "labeledtext": [
-      {
-        "label": "Label",
-        "text": "Text"
-      }
-    ]
+    "arrangetext": "column"
+
   },
-  "jsonFields" : {
-    "title": "Labeled Text List",
-    "type": "object",
-    "required": [
-      "title"
-    ],
-    "properties": {
-      "labelposition": {
-        "type": "string",
-        "title": "Select Label Position",
-        "enum": [
-          "above", "left"
+  "jsonFields" : [
+    {
+      "key" : "labelposition",
+      "type": "select",
+      "templateOptions": {
+        "label": "Label Position",
+        "options": [
+          {"label":"Above", "value":"above"},
+          {"label":"Left", "value":"left"}
         ]
-      },
-      "arrangetext": {
-        "type": "string",
-        "title": "Select Text Arrangement",
-        "enum": [
-          "column", "row"
+      }
+    },
+    {
+      "key" : "arrangetext",
+      "type": "select",
+      "templateOptions": {
+        "label": "Arrange Text",
+        "options": [
+          {"label":"Row", "value":"row"},
+          {"label":"Column", "value":"column"}
         ]
-      },
-      "labeledtext": {
-        "type": "array",
-        "title": "List of Labeled Text",
-        "items": {
-          "type": "object",
-          "title": "Labeled Text",
-          "properties": {
-            "label": {
-              "type" : "string",
-              "title": "Label"
-            },
-            "text": {
-              "type" : "string",
-              "title": "Text"
+      }
+    },
+    {
+      "key": "list",
+      "type": "array",
+      "fieldArray": {
+        "fieldGroupClassName": "row",
+        "templateOptions": {
+          "label": "Add List"
+        },
+        "fieldGroup": [
+          {
+            "className": "col-sm-4",
+            "type": "input",
+            "key": "investmentName",
+            "templateOptions": {
+              "label": "Name of Investment:",
+              "required": true
+            }
+          },
+          {
+            "type": "input",
+            "key": "stockIdentifier",
+            "className": "col-sm-3",
+            "templateOptions": {
+              "label": "Stock Identifier:"
             }
           }
-        }
+        ]
       }
-      
     }
-  }
+  ]
 }

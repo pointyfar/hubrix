@@ -2,17 +2,13 @@
   "modelJson" : {
     "title": "Placeholder Widget"
   },
-  "jsonFields" : {
-    "title": "Placeholder Widget",
-    "type": "object",
-    "required": [
-      "title"
-    ],
-    "properties": {
-      "title": {
-        "type" : "string",
-        "title": "Title"
+  "jsonFields" : [
+    {
+      "key" : "title",
+      "type": "input",
+      "templateOptions": {
+        "label": "Placeholder"
       }
     }
-  }
+  ]
 }

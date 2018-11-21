@@ -18,7 +18,8 @@ export class LayoutComponent implements OnInit {
   widgets: WidgetItem[] = [];
   isReady = false;
 
-
+  testurl = "assets/widgets-alt.json";
+  
   targetBuilderTools: any[] = [];
 
   mainSection: any[] = [];
@@ -39,7 +40,8 @@ export class LayoutComponent implements OnInit {
   }
 
   getWidgetsList() {
-    this._ls.getWidgetsList(this.widgetsPath)
+    //this._ls.getWidgetsList(this.widgetsPath)
+    this._ls.getWidgetsList(this.testurl)
       .subscribe(
         wi => {
           this.widgets = wi;

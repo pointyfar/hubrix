@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { WidgetItem } from './../models/widget.item';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Injectable()
 export class LayoutService {
@@ -26,6 +27,14 @@ export class LayoutService {
         })
       )*/
   }
+  
+  getConfigList2(url){
+    return this.http.get(url)
+                .pipe(map(m => mapConfig(m)))
+    ;
+    
+  }
+  
   
 
   handleError(error: any) {
@@ -53,6 +62,18 @@ export class LayoutService {
 
 }
 
+function mapConfig(m:any): any{
+  let model:any;
+  let fields: FormlyFieldConfig[];
+  
+  fields = m.jsonFields;
+  model = m.modelJson;
+  
+  return {
+    jsonFields: fields,
+    modelJson: model
+  }
+}
 
 function mapWidgetItem( wi: any ):WidgetItem[] {
   let items = [];

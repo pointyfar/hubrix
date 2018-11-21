@@ -1,9 +1,7 @@
 {
   "modelJson" : {
-    "labeledtext": {
-      "label": "Label",
-      "text": "Text"
-    }
+    "pagesize": 5,
+    "sections": ["posts"]
   },
   "jsonFields" : {
     "title": "Labeled Text",
@@ -12,9 +10,9 @@
       "title"
     ],
     "properties": {
-      "label": {
-        "type" : "string",
-        "title": "Label"
+      "pagesize": {
+        "type" : "integer",
+        "title": "How many pages to display before paginating?"
       },
       "sections": {
         "type": "array",

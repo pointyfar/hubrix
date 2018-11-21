@@ -1,8 +1,7 @@
 <div class="dialog-container">
   <div class="dialog-body">
-    <form [formGroup]="form" (ngSubmit)="saveForm()">
-      <formly-form [model]="inputModel" [fields]="fields" [options]="inputOptions" [form]="form">
-        <button mat-raised-button color="primary" type="submit" (click)="saveForm()">Save</button>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
       </formly-form>
     </form>
   </div>
@@ -11,11 +10,3 @@
     <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
   </div>
 </div>
-<!--<form [formGroup]="xform" (ngSubmit)="submit()">
-  <formly-form [model]="xmodel" [fields]="xfields" [options]="options" [form]="xform">
-    <button mat-raised-button color="primary" type="submit">
-      Submit
-    </button>
-  </formly-form>
-  
-</form>-->
