@@ -1,7 +1,11 @@
 <div *ngIf="qReady" class="widget">
   <button mat-button color="primary" (click)="openDialog()"><mat-icon>settings</mat-icon></button>
-  <div *ngIf="hasResult">
-    <mat-icon>check</mat-icon>
+  <div *ngIf="hasResult; else indeterminate">
+    <mat-icon>check_box</mat-icon>
   </div>
+  <ng-template #indeterminate>
+    <mat-icon>indeterminate_check_box</mat-icon>
+  </ng-template>
+  
   <h3>{{title}}</h3>
 </div>

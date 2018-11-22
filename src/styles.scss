@@ -238,6 +238,10 @@ padding: 1rem;
 }
 .dialog-buttons {
   flex: 1 0 auto;
+  display: flex;
+  .message {
+    padding: 1rem;
+  }
 }
 
 .widget-container {

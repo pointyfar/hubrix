@@ -6,7 +6,8 @@
     </form>
   </div>
   <div class="dialog-buttons" mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="saveForm()">Save</button>
+    <button mat-raised-button color="primary" (click)="saveForm()" [disabled]="!form.valid">Save</button>
     <button mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+    <div class="message" *ngIf="!form.valid">Please fill out the required fields (*)</div>
   </div>
 </div>

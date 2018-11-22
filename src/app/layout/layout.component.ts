@@ -40,8 +40,8 @@ export class LayoutComponent implements OnInit {
   }
 
   getWidgetsList() {
-    //this._ls.getWidgetsList(this.widgetsPath)
-    this._ls.getWidgetsList(this.testurl)
+    //this._ls.getWidgetsList(this.testurl)
+    this._ls.getWidgetsList(this.widgetsPath)
       .subscribe(
         wi => {
           this.widgets = wi;

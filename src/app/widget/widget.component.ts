@@ -36,7 +36,9 @@ export class WidgetComponent implements OnInit {
   
   widgetConfigured(c:any){
     let e = {config: c}
-    this.widgetConfig.emit(e);
+    if(c) {
+      this.widgetConfig.emit(e);
+    }
   }
   
   openDialog(): void {
@@ -54,7 +56,9 @@ export class WidgetComponent implements OnInit {
               err => {console.log(err)},
               () => {
                 this.widgetConfigured(result)
-                this.hasResult = true;
+                if(result) {
+                  this.hasResult = true;
+                }
               }
             );
   }
@@ -67,7 +71,6 @@ export class WidgetComponent implements OnInit {
           r => {
             this.model = r.modelJson;
             this.jsonSchemaFields = r.jsonFields;
-            console.log(r, typeof r.jsonFields)
           },
           err => {
             console.log('error:', err)
