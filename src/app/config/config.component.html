@@ -1,6 +1,6 @@
 <div class="dialog-container">
   <div class="dialog-body">
-    <form [formGroup]="form" (ngSubmit)="submit()">
+    <form [formGroup]="form" (ngSubmit)="saveForm()">
       <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
       </formly-form>
     </form>

@@ -3,26 +3,27 @@ const exec = require('child_process').exec;
 const fs = require('fs-extra');
 const concat = require('gulp-concat');
 const gzip = require('gulp-gzip');
-
+const del = require("del");
+const log = require('fancy-log')
 
 gulp.task("build:prod-nohash", function(done){
   exec(`ng build --prod --aot --output-hashing none --output-path tmp/dist/` , function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
+    log(stdout);
+    log(stderr);
     done(err);  
   })
 });
 
 gulp.task("build:prod", function(done){
   exec(`ng build --prod --output-path tmp/dist/` , function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
+    log(stdout);
+    log(stderr);
     done(err);  
   })
 });
 
 gulp.task("build:elements", function(done){
-  console.log('---------- BUILDING ----------');
+  log('---------- BUILDING ----------');
   const dist = "./tmp/dist";
   const f = [ 
               `${dist}/runtime.js`,
@@ -44,12 +45,23 @@ function COPY(src, dest) {
              .pipe(gulp.dest(dest));
 };
 
+function CLEAN (target) {
+  log('---------- CLEANING ' + target + ' ----------');
+  return del.sync(target);
+}
+
 gulp.task("copy:licenses", function(done){
   COPY('./tmp/dist/3rdpartylicenses.txt', 'dist/');
   done();
 })
 
+gulp.task("clean:dist", function(done){
+  CLEAN('./tmp/dist/**');
+  done()
+})
+
 gulp.task("copy:dist", function(done){
+  
   COPY('./tmp/dist/**/*.css', 'dist/');
   COPY('./tmp/dist/assets/**/*', 'dist/assets/');
   
@@ -57,6 +69,7 @@ gulp.task("copy:dist", function(done){
 })
 
 const pack = gulp.series(
+  "clean:dist",
   "build:prod",
   "copy:licenses",
   "build:prod-nohash",
