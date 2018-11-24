@@ -65,7 +65,18 @@ export class OutputComponent implements OnInit {
   
   getToml(data) {
     try {
-      this.tomlData = tomlify.toToml(data, {space: 2});  // indent with 2 spaces
+      this.tomlData = tomlify.toToml(data, {
+        space: 2, // indent with 2 spaces
+        replace: function (key, value) {
+            if( 
+              ((typeof value) === (typeof 1.0)) &&
+              ( value % 1 === 0 )
+            ) {
+              return value.toFixed(0)
+            }
+            return false;
+        }
+      });
       this.hasT = true;
     } catch (err) {
       console.log('error!',err);
@@ -95,21 +106,17 @@ export class OutputComponent implements OnInit {
     switch(this.codeOptions[code]) {
       case "JSON": {
         blob = new Blob([JSON.stringify(this.jsonFormat,null,2)], {type : 'application/json'});
-        console.log('json', blob)
         break;  
       }
       case "YAML": {
-        console.log('yaml')
         blob = new Blob([this.yamlData], {type : 'text/plain'});
         break;
       }
       case "TOML": {
-        console.log('toml')
         blob = new Blob([this.tomlData], {type : 'text/plain'});
         break;
       }
     }
-    console.log(blob, filename)
     FileSaver.saveAs(blob, filename);
   }
   cancel(): void {
