@@ -72,9 +72,9 @@ export class LayoutComponent implements OnInit {
       if(w[i].hasOwnProperty('group')) {
         g = w[i]['group']; 
       } else {
-        g = "UNGROUPED";
+        g = "ungrouped";
       }
-      
+
       if( groups.indexOf(g) >= 0 ){
         for(let j = 0; j< processed.length; j++){
           if(processed[j]['group'] === g){
@@ -87,7 +87,7 @@ export class LayoutComponent implements OnInit {
         processed.push({group: g, items: item});
       }
     }
-    
+
     return processed
   }
 
@@ -168,7 +168,6 @@ export class LayoutComponent implements OnInit {
         inputModel: this.siteConfig.modelJson,
         jsonSchemaFields: this.siteConfig.jsonFields
       }
-//      data: {inputModel: this.model, inputFields: this.formFields, jsonSchemaFields: this.jsonSchemaFields, result: this.res}
     });
     
     let result;

@@ -137,7 +137,7 @@ function mapWidgetItem( wi: any ):WidgetItem[] {
     item['class'] = wi.widgets[i].class ? wi.widgets[i].class : "widget";
     item['inputType'] = wi.widgets[i].inputType ? wi.widgets[i].inputType : "widget";
     item['icon'] = wi.widgets[i].icon ? wi.widgets[i].icon : "widgets";
-    item['group'] = wi.widgets[i].group ? wi.widgets[i].group : "UNGROUPED";
+    item['group'] = wi.widgets[i].group ? wi.widgets[i].group : "ungrouped";
     item['formConfig'] = wi.widgets[i].formConfig ? wi.widgets[i].formConfig : {};
     
     if( wi.widgets[i]['parent'] === true ){
