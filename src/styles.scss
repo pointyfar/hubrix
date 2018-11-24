@@ -247,12 +247,15 @@ padding: 1rem;
 .widget-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   .mat-icon {
     flex: 0 1 auto;
+    
   }
   .widget {
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -266,8 +269,9 @@ padding: 1rem;
     h3 {
       display: inline-block;
       flex: 1 0 auto;
-      width: auto;
+      width: 100%;
       margin: 0 .25rem;
+      word-wrap:break-word;
     }
   }
 }
