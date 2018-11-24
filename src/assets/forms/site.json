@@ -172,20 +172,6 @@
       }
     },
     {
-      "key": "disableKinds2",
-      "type": "array",
-      "fieldArray": {
-        "type": "input",
-        "templateOptions": {
-          "label": "Add Kind",
-          "placeholder": "'page', 'home', 'section', 'taxonomy', 'taxonomyTerm', 'RSS', 'sitemap', 'robotsTXT', '404'"
-        }
-      },
-      "templateOptions": {
-        "label": "Disable Kinds"
-      }
-    },
-    {
       "key" : "disableLiveReload",
       "type": "checkbox",
       "templateOptions": {
@@ -277,8 +263,8 @@
       "key": "metaDataFormat",
       "type": "select",
       "templateOptions": {
-        "label": "Metadata Format",
-        "multiple": true,
+        "label": "metaDataFormat",
+        "multiple": false,
         "options": [
           {"label": "TOML", "value": "toml"},
           {"label": "YAML", "value": "yaml"},
