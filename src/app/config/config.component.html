@@ -1,4 +1,5 @@
 <div class="dialog-container">
+  <h3 *ngIf="title">{{title}}</h3>
   <div class="dialog-body">
     <form [formGroup]="form" (ngSubmit)="saveForm()">
       <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">

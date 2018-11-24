@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, forkJoin } from 'rxjs';
+import { map, mergeMap, switchMap } from 'rxjs/operators';
 import { WidgetItem } from './../models/widget.item';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
@@ -14,6 +14,62 @@ export class LayoutService {
     
   }
   
+  getSiteConfig(url): any {
+    return this.http.get<any>(url);
+              /*.pipe(map(
+                site => {
+                  return mapSite(site)
+                }
+              ))*/
+    
+  }
+/*  getConfigs(url): any {
+    return this.http.get<any>(url)
+            .pipe(
+              mergeMap(
+                (config):any => {
+                  let site = this.getSiteConfig(config.site);
+                  let widgets = mapWidgetItem(config)
+                  console.log('widgets',widgets)
+                  return forkJoin([site, widgets])
+                }
+              )
+            ).pipe(
+              map(fork => { 
+                console.log(fork[1], 'fork1')
+                return {site:fork[0], widgets: fork[1]}
+              })
+            )
+  }
+  
+  this.postsService
+      .getPostData(postId)
+        .switchMap(
+          postData => this.getUserByPostData(postData)
+            .map(userByPostData => ({ postData, userByPostData })
+        )
+      ).subscribe(({ postData, userByPostData })=> console.log(postData, userByPostData));
+
+
+*/  
+  getConfigs(url): any {
+    return this.http.get<any>(url)
+            .pipe(
+              mergeMap( (config):any => {
+                  return this.getSiteConfig(config.site)
+                             .pipe(map( site => ({site, config}) ))
+                }
+              )
+            )
+            .pipe(
+              map(combi => { 
+                let widgets = mapWidgetItem(combi['config'])
+                let site = combi['site']
+                return {site, widgets}
+              })
+            )
+  }
+
   getWidgetsList(url): Observable<WidgetItem[]> {
     return this.http.get<any>(url)
                 .pipe( map( wi => mapWidgetItem(wi) ) ) 
@@ -21,16 +77,11 @@ export class LayoutService {
   
   getConfigList(url): Observable<any> {
     return this.http.get(url);
-      /*.pipe(
-        flatMap((co:any) => {
-          return this.processConfigJson(co)
-        })
-      )*/
   }
   
   getConfigList2(url){
     return this.http.get(url)
-                .pipe(map(m => mapConfig(m)))
+                .pipe(map(m => mapSite(m)))
     ;
     
   }
@@ -62,7 +113,7 @@ export class LayoutService {
 
 }
 
-function mapConfig(m:any): any{
+function mapSite(m:any): any{
   let model:any;
   let fields: FormlyFieldConfig[];
   

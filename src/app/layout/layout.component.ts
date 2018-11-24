@@ -3,6 +3,7 @@ import { LayoutService } from './layout.service';
 import { WidgetItem } from './../models/widget.item';
 import { MatDialog } from '@angular/material';
 import { OutputComponent } from './../output/output.component';
+import { ConfigComponent } from './../config/config.component';
 
 @Component({
   selector: 'hg-layout',
@@ -29,6 +30,10 @@ export class LayoutComponent implements OnInit {
   formattedConfig: any = {};
   
   groupedWidgets: any[] = [];
+  
+  siteConfig:any = {};
+  formattedSiteConfig: any = {};
+  siteConfigDone = false;
 
   constructor(
     public dialog: MatDialog,
@@ -36,20 +41,20 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getWidgetsList();
+     this.getWidgetsList();
   }
 
   getWidgetsList() {
-    //this._ls.getWidgetsList(this.testurl)
-    this._ls.getWidgetsList(this.widgetsPath)
-      .subscribe(
-        wi => {
-          this.widgets = wi;
-          this.groupedWidgets = this.processWidgets(wi)
-        },
-        err => {
-          console.log(err)
-        },
+    this._ls.getConfigs(this.widgetsPath)
+        .subscribe(
+          config => {
+            this.widgets = config.widgets;
+            this.groupedWidgets = this.processWidgets(config.widgets)
+            this.siteConfig = config.site;
+          },
+          err => {
+            console.log(err)
+          },
         () => {
           this.isReady = true;
         }
@@ -96,28 +101,28 @@ export class LayoutComponent implements OnInit {
   }
 
   generateConfig() {
-    let formatted = this.formatConfig(this.mainSection)
-    this.formattedConfig = formatted;
-    this.openDialog(formatted);
+    let widgetsFormatted = this.formatWidgetsConfig(this.mainSection)
+    this.openGenerateConfDialog(widgetsFormatted, this.formattedSiteConfig);
   }
 
-  formatConfig(c: any) {
+  formatWidgetsConfig(widgetConf: any) {
+    
     let list = [];
-    for (let i = 0; i < c.length; i++) {
+    for (let i = 0; i < widgetConf.length; i++) {
 
       let f = {};
-      f['widgetName'] = c[i]['name'];
-      f['class'] = c[i]['class'];
+      f['widgetName'] = widgetConf[i]['name'];
+      f['class'] = widgetConf[i]['class'];
 
       /** Section Widget **/
-      if (c[i].hasOwnProperty('children')) {
-        if (c[i]['children'].length > 0) {
-          f['items'] = this.formatConfig(c[i]['children']);
+      if (widgetConf[i].hasOwnProperty('children')) {
+        if (widgetConf[i]['children'].length > 0) {
+          f['items'] = this.formatWidgetsConfig(widgetConf[i]['children']);
         }
-        f['flex'] = c[i]['flex'];
+        f['flex'] = widgetConf[i]['flex'];
         f['type'] = "section"
       } else { /** Functional Widget **/
-        f['config'] = c[i]['result'];
+        f['config'] = widgetConf[i]['result'];
         f['type'] = "widget"
 
       }
@@ -145,13 +150,38 @@ export class LayoutComponent implements OnInit {
     return e.indexOf('Disabled') === -1;
   }
   
-  openDialog(output:any): void {
+  openGenerateConfDialog(widgets:any, site:any): void {
     const dialogRef = this.dialog.open(OutputComponent, {
       width: '1000px',
       height: '500px',
-      data: {output: output}
-    });
-
+      data: {widgets: widgets, site: site}
+    })
   }
+  
+  configSite(){
+    this.siteConfigDone = true;
+    const dialogRef = this.dialog.open(ConfigComponent, {
+      width: '1000px',
+      height: '500px',
+      data: {
+        title: "Configure Hugo Site",
+        inputModel: this.siteConfig.modelJson,
+        jsonSchemaFields: this.siteConfig.jsonFields
+      }
+//      data: {inputModel: this.model, inputFields: this.formFields, jsonSchemaFields: this.jsonSchemaFields, result: this.res}
+    });
+    
+    let result;
+    dialogRef.afterClosed()
+            .subscribe(x => {
+              result = x;  
+              },
+              err => {console.log(err)},
+              () => {
+                this.formattedSiteConfig = result;
+              }
+            );
+  }
+  
 
 }

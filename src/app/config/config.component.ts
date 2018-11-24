@@ -16,6 +16,8 @@ export class ConfigComponent implements OnInit {
   fields: FormlyFieldConfig[] = [];
 
   model: any = {};
+  
+  title = "";
 
   constructor(
     public dialogRef: MatDialogRef<ConfigComponent>,
@@ -28,6 +30,7 @@ export class ConfigComponent implements OnInit {
   ngOnInit() {
     this.model = this.data.inputModel
     this.fields = this.data.jsonSchemaFields
+    this.title = this.data.title
   }
   saveForm(){
     if (this.form.valid) {

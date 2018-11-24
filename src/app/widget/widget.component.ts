@@ -45,7 +45,13 @@ export class WidgetComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfigComponent, {
       width: '1000px',
       height: '500px',
-      data: {inputModel: this.model, inputFields: this.formFields, jsonSchemaFields: this.jsonSchemaFields, result: this.res}
+      data: {
+        inputModel: this.model, 
+        inputFields: this.formFields, 
+        jsonSchemaFields: this.jsonSchemaFields, 
+        result: this.res,
+        title: `Configure ${this.title}`
+      }
     });
     let result;
     dialogRef.afterClosed()

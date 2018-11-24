@@ -1,4 +1,5 @@
 {
+  "site": "assets/forms/site.json",
   "widgets" : [
     {
       "name": "widget-placeholder",

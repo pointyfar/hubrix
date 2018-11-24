@@ -1,0 +1,458 @@
+{
+  "modelJson" : {
+    "baseURL" : "http://example.org/",
+    "languageCode" : "en-us",
+    "title" : "My New Hugo Site",
+    "paginate" : 10
+  },
+  "jsonFields" : [
+    {
+      "key" : "baseURL",
+      "type": "input",
+      "templateOptions": {
+        "label": "baseURL",
+        "placeholder": "https://example.org"
+      }
+    },
+    {
+      "key" : "languageCode",
+      "type": "input",
+      "templateOptions": {
+        "label": "languageCode",
+        "placeholder": "en-us"
+      }
+    },
+    {
+      "key" : "languageName",
+      "type": "input",
+      "templateOptions": {
+        "label": "languageName",
+        "placeholder": "English (US)"
+      }
+    },
+    {
+      "key" : "title",
+      "type": "input",
+      "templateOptions": {
+        "label": "title",
+        "placeholder": "My Awesome Hugo Site"
+      }
+    },
+    {
+      "key" : "theme",
+      "type": "input",
+      "templateOptions": {
+        "label": "theme",
+        "placeholder": "Theme to use (located by default in /themes/THEMENAME/)."
+      }
+    },
+    {
+      "key" : "themesDir",
+      "type": "input",
+      "templateOptions": {
+        "label": "themesDir",
+        "placeholder": "The directory where Hugo reads the themes from."
+      }
+    },
+    {
+      "key" : "paginate",
+      "type": "input",
+      "templateOptions": {
+        "label": "paginate",
+        "type": "number"
+      }
+    },
+    {
+      "key" : "sectionPagesMenu",
+      "type": "input",
+      "templateOptions": {
+        "label": "sectionPagesMenu",
+        "placeholder": "main"
+      }
+    },
+    {
+      "key" : "googleAnalytics",
+      "type": "input",
+      "templateOptions": {
+        "label": "googleAnalytics",
+        "placeholder": "Google Analytics tracking ID."
+      }
+    },
+    {
+      "key" : "archetypeDir",
+      "type": "input",
+      "templateOptions": {
+        "label": "archetypeDir",
+        "placeholder": "The directory where Hugo finds archetype files (content templates)."
+      }
+    },
+    {
+      "key" : "buildDrafts",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "buildDrafts"
+      }
+    },
+    {
+      "key" : "buildExpired",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "buildExpired"
+      }
+    },
+    {
+      "key" : "buildFuture",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "buildFuture"
+      }
+    },
+    {
+      "key" : "canonifyURLS",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "canonifyURLS"
+      }
+    },
+    {
+      "key" : "contentDir",
+      "type": "input",
+      "templateOptions": {
+        "label": "contentDir",
+        "placeholder": "The directory from where Hugo reads content files."
+      }
+    },
+    {
+      "key" : "dataDir",
+      "type": "input",
+      "templateOptions": {
+        "label": "dataDir",
+        "placeholder": "The directory from where Hugo reads data files."
+      }
+    },
+    {
+      "key" : "defaultContentLanguage",
+      "type": "input",
+      "templateOptions": {
+        "label": "defaultContentLanguage",
+        "placeholder": "Content without language indicator will default to this language."
+      }
+    },
+    {
+      "key" : "defaultContentLanguageInSubdir",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "defaultContentLanguageInSubdir"
+      }
+    },
+    {
+      "key" : "disableHugoGeneratorInject",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "disableHugoGeneratorInject"
+      }
+    },
+    {
+      "key": "disableKinds",
+      "type": "select",
+      "templateOptions": {
+        "label": "disableKinds",
+        "multiple": true,
+        "options": [
+          {"label": "Page", "value": "page"},
+          {"label": "Home", "value": "home"},
+          {"label": "Section", "value": "section"},
+          {"label": "Taxonomy", "value": "taxonomy"},
+          {"label": "Taxonomy Term", "value": "taxonomyTerm"},
+          {"label": "RSS", "value": "rss"},
+          {"label": "Sitemap", "value": "sitemap"},
+          {"label": "robotsTXT", "value": "robotsTXT"},
+          {"label": "404", "value": "404"}
+        ]
+      }
+    },
+    {
+      "key": "disableKinds2",
+      "type": "array",
+      "fieldArray": {
+        "type": "input",
+        "templateOptions": {
+          "label": "Add Kind",
+          "placeholder": "'page', 'home', 'section', 'taxonomy', 'taxonomyTerm', 'RSS', 'sitemap', 'robotsTXT', '404'"
+        }
+      },
+      "templateOptions": {
+        "label": "Disable Kinds"
+      }
+    },
+    {
+      "key" : "disableLiveReload",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "disableLiveReload"
+      }
+    },
+    {
+      "key" : "disablePathToLower",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "disablePathToLower"
+      }
+    },
+    {
+      "key" : "enableEmoji",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "enableEmoji"
+      }
+    },
+    {
+      "key" : "enableGitInfo",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "enableGitInfo"
+      }
+    },
+    {
+      "key" : "enableMissingTranslationPlaceholders",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "enableMissingTranslationPlaceholders"
+      }
+    },
+    {
+      "key" : "enableRobotsTXT",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "enableRobotsTXT"
+      }
+    },
+    {
+      "key" : "footnoteAnchorPrefix",
+      "type": "input",
+      "templateOptions": {
+        "label": "footnoteAnchorPrefix",
+        "placeholder": "Prefix for footnote anchors."
+      }
+    },
+    {
+      "key" : "footnoteReturnLinkContents",
+      "type": "input",
+      "templateOptions": {
+        "label": "footnoteReturnLinkContents",
+        "placeholder": "Text to display for footnote return links."
+      }
+    },
+    {
+      "key" : "hasCJKLanguage",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "hasCJKLanguage"
+      }
+    },
+    {
+      "key" : "layoutDir",
+      "type": "input",
+      "templateOptions": {
+        "label": "layoutDir",
+        "placeholder": "The directory from where Hugo reads layouts (templates)."
+      }
+    },
+    {
+      "key" : "log",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "log"
+      }
+    },
+    {
+      "key" : "logFile",
+      "type": "input",
+      "templateOptions": {
+        "label": "logFile",
+        "placeholder": "Log File path (if set, logging enabled automatically)."
+      }
+    },
+    {
+      "key": "metaDataFormat",
+      "type": "select",
+      "templateOptions": {
+        "label": "Metadata Format",
+        "multiple": true,
+        "options": [
+          {"label": "TOML", "value": "toml"},
+          {"label": "YAML", "value": "yaml"},
+          {"label": "JSON", "value": "json"}
+        ]
+      }
+    },
+    {
+      "key" : "newContentEditor",
+      "type": "input",
+      "templateOptions": {
+        "label": "newContentEditor",
+        "placeholder": "The editor to use when creating new content."
+      }
+    },
+    {
+      "key" : "noChmod",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "noChmod"
+      }
+    },
+    {
+      "key" : "noTimes",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "noTimes"
+      }
+    },
+    {
+      "key" : "paginatePath",
+      "type": "input",
+      "templateOptions": {
+        "label": "paginatePath",
+        "placeholder": "The path element used during pagination (https://example.com/page/2)."
+      }
+    },
+    {
+      "key" : "pluralizeListTitles",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "pluralizeListTitles"
+      }
+    },
+    {
+      "key" : "preserveTaxonomyNames",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "preserveTaxonomyNames"
+      }
+    },
+    {
+      "key" : "publishDir",
+      "type": "input",
+      "templateOptions": {
+        "label": "publishDir",
+        "placeholder": "The directory to where Hugo will write the final static site (the HTML files etc.)."
+      }
+    },
+    {
+      "key" : "pygmentsCodeFencesGuessSyntax",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "pygmentsCodeFencesGuessSyntax"
+      }
+    },
+    {
+      "key" : "pygmentsStyle",
+      "type": "input",
+      "templateOptions": {
+        "label": "pygmentsStyle",
+        "placeholder": "Color-theme or style for syntax highlighting"
+      }
+    },
+    {
+      "key" : "pygmentsUseClasses",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "pygmentsUseClasses"
+      }
+    },
+    {
+      "key" : "relativeURLs",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "relativeURLs"
+      }
+    },
+    {
+      "key": "refLinksErrorLevel",
+      "type": "select",
+      "templateOptions": {
+        "label": "refLinksErrorLevel",
+        "multiple": true,
+        "options": [
+          {"label": "Warning", "value": "WARNING"},
+          {"label": "Error", "value": "ERROR"}
+        ]
+      }
+    },
+    {
+      "key" : "refLinksNotFoundURL",
+      "type": "input",
+      "templateOptions": {
+        "label": "refLinksNotFoundURL",
+        "placeholder": "URL to be used as a placeholder when a page reference cannot be found in ref or relref. Is used as-is."
+      }
+    },
+    {
+      "key" : "rssLimit",
+      "type": "input",
+      "templateOptions": {
+        "label": "rssLimit",
+        "type": "number"
+      }
+    },
+    {
+      "key" : "staticDir",
+      "type": "input",
+      "templateOptions": {
+        "label": "staticDir",
+        "placeholder": "A directory or a list of directories from where Hugo reads static files."
+      }
+    },
+    {
+      "key" : "stepAnalysis",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "stepAnalysis"
+      }
+    },
+    {
+      "key" : "summaryLength",
+      "type": "input",
+      "templateOptions": {
+        "label": "summaryLength",
+        "type": "number"
+      }
+    },
+    {
+      "key" : "timeout",
+      "type": "input",
+      "templateOptions": {
+        "label": "timeout",
+        "type": "number"
+      }
+    },
+    {
+      "key" : "uglyURLs",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "uglyURLs"
+      }
+    },
+    {
+      "key" : "verbose",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "verbose"
+      }
+    },
+    {
+      "key" : "verboseLog",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "verboseLog"
+      }
+    },
+    {
+      "key" : "watch",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "watch"
+      }
+    }
+  ]
+}

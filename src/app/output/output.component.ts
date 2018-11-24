@@ -13,7 +13,7 @@ import * as FileSaver from 'file-saver/src/FileSaver';
 })
 export class OutputComponent implements OnInit {
   
-  jsonFormat: any = {params:{}};
+  jsonFormat: any = {};
   jsonData: "";
   yamlData: "";
   tomlData: "";
@@ -30,7 +30,19 @@ export class OutputComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.jsonFormat['params']['widgets'] = this.data.output;
+    let site = this.data.site;
+    for(let k in site) {
+      if( (site[k] === null ) || 
+        (( (typeof site[k] ) === (typeof []) ) && site[k].length == 0)
+      ) {
+      } else {
+        this.jsonFormat[k] = site[k]
+        
+      }
+
+    }
+    this.jsonFormat['params'] = {};
+    this.jsonFormat['params']['widgets'] = this.data.widgets;
     
     //this.yamlData = 
     this.getYaml(this.jsonFormat)

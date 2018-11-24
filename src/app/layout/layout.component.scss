@@ -7,7 +7,18 @@
 }
 .mat-sidenav-content {
   padding: 1rem;
-  
+  .content-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+      .site-config-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+     
+  }
 }
 .mat-sidenav {
   display: flex;
