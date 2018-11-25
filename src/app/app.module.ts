@@ -20,6 +20,7 @@ import { ConfigComponent } from './config/config.component';
 /* Widgets */
 import { WidgetComponent } from './widget/widget.component';
 import { OutputComponent } from './output/output.component';
+import { PanelWrapperComponent } from './panel-wrapper/panel-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { OutputComponent } from './output/output.component';
     ArrayTypeComponent,
     ConfigComponent,
     WidgetComponent,
-    OutputComponent
+    OutputComponent,
+    PanelWrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,10 @@ import { OutputComponent } from './output/output.component';
         { name: 'boolean', extends: 'checkbox' },
         { name: 'array', component: ArrayTypeComponent },
         { name: 'enum', extends: 'select' }
-      ]
+      ],
+      wrappers: [
+        { name: 'panel', component: PanelWrapperComponent },
+      ],
     })
   ],
   providers: [],
