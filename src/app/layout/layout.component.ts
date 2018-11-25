@@ -162,7 +162,7 @@ export class LayoutComponent implements OnInit {
     this.siteConfigDone = true;
     const dialogRef = this.dialog.open(ConfigComponent, {
       width: '1000px',
-      height: '500px',
+      height: '90%',
       data: {
         title: "Configure Hugo Site",
         inputModel: this.siteConfig.modelJson,
