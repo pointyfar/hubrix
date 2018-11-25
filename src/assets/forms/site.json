@@ -500,6 +500,184 @@
         "label": "watch",
         "description": "Watch filesystem for changes and recreate as needed."
       }
+    },
+    {
+      "key" : "blackfriday",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "blackfriday",
+        "description": "Blackfriday options"
+      },
+      "fieldGroup": [
+        {
+          "key" : "taskLists",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "taskLists"
+          }
+        },
+        {
+          "key" : "smartypants",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "smartypants"
+          }
+        },
+        {
+          "key" : "smartypantsQuotesNBSP",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "smartypantsQuotesNBSP"
+          }
+        },
+        {
+          "key" : "angledQuotes",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "angledQuotes"
+          }
+        },
+        {
+          "key" : "fractions",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "fractions"
+          }
+        },
+        {
+          "key" : "smartDashes",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "smartDashes"
+          }
+        },
+        {
+          "key" : "latexDashes",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "latexDashes"
+          }
+        },
+        {
+          "key" : "hrefTargetBlank",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "hrefTargetBlank"
+          }
+        },
+        {
+          "key" : "nofollowLinks",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "nofollowLinks"
+          }
+        },
+        {
+          "key" : "noreferrerLinks",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "noreferrerLinks"
+          }
+        },
+        {
+          "key" : "plainIDAnchors",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "plainIDAnchors"
+          }
+        },
+        {
+          "key": "extensions",
+          "type": "select",
+          "templateOptions": {
+            "label": "extensions",
+            "multiple": true,
+            "options": [
+              {"label": "noIntraEmphasis", "value": "noIntraEmphasis"},
+              {"label": "tables", "value": "tables"},
+              {"label": "fencedCode", "value": "fencedCode"},
+              {"label": "autolink", "value": "autolink"},
+              {"label": "strikethrough", "value": "strikethrough"},
+              {"label": "laxHtmlBlocks", "value": "laxHtmlBlocks"},
+              {"label": "spaceHeaders", "value": "spaceHeaders"},
+              {"label": "hardLineBreak", "value": "hardLineBreak"},
+              {"label": "tabSizeEight", "value": "tabSizeEight"},
+              {"label": "footnotes", "value": "footnotes"},
+              {"label": "noEmptyLineBeforeBlock", "value": "noEmptyLineBeforeBlock"},
+              {"label": "headerIds", "value": "headerIds"},
+              {"label": "titleblock", "value": "titleblock"},
+              {"label": "autoHeaderIds", "value": "autoHeaderIds"},
+              {"label": "backslashLineBreak", "value": "backslashLineBreak"},
+              {"label": "definitionLists", "value": "definitionLists"},
+              {"label": "joinLines", "value": "joinLines"}
+            ],
+            "description": "Enable one or more Blackfriday’s Markdown extensions "
+          }
+        },
+        {
+          "key": "extensionsmask",
+          "type": "array",
+          "fieldArray": {
+            "type": "input",
+            "templateOptions": {
+              "label": "Add extensionsmask"
+            }
+          },
+          "templateOptions": {
+            "label": "extensionsmask"
+          }
+        }
+      ]
+    },
+    {
+      "key" : "imaging",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "imaging",
+        "description": "You can configure an imaging section in config.toml with default image processing options:"
+      },
+      "fieldGroup": [
+        {
+          "key" : "resampleFilter",
+          "type": "input",
+          "templateOptions": {
+            "label": "resampleFilter",
+            "placeholder": "box",
+            "description": "Default resample filter used for resizing."
+          }
+        },
+        {
+          "key" : "quality",
+          "type": "input",
+          "templateOptions": {
+            "label": "quality",
+            "type": "number",
+            "placeholder": 75,
+            "description": "Default JPEG quality setting."
+          }
+        },
+        {
+          "key": "anchor",
+          "type": "select",
+          "templateOptions": {
+            "label": "anchor",
+            "multiple": false,
+            "options": [
+              {"label": "Smart", "value": "Smart"},
+              {"label": "Center", "value": "Center"},
+              {"label": "TopLeft", "value": "TopLeft"},
+              {"label": "Top", "value": "Top"},
+              {"label": "TopRight", "value": "TopRight"},
+              {"label": "Left", "value": "Left"},
+              {"label": "Right", "value": "Right"},
+              {"label": "BottomLeft", "value": "BottomLeft"},
+              {"label": "Bottom", "value": "Bottom"},
+              {"label": "BottomRight", "value": "BottomRight"}
+            ],
+            "description": "Anchor used when cropping pictures. "
+          }
+        }
+      ]
     }
   ]
 }
