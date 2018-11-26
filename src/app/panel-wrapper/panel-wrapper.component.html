@@ -1,5 +1,6 @@
 <mat-card class="form-panel">
   <mat-card-title>{{ to.label }}</mat-card-title>
+  <mat-card-subtitle *ngIf="to.description">{{to.description}}</mat-card-subtitle>
   <mat-card-content>
     <ng-container #fieldComponent></ng-container>
   </mat-card-content>

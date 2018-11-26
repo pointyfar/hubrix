@@ -34,6 +34,16 @@ export class LayoutComponent implements OnInit {
   siteConfig:any = {};
   formattedSiteConfig: any = {};
   siteConfigDone = false;
+  
+  testJson = {
+    a : { aa: null, ab: null },
+    b : null,
+    c : [],
+    d : "included",
+    e : ["this", "too"],
+    f : { fa: "and this", fb: "as well", fc: { fca: null, fcb: "not the other one" }},
+    g : {}
+  }
 
   constructor(
     public dialog: MatDialog,
@@ -41,7 +51,7 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-     this.getWidgetsList();
+    this.getWidgetsList();
   }
 
   getWidgetsList() {
@@ -174,13 +184,60 @@ export class LayoutComponent implements OnInit {
     dialogRef.afterClosed()
             .subscribe(x => {
               result = x;  
+              if(x) this.formattedSiteConfig = this.formatSiteConfig(result);
               },
               err => {console.log(err)},
               () => {
-                this.formattedSiteConfig = result;
               }
             );
   }
   
+  formatSiteConfig(conf){
+    let config = stripNulls(conf)
+    console.log(config,'y')
+    
+    /* Format Menus */
+    let menus = [];
+    if(config.hasOwnProperty("menu")){
+      if(config['menu']['menuConfig']){
+        if(config['menu']['menuConfig'].length > 0){
+          let c = config['menu']['menuConfig'];
+          for( let i = 0 ; i < c.length; i++ ){
+            let menu = {};
+            let label = c[i]['menuName'];
+            let items = c[i]['menuItems'];
+            menu[label] = items;
+            menus.push(menu);
+          }
+        }
+      }
+    }
+    config['menu'] = menus;
 
+    return config
+  }
+  
+
+}
+
+function stripNulls(o) {
+    
+  let newObj = JSON.parse(JSON.stringify(o));
+  for (var k in newObj) {
+    if (!newObj[k] || ((typeof newObj[k]) !== "object")) {
+      if ( !newObj[k]) {
+        // if null
+        delete newObj[k]
+        continue
+      } else {
+        continue 
+      }
+    }
+    // The property is an object
+    newObj[k] = stripNulls(newObj[k]); // <-- Make a recursive call on the nested object
+    if (Object.keys(newObj[k]).length === 0) {
+      delete newObj[k]; // The object had no properties, so delete that property
+    }
+  }
+  return newObj
 }
