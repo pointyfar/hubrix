@@ -169,7 +169,6 @@ export class LayoutComponent implements OnInit {
   }
   
   configSite(){
-    this.siteConfigDone = true;
     const dialogRef = this.dialog.open(ConfigComponent, {
       width: '1000px',
       height: '90%',
@@ -184,7 +183,10 @@ export class LayoutComponent implements OnInit {
     dialogRef.afterClosed()
             .subscribe(x => {
               result = x;  
-              if(x) this.formattedSiteConfig = this.formatSiteConfig(result);
+              if(x) {
+                this.formattedSiteConfig = this.formatSiteConfig(result);
+                this.siteConfigDone = true;
+              } 
               },
               err => {console.log(err)},
               () => {
@@ -194,7 +196,6 @@ export class LayoutComponent implements OnInit {
   
   formatSiteConfig(conf){
     let config = stripNulls(conf)
-    console.log(config,'y')
     
     /* Format Menus */
     let menus = [];
@@ -212,7 +213,9 @@ export class LayoutComponent implements OnInit {
         }
       }
     }
-    config['menu'] = menus;
+    if( menus.length > 0 ) {
+      config['menu'] = menus;
+    }
 
     return config
   }
