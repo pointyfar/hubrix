@@ -57,6 +57,7 @@ gulp.task("copy:licenses", function(done){
 
 gulp.task("clean:dist", function(done){
   CLEAN('./tmp/dist/**');
+  CLEAN('./dist/**');
   done()
 })
 

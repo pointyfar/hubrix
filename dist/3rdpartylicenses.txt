@@ -802,6 +802,8 @@ THE SOFTWARE.
 
 @angular/material/button
 
+@angular/material/card
+
 @angular/material/icon
 
 @angular/material/expansion
