@@ -72,7 +72,7 @@ export class WidgetComponent implements OnInit {
   getQuestions(){
     let url = this.qpath;
     
-    this._ls.getConfigList(url)
+    this._ls.getConfig(url)
         .subscribe(
           r => {
             this.model = r.modelJson;

@@ -30,26 +30,35 @@ export class OutputComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let site = this.data.site;
-    for(let k in site) {
-      if( (site[k] === null ) || 
-        (( (typeof site[k] ) === (typeof []) ) && site[k].length == 0)
-      ) {
-      } else {
-        this.jsonFormat[k] = site[k]
-        
-      }
-
-    }
-    this.jsonFormat['params'] = {};
-    this.jsonFormat['params']['widgets'] = this.data.widgets;
+    let site = stripNulls(this.data.site);
+    let config = {};
+    config = site;
     
-    //this.yamlData = 
+    if (this.data.widgets.length > 0) {
+      if(!config.hasOwnProperty('params')){
+        config['params'] = {};
+      }
+      config['params']['widgets'] = this.data.widgets;
+    }
+    
+    for(let k in config){
+      if(config.hasOwnProperty(k)){
+        if((typeof config[k]) !== "object"){
+          this.jsonFormat[k] = config[k]
+        }
+      }
+    }
+    /* Make sure objects are last */
+    for(let k in config){
+      if(config.hasOwnProperty(k)){
+        if((typeof config[k]) === "object"){
+          this.jsonFormat[k] = config[k]
+        }
+      }
+    }
+    
     this.getYaml(this.jsonFormat)
-    //this.tomlData = 
     this.getToml(this.jsonFormat)
-    // this.yamlFormat = multigrain.yaml(this.jsonFormat);
-    // this.tomlFormat = multigrain.toml(this.jsonFormat);
   }
   
   getYaml(data) {
@@ -122,4 +131,26 @@ export class OutputComponent implements OnInit {
   cancel(): void {
       this.dialogRef.close();
     }
+}
+
+function stripNulls(o) {
+    
+  let newObj = JSON.parse(JSON.stringify(o));
+  for (var k in newObj) {
+    if (!newObj[k] || ((typeof newObj[k]) !== "object")) {
+      if ( !newObj[k]) {
+        // if null
+        delete newObj[k]
+        continue
+      } else {
+        continue 
+      }
+    }
+    // The property is an object
+    newObj[k] = stripNulls(newObj[k]); // <-- Make a recursive call on the nested object
+    if (Object.keys(newObj[k]).length === 0) {
+      delete newObj[k]; // The object had no properties, so delete that property
+    }
+  }
+  return newObj
 }

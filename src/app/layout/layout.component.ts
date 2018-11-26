@@ -35,16 +35,10 @@ export class LayoutComponent implements OnInit {
   formattedSiteConfig: any = {};
   siteConfigDone = false;
   
-  testJson = {
-    a : { aa: null, ab: null },
-    b : null,
-    c : [],
-    d : "included",
-    e : ["this", "too"],
-    f : { fa: "and this", fb: "as well", fc: { fca: null, fcb: "not the other one" }},
-    g : {}
-  }
-
+  paramsConfig = {};
+  paramsConfigDone = false;
+  formattedParamsConfig = {};
+  
   constructor(
     public dialog: MatDialog,
     private _ls: LayoutService
@@ -61,6 +55,7 @@ export class LayoutComponent implements OnInit {
             this.widgets = config.widgets;
             this.groupedWidgets = this.processWidgets(config.widgets)
             this.siteConfig = config.site;
+            this.paramsConfig = config.params;
           },
           err => {
             console.log(err)
@@ -101,18 +96,17 @@ export class LayoutComponent implements OnInit {
     return processed
   }
 
-  loadComponent(e) {
-    console.log(e)
-
-  }
-
   attachConfig(e, m) {
     m.result = e.config;
   }
 
   generateConfig() {
-    let widgetsFormatted = this.formatWidgetsConfig(this.mainSection)
-    this.openGenerateConfDialog(widgetsFormatted, this.formattedSiteConfig);
+    let widgetsFormatted = this.formatWidgetsConfig(this.mainSection);
+    const dialogRef = this.dialog.open(OutputComponent, {
+      width: '1000px',
+      height: '500px',
+      data: {widgets: widgetsFormatted, site: this.formattedSiteConfig}
+    })
   }
 
   formatWidgetsConfig(widgetConf: any) {
@@ -142,33 +136,8 @@ export class LayoutComponent implements OnInit {
 
   }
 
-  builderDrag(e: any) {
-    const item = e.value;
-    item.data =
-      item.inputType === 'number'
-        ? (Math.random() * 100) | 0
-        : Math.random()
-          .toString(36)
-          .substring(20);
-  }
-
-  log(e: any) {
-    console.log(e.type, e);
-  }
-
-  canMove(e: any): boolean {
-    return e.indexOf('Disabled') === -1;
-  }
   
-  openGenerateConfDialog(widgets:any, site:any): void {
-    const dialogRef = this.dialog.open(OutputComponent, {
-      width: '1000px',
-      height: '500px',
-      data: {widgets: widgets, site: site}
-    })
-  }
-  
-  configSite(){
+  loadHugoConfigDialog(){
     const dialogRef = this.dialog.open(ConfigComponent, {
       width: '1000px',
       height: '90%',
@@ -179,12 +148,10 @@ export class LayoutComponent implements OnInit {
       }
     });
     
-    let result;
     dialogRef.afterClosed()
-            .subscribe(x => {
-              result = x;  
-              if(x) {
-                this.formattedSiteConfig = this.formatSiteConfig(result);
+            .subscribe(result => {
+              if(result) {
+                this.formatSiteConfig(result);
                 this.siteConfigDone = true;
               } 
               },
@@ -194,9 +161,31 @@ export class LayoutComponent implements OnInit {
             );
   }
   
-  formatSiteConfig(conf){
-    let config = stripNulls(conf)
+  loadParamsConfigDialog(){
+    const dialogRef = this.dialog.open(ConfigComponent, {
+      width: '1000px',
+      height: '90%',
+      data: {
+        title: "Configure Site Params",
+        inputModel: this.paramsConfig['modelJson'],
+        jsonSchemaFields: this.paramsConfig['jsonFields']
+      }
+    });
     
+    dialogRef.afterClosed()
+            .subscribe(result => {
+              if(result) {
+                this.formatParamsConfig(result);
+                this.paramsConfigDone = true;
+              } 
+              },
+              err => {console.log(err)},
+              () => {
+              }
+            );
+  }
+  
+  formatSiteConfig(config){
     /* Format Menus */
     let menus = [];
     if(config.hasOwnProperty("menu")){
@@ -216,31 +205,28 @@ export class LayoutComponent implements OnInit {
     if( menus.length > 0 ) {
       config['menu'] = menus;
     }
+    
+    for(let k in config){
+      this.formattedSiteConfig[k] = config[k]
+    }
 
-    return config
   }
+  
+  formatParamsConfig(config:any) {
+
+    if(!this.formattedSiteConfig.hasOwnProperty('params')) {
+      this.formattedSiteConfig['params'] = {};
+    }
+    
+    for(let k in config){
+      if(config.hasOwnProperty(k)){
+        this.formattedSiteConfig['params'][k] = config[k]
+      }
+    }
+  }
+  
+  
   
 
 }
 
-function stripNulls(o) {
-    
-  let newObj = JSON.parse(JSON.stringify(o));
-  for (var k in newObj) {
-    if (!newObj[k] || ((typeof newObj[k]) !== "object")) {
-      if ( !newObj[k]) {
-        // if null
-        delete newObj[k]
-        continue
-      } else {
-        continue 
-      }
-    }
-    // The property is an object
-    newObj[k] = stripNulls(newObj[k]); // <-- Make a recursive call on the nested object
-    if (Object.keys(newObj[k]).length === 0) {
-      delete newObj[k]; // The object had no properties, so delete that property
-    }
-  }
-  return newObj
-}

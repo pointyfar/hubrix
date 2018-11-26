@@ -14,80 +14,36 @@ export class LayoutService {
     
   }
   
-  getSiteConfig(url): any {
+  getConfig(url): any {
     return this.http.get<any>(url);
-              /*.pipe(map(
-                site => {
-                  return mapSite(site)
-                }
-              ))*/
-    
-  }
-/*  getConfigs(url): any {
-    return this.http.get<any>(url)
-            .pipe(
-              mergeMap(
-                (config):any => {
-                  let site = this.getSiteConfig(config.site);
-                  let widgets = mapWidgetItem(config)
-                  console.log('widgets',widgets)
-                  return forkJoin([site, widgets])
-                }
-              )
-            ).pipe(
-              map(fork => { 
-                console.log(fork[1], 'fork1')
-                return {site:fork[0], widgets: fork[1]}
-              })
-            )
   }
   
-  this.postsService
-      .getPostData(postId)
-        .switchMap(
-          postData => this.getUserByPostData(postData)
-            .map(userByPostData => ({ postData, userByPostData })
-        )
-      ).subscribe(({ postData, userByPostData })=> console.log(postData, userByPostData));
-
-
-*/  
   getConfigs(url): any {
     return this.http.get<any>(url)
             .pipe(
               mergeMap( (config):any => {
-                  return this.getSiteConfig(config.site)
-                             .pipe(map( site => ({site, config}) ))
-                }
+                return forkJoin(
+                  this.getConfig(config.site)
+                      .pipe(map( site => ({site, config}) )),
+                  this.getConfig(config.params)
+                )}
               )
-            )
-            .pipe(
+            ).pipe(
               map(combi => { 
-                let widgets = mapWidgetItem(combi['config'])
-                let site = combi['site']
-                return {site, widgets}
+                let widgets = mapWidgetItem(combi[0]['config'])
+                let site = combi[0]['site']
+                let params = combi[1]
+                return {site, widgets, params}
               })
             )
   }
+  
 
   getWidgetsList(url): Observable<WidgetItem[]> {
     return this.http.get<any>(url)
                 .pipe( map( wi => mapWidgetItem(wi) ) ) 
   }
   
-  getConfigList(url): Observable<any> {
-    return this.http.get(url);
-  }
-  
-  getConfigList2(url){
-    return this.http.get(url)
-                .pipe(map(m => mapSite(m)))
-    ;
-    
-  }
-  
-  
-
   handleError(error: any) {
     let errMsg: string;
     if (error instanceof Response) {
@@ -101,29 +57,6 @@ export class LayoutService {
     return Observable.throw(errMsg);
   }
   
-  getConfigItem(url:string){
-    return this.http.get(url);
-  }
-  
-  getConfigOrder(url:string) {
-    return this.http.get(url);
-    
-  }
-
-
-}
-
-function mapSite(m:any): any{
-  let model:any;
-  let fields: FormlyFieldConfig[];
-  
-  fields = m.jsonFields;
-  model = m.modelJson;
-  
-  return {
-    jsonFields: fields,
-    modelJson: model
-  }
 }
 
 function mapWidgetItem( wi: any ):WidgetItem[] {

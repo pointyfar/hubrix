@@ -1,5 +1,6 @@
 {
   "site": "assets/forms/site.json",
+  "params": "assets/forms/params.json",
   "widgets" : [
     {
       "name": "widget-placeholder",
