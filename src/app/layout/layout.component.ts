@@ -15,6 +15,7 @@ import { ConfigComponent } from './../config/config.component';
 export class LayoutComponent implements OnInit {
 
   @Input() public widgetsPath: string;
+  @Input() public assetsBasePath: string;
 
   widgets: WidgetItem[] = [];
   isReady = false;
@@ -46,6 +47,7 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     this.getWidgetsList();
+    this.assetsBasePath = this.assetsBasePath.slice(-1) == "/" ? this.assetsBasePath : this.assetsBasePath + "/";
   }
 
   getWidgetsList() {
