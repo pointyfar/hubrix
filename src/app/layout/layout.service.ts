@@ -39,7 +39,7 @@ export class LayoutService {
   }
   
 
-  getWidgetsList(url): Observable<WidgetItem[]> {
+  xgetWidgetsList(url): Observable<WidgetItem[]> {
     return this.http.get<any>(url)
                 .pipe( map( wi => mapWidgetItem(wi) ) ) 
   }
@@ -71,7 +71,7 @@ function mapWidgetItem( wi: any ):WidgetItem[] {
     item['inputType'] = wi.widgets[i].inputType ? wi.widgets[i].inputType : "widget";
     item['icon'] = wi.widgets[i].icon ? wi.widgets[i].icon : "widgets";
     item['group'] = wi.widgets[i].group ? wi.widgets[i].group : "ungrouped";
-    item['formConfig'] = wi.widgets[i].formConfig ? wi.widgets[i].formConfig : {};
+    item['formConfig'] = wi.widgets[i].formConfig ? wi.widgets[i].formConfig : "";
     
     if( wi.widgets[i]['parent'] === true ){
       item['children'] = [] as any[];

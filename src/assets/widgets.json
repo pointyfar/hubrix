@@ -18,7 +18,9 @@
       "inputType": "section",
       "flex": 25,
       "group": "sections",
-      "icon": "view_compact"
+      "icon": "view_compact",
+      "formConfig": "assets/forms/container-widget.json"
+      
     },
     {
       "name": "section-third",
@@ -28,7 +30,8 @@
       "inputType": "section",
       "flex": 33.33,
       "group": "sections",
-      "icon": "view_compact"
+      "icon": "view_compact",
+      "formConfig": "assets/forms/container-widget.json"
     },
     {
       "name": "section-half",
@@ -38,7 +41,8 @@
       "inputType": "section",
       "flex": 50,
       "group": "sections",
-      "icon": "view_compact"
+      "icon": "view_compact",
+      "formConfig": "assets/forms/container-widget.json"
     },
     {
       "name": "section-full",
@@ -48,7 +52,8 @@
       "inputType": "section",
       "flex": 100,
       "group": "sections",
-      "icon": "view_compact"
+      "icon": "view_compact",
+      "formConfig": "assets/forms/container-widget.json"
     },
     {
       "name": "section-flex",
@@ -58,7 +63,8 @@
       "inputType": "section",
       "flex": 25,
       "group": "sections",
-      "icon": "view_compact"
+      "icon": "view_compact",
+      "formConfig": "assets/forms/container-widget.json"
       
     },
     {

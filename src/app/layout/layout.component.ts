@@ -40,6 +40,9 @@ export class LayoutComponent implements OnInit {
   paramsConfigDone = false;
   formattedParamsConfig = {};
   
+  containerWidgetConfig = {};
+  containerWidgetForm = "";
+  
   constructor(
     public dialog: MatDialog,
     private _ls: LayoutService
@@ -127,6 +130,7 @@ export class LayoutComponent implements OnInit {
         }
         f['flex'] = widgetConf[i]['flex'];
         f['type'] = "section"
+        f['config'] = widgetConf[i]['result']
       } else { /** Functional Widget **/
         f['config'] = widgetConf[i]['result'];
         f['type'] = "widget"
@@ -225,6 +229,52 @@ export class LayoutComponent implements OnInit {
         this.formattedSiteConfig['params'][k] = config[k]
       }
     }
+  }
+  
+  getContainerConfig(e, m){
+    if(!this.containerWidgetForm || (this.containerWidgetForm !== m['formConfig'])) {
+      this._ls.getConfig(m['formConfig'])
+      .subscribe(
+        c => {
+          this.containerWidgetConfig = c
+        },
+        err => {
+          console.log(err)
+        },
+        () => {
+          this.containerWidgetForm = m['formConfig']
+          this.launchContainerSettings(this.containerWidgetConfig, m)
+        }
+      )
+    } else {
+      this.launchContainerSettings(this.containerWidgetConfig, m)
+    }
+    
+  }
+  
+  launchContainerSettings(container, model) {
+
+    const dialogRef = this.dialog.open(ConfigComponent, {
+      width: '1000px',
+      height: '90%',
+      data: {
+        title: "Configure Site Params",
+        inputModel: container['modelJson'],
+        jsonSchemaFields: container['jsonFields']
+      }
+    });
+    
+    dialogRef.afterClosed()
+            .subscribe(result => {
+                if(result) {
+                  model['result'] = result
+                } 
+              },
+              err => {console.log(err)},
+              () => {
+              }
+            );
+    
   }
   
   

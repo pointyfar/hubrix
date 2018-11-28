@@ -80,8 +80,13 @@
             <div *ngSwitchCase="'section'">
               
                 <div class="section-label">
+                  <button mat-button color="primary" (click)="getContainerConfig($event, model)">
+                    <mat-icon>settings</mat-icon>
+                  </button>
                   <div class="label">{{model.label}}</div>
+
                   <mat-icon ngxDragHandle>pan_tool</mat-icon>
+                  
                 </div>
                 <ngx-dnd-container
                   dropZone="builder-target"
@@ -94,9 +99,11 @@
               
             </div>
             <div *ngSwitchCase="'content'" class="widget-container">
-              <hg-widget [qpath]="model.formConfig" [title]="model.label"  (widgetConfig)="attachConfig($event, model)" ></hg-widget>
-              <!--Model Data: {{model.result|json}}-->
-            
+              <hg-widget  [qpath]="model.formConfig" 
+                          [title]="model.label"  
+                          (widgetConfig)="attachConfig($event, model)" >
+              </hg-widget>
+              
               <div class="icons">
                 <mat-icon ngxDragHandle>pan_tool</mat-icon>
               </div>

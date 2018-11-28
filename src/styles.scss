@@ -105,8 +105,13 @@ padding: 1rem;
   .section-label {
     display: flex;
     flex-direction: row;
+    align-items: center;
     .label {
       flex: 1 1 auto;
+    }
+    button.mat-button {
+      padding: 0.25rem;
+      min-width: 3rem;
     }
   }
   .ngx-input {

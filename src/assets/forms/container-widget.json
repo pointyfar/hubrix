@@ -1,0 +1,14 @@
+{
+  "modelJson" : {
+    "class": "widget-container"
+  },
+  "jsonFields" : [
+    {
+      "key" : "class",
+      "type": "input",
+      "templateOptions": {
+        "label": "Class to apply to container"
+      }
+    }
+  ]
+}
