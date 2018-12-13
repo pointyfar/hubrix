@@ -5,6 +5,8 @@ const concat = require('gulp-concat');
 const gzip = require('gulp-gzip');
 const del = require("del");
 const log = require('fancy-log')
+const rename = require('gulp-rename');
+const pj = require('./package.json');
 
 gulp.task("build:prod-nohash", function(done){
   exec(`ng build --prod --aot --output-hashing none --output-path tmp/dist/` , function (err, stdout, stderr) {
@@ -31,13 +33,28 @@ gulp.task("build:elements", function(done){
               `${dist}/scripts.js`,
               `${dist}/main.js`
             ]
+
   return  gulp.src(f)
+              .pipe(concat('hubrix.js'))
+              .pipe(gulp.dest('./dist/'))
+              .pipe(rename(`hubrix.${pj.version}.js`))
+              .pipe(gulp.dest('./dist/'));
+  
+  /*return  gulp.src(f)
               .pipe(concat('hubrix.js'))
               .pipe(gulp.dest('./dist/'))
               .pipe(gzip())
               .pipe(gulp.dest('./dist/'));
-  
+  */
 
+})
+
+gulp.task("build:zip", function(done){
+  log('---------- ZIPPING ----------');
+
+  return  gulp.src('./dist/*.js')
+              .pipe(gzip())
+              .pipe(gulp.dest('./dist/'));
 })
 
 function COPY(src, dest) {
@@ -63,10 +80,12 @@ gulp.task("clean:dist", function(done){
 
 gulp.task("copy:dist", function(done){
   
-  COPY('./tmp/dist/**/*.css', 'dist/');
-  COPY('./tmp/dist/assets/**/*', 'dist/assets/');
+  COPY('./tmp/dist/**/*.css', 'dist/')
+  COPY('./tmp/dist/assets/**/*', 'dist/assets/')
+  return gulp.src(['./tmp/dist/styles.css'])
+        .pipe(rename(`styles.${pj.version}.css`))
+        .pipe(gulp.dest('./dist/'))
   
-  done();
 })
 
 const pack = gulp.series(
@@ -75,6 +94,7 @@ const pack = gulp.series(
   "copy:licenses",
   "build:prod-nohash",
   "build:elements",
+  "build:zip",
   "copy:dist"
 );
 

@@ -239,7 +239,7 @@ export class LayoutComponent implements OnInit {
           this.containerWidgetConfig = c
         },
         err => {
-          console.log(err)
+          console.log("Error getting Container Config", err)
         },
         () => {
           this.containerWidgetForm = m['formConfig']
