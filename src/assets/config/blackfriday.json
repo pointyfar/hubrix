@@ -1,0 +1,185 @@
+{
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key": "taskLists",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "taskLists"
+      }
+    },
+    {
+      "key": "smartypants",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "smartypants",
+        "description": "Blackfriday flag: HTML_USE_SMARTYPANTS"
+      }
+    },
+    {
+      "key": "smartypantsQuotesNBSP",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "smartypantsQuotesNBSP",
+        "description": "Blackfriday flag: HTML_SMARTYPANTS_QUOTES_NBSP"
+      }
+    },
+    {
+      "key": "angledQuotes",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "angledQuotes",
+        "description": "Blackfriday flag: HTML_SMARTYPANTS_ANGLED_QUOTES"
+      }
+    },
+    {
+      "key": "fractions",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "fractions",
+        "description": "Blackfriday flag: HTML_SMARTYPANTS_FRACTIONS"
+      }
+    },
+    {
+      "key": "smartDashes",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "smartDashes",
+        "description": "Blackfriday flag: HTML_SMARTY_DASHES"
+      }
+    },
+    {
+      "key": "latexDashes",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "latexDashes",
+        "description": "Blackfriday flag: HTML_SMARTYPANTS_LATEX_DASHES"
+      }
+    },
+    {
+      "key": "hrefTargetBlank",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "hrefTargetBlank",
+        "description": "Blackfriday flag: HTML_HREF_TARGET_BLANK"
+      }
+    },
+    {
+      "key": "nofollowLinks",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "nofollowLinks",
+        "description": "Blackfriday flag: HTML_NOFOLLOW_LINKS"
+      }
+    },
+    {
+      "key": "noreferrerLinks",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "noreferrerLinks",
+        "description": "Blackfriday flag: HTML_NOREFERRER_LINKS"
+      }
+    },
+    {
+      "key": "plainIDAnchors",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "plainIDAnchors",
+        "description": "Blackfriday flag: FootnoteAnchorPrefix and HeaderIDSuffix"
+      }
+    },
+    {
+      "key": "extensions",
+      "type": "select",
+      "templateOptions": {
+        "label": "extensions",
+        "multiple": true,
+        "options": [{
+            "label": "noIntraEmphasis",
+            "value": "noIntraEmphasis"
+          },
+          {
+            "label": "tables",
+            "value": "tables"
+          },
+          {
+            "label": "fencedCode",
+            "value": "fencedCode"
+          },
+          {
+            "label": "autolink",
+            "value": "autolink"
+          },
+          {
+            "label": "strikethrough",
+            "value": "strikethrough"
+          },
+          {
+            "label": "laxHtmlBlocks",
+            "value": "laxHtmlBlocks"
+          },
+          {
+            "label": "spaceHeaders",
+            "value": "spaceHeaders"
+          },
+          {
+            "label": "hardLineBreak",
+            "value": "hardLineBreak"
+          },
+          {
+            "label": "tabSizeEight",
+            "value": "tabSizeEight"
+          },
+          {
+            "label": "footnotes",
+            "value": "footnotes"
+          },
+          {
+            "label": "noEmptyLineBeforeBlock",
+            "value": "noEmptyLineBeforeBlock"
+          },
+          {
+            "label": "headerIds",
+            "value": "headerIds"
+          },
+          {
+            "label": "titleblock",
+            "value": "titleblock"
+          },
+          {
+            "label": "autoHeaderIds",
+            "value": "autoHeaderIds"
+          },
+          {
+            "label": "backslashLineBreak",
+            "value": "backslashLineBreak"
+          },
+          {
+            "label": "definitionLists",
+            "value": "definitionLists"
+          },
+          {
+            "label": "joinLines",
+            "value": "joinLines"
+          }
+        ],
+        "description": "Enable one or more Blackfriday’s Markdown extensions "
+      }
+    },
+    {
+      "key": "extensionsmask",
+      "type": "array",
+      "fieldArray": {
+        "type": "input",
+        "templateOptions": {
+          "label": "Add extensionsmask"
+        }
+      },
+      "templateOptions": {
+        "label": "extensionsmask"
+      }
+    }
+  ]
+}

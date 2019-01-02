@@ -1,0 +1,48 @@
+{
+  "files" : [
+    {
+      "label": "General",
+      "key" : [],
+      "url" : "assets/config/config.json",
+      "destination" : "configDir/_default/config.json"
+    },
+    {
+      "label": "Blackfriday",
+      "key" : ["blackfriday"],
+      "url" : "assets/config/blackfriday.json",
+      "destination" : "configDir/_default/blackfriday.json"
+    },
+    {
+      "label": "Imaging",
+      "key" : ["imaging"],
+      "url" : "assets/config/imaging.json",
+      "destination" : "configDir/_default/imaging.json"
+    },
+    {
+      "label": "Caches",
+      "key" : ["caches"],
+      "url" : "assets/config/caches.json",
+      "destination" : "configDir/_default/caches.json"
+    },
+    {
+      "label": "Menus",
+      "key" : ["menus"],
+      "dynamic": true,
+      "url" : "assets/config/menus.json",
+      "destination" : "configDir/_default/menus.json"
+    },
+    {
+      "label": "Params",
+      "key" : ["params"],
+      "url" : "assets/config/params.json",
+      "destination" : "configDir/_default/params.json"
+    },
+    {
+      "label": "Taxonomies",
+      "key" : ["taxonomies"],
+      "dynamic": true,
+      "url" : "assets/config/taxonomies.json",
+      "destination" : "configDir/_default/taxonomies.json"
+    }
+  ]
+}

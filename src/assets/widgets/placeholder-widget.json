@@ -1,0 +1,14 @@
+{
+  "modelJson" : {
+    "title": "Placeholder Widget"
+  },
+  "jsonFields" : [
+    {
+      "key" : "title",
+      "type": "input",
+      "templateOptions": {
+        "label": "Placeholder"
+      }
+    }
+  ]
+}

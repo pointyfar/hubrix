@@ -9,7 +9,7 @@ import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
         <div *ngIf="to.label" class="formly-array-label">
           {{ to.label }}
         </div>
-        <div *ngFor="let field of field.fieldGroup" fxLayoutGap="20px" style="border-bottom: 1px solid #444">
+        <div *ngFor="let field of field.fieldGroup; let i = index;" fxLayoutGap="20px" style="border-bottom: 1px solid #444">
           <div fxFlex="grow">
             <formly-field
               [field]="field"

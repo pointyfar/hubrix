@@ -30,15 +30,19 @@ export class OutputComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('--------------Output------------', this.data)
     let site = stripNulls(this.data.site);
     let config = {};
     config = site;
+    console.log('--------------Output', site)
     
-    if (this.data.widgets.length > 0) {
-      if(!config.hasOwnProperty('params')){
-        config['params'] = {};
+    if(this.data.widgets) {
+      if (this.data.widgets.length > 0) {
+        if(!config.hasOwnProperty('params')){
+          config['params'] = {};
+        }
+        config['params']['widgets'] = this.data.widgets;
       }
-      config['params']['widgets'] = this.data.widgets;
     }
     
     for(let k in config){
@@ -111,7 +115,7 @@ export class OutputComponent implements OnInit {
   
   downloadCode(code) {
     let blob;
-    let filename = "config." + this.codeOptions[code].toLowerCase();
+    let filename = (this.data['file'] ? this.data['file'] : "config") + "." + this.codeOptions[code].toLowerCase();
     switch(this.codeOptions[code]) {
       case "JSON": {
         blob = new Blob([JSON.stringify(this.jsonFormat,null,2)], {type : 'application/json'});
@@ -134,10 +138,12 @@ export class OutputComponent implements OnInit {
 }
 
 function stripNulls(o) {
-    
+  console.log(o)
   let newObj = JSON.parse(JSON.stringify(o));
   for (var k in newObj) {
-    if (!newObj[k] || ((typeof newObj[k]) !== "object")) {
+    if(newObj[k] === false) {
+      continue
+    } else if (!newObj[k] || ((typeof newObj[k]) !== "object")) {
       if ( !newObj[k]) {
         // if null
         delete newObj[k]

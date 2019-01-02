@@ -13,6 +13,28 @@
                fixedInViewport="false" fixedTopGap="0"
                fixedBottomGap="0">
     <div class="sidenav">
+      <!-------------- CONFIG LIST ----------------->
+      <h2>Configuration</h2>
+      <mat-accordion>
+        <mat-expansion-panel expanded="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Expand
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div *ngIf="configFilesDone">
+            <div *ngFor="let confile of configFiles" >
+              <hg-config-item [configFile]="confile" (result)="setConfigValue($event)"></hg-config-item>
+            </div>
+          </div>
+          
+        </mat-expansion-panel>
+        
+        
+      </mat-accordion>
+      <!-------------- WIDGETS LIST ----------------->
+      
       <h2>Widgets</h2>
       
       <div *ngIf="isReady">
@@ -47,6 +69,9 @@
   </mat-sidenav>
 
   <mat-sidenav-content >
+<!--    <div><pre>
+      {{ config | json }}
+    </pre></div>-->
     <div class="content-header">
     <div><h2>Drag widgets here</h2></div>
     <div  class="site-config-btn">

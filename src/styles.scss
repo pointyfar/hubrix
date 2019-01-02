@@ -62,7 +62,8 @@ app-root {
 }
 
 .sidenav {
-padding: 1rem;  
+  padding: 1rem;  
+  min-width: 250px;
 }
 
 .code-wrapper {
@@ -292,4 +293,10 @@ padding: 1rem;
 
 .mat-form-field, .form-panel {
   margin: 1rem 0;
+}
+
+.config-file {
+  button.mat-raised-button {
+    margin: .25rem;
+  }
 }

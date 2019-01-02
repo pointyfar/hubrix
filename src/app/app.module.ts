@@ -14,6 +14,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 
 import { LayoutComponent } from './layout/layout.component';
+import { ConfigurationLayoutComponent } from './layout/configuration.layout.component';
 import { ArrayTypeComponent } from './models/formly.array';
 import { ConfigComponent } from './config/config.component';
 
@@ -25,6 +26,7 @@ import { PanelWrapperComponent } from './panel-wrapper/panel-wrapper.component';
 @NgModule({
   declarations: [
     LayoutComponent,
+    ConfigurationLayoutComponent,
     ArrayTypeComponent,
     ConfigComponent,
     WidgetComponent,

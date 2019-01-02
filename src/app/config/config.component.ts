@@ -18,7 +18,8 @@ export class ConfigComponent implements OnInit {
   model: any = {};
   
   title = "";
-
+  notes = [];
+  
   constructor(
     public dialogRef: MatDialogRef<ConfigComponent>,
             @Inject(MAT_DIALOG_DATA) public data: any
@@ -31,6 +32,7 @@ export class ConfigComponent implements OnInit {
     this.model = this.data.inputModel
     this.fields = this.data.jsonSchemaFields
     this.title = this.data.title
+    this.notes = this.data.notes;
   }
   saveForm(){
     if (this.form.valid) {

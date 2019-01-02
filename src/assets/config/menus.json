@@ -1,0 +1,102 @@
+{
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key": "values",
+      "type": "array",
+      "fieldArray": {
+        "wrappers": ["panel"],
+        "fieldGroup": [{
+            "key": "key",
+            "type": "input",
+            "templateOptions": {
+              "label": "Menu Name",
+              "placeholder": "main",
+              "description": "A menu is a named array of menu entries accessible by name via the .Site.Menus site variable. For example, you can access your site’s main menu via .Site.Menus.main."
+            }
+          },
+          {
+            "key": "value",
+            "type": "array",
+            "fieldArray": {
+              "templateOptions": {
+                "label": "Add menu item"
+              },
+              "fieldGroup": [{
+                  "key": "identifier",
+                  "type": "input",
+                  "templateOptions": {
+                    "label": "identifier",
+                    "placeholder": "en-us",
+                    "description": "It is necessary to set a unique identifier manually if two or more menu entries have the same .Name."
+                  }
+                },
+                {
+                  "key": "name",
+                  "type": "input",
+                  "templateOptions": {
+                    "label": "name",
+                    "placeholder": "",
+                    "description": "Name of the menu entry."
+                  }
+                },
+                {
+                  "key": "pre",
+                  "type": "input",
+                  "templateOptions": {
+                    "label": "pre",
+                    "placeholder": "",
+                    "description": "string representing HTML."
+                  }
+                },
+                {
+                  "key": "post",
+                  "type": "input",
+                  "templateOptions": {
+                    "label": "post",
+                    "placeholder": "",
+                    "description": "string representing HTML."
+                  }
+                },
+                {
+                  "key": "url",
+                  "type": "input",
+                  "templateOptions": {
+                    "label": "url",
+                    "placeholder": "",
+                    "description": "URL that the menu entry points to."
+                  }
+                },
+                {
+                  "key": "weight",
+                  "type": "input",
+                  "templateOptions": {
+                    "label": "weight",
+                    "type": "number",
+                    "placeholder": "English (US)",
+                    "description": "Weight of the menu item"
+                  }
+                },
+                {
+                  "key": "parent",
+                  "type": "input",
+                  "templateOptions": {
+                    "label": "parent",
+                    "description": "Name (or Identifier if present) of this menu entry’s parent menu entry."
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "templateOptions": {
+          "label": "Add menu"
+        }
+      }
+    }
+
+
+  ]
+}

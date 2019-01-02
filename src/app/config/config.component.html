@@ -1,6 +1,11 @@
 <div class="dialog-container">
   <h3 *ngIf="title">{{title}}</h3>
   <div class="dialog-body">
+    <div *ngIf="notes">
+      <div *ngFor="let line of notes">
+        {{line}}
+      </div>
+    </div>
     <form [formGroup]="form" (ngSubmit)="saveForm()">
       <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
       </formly-form>

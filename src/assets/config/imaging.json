@@ -1,0 +1,78 @@
+{
+  "modelJson": {
+    "resampleFilter": "box",
+    "quality": "75",
+    "anchor": "Top"
+  },
+  "jsonFields": [
+      {
+        "key": "resampleFilter",
+        "type": "input",
+        "templateOptions": {
+          "label": "resampleFilter",
+          "placeholder": "box",
+          "description": "Default resample filter used for resizing."
+        }
+      },
+      {
+        "key": "quality",
+        "type": "input",
+        "templateOptions": {
+          "label": "quality",
+          "type": "number",
+          "placeholder": 75,
+          "description": "Default JPEG quality setting."
+        }
+      },
+      {
+        "key": "anchor",
+        "type": "select",
+        "templateOptions": {
+          "label": "anchor",
+          "multiple": false,
+          "options": [{
+              "label": "Smart",
+              "value": "Smart"
+            },
+            {
+              "label": "Center",
+              "value": "Center"
+            },
+            {
+              "label": "TopLeft",
+              "value": "TopLeft"
+            },
+            {
+              "label": "Top",
+              "value": "Top"
+            },
+            {
+              "label": "TopRight",
+              "value": "TopRight"
+            },
+            {
+              "label": "Left",
+              "value": "Left"
+            },
+            {
+              "label": "Right",
+              "value": "Right"
+            },
+            {
+              "label": "BottomLeft",
+              "value": "BottomLeft"
+            },
+            {
+              "label": "Bottom",
+              "value": "Bottom"
+            },
+            {
+              "label": "BottomRight",
+              "value": "BottomRight"
+            }
+          ],
+          "description": "Anchor used when cropping pictures. "
+        }
+      }
+    ]
+}

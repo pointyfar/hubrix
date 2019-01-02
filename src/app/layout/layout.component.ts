@@ -15,8 +15,11 @@ import { ConfigComponent } from './../config/config.component';
 export class LayoutComponent implements OnInit {
 
   @Input() public widgetsPath: string;
+  @Input() public configPath: string;
   @Input() public assetsBasePath: string;
 
+  config: any = {};
+  
   widgets: WidgetItem[] = [];
   isReady = false;
 
@@ -43,6 +46,10 @@ export class LayoutComponent implements OnInit {
   containerWidgetConfig = {};
   containerWidgetForm = "";
   
+  
+  configFiles = [];
+  configFilesDone = true;
+  
   constructor(
     public dialog: MatDialog,
     private _ls: LayoutService
@@ -51,6 +58,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
     this.getWidgetsList();
     this.assetsBasePath = this.assetsBasePath.slice(-1) == "/" ? this.assetsBasePath : this.assetsBasePath + "/";
+    this.getConfigFiles();
   }
 
   getWidgetsList() {
@@ -107,10 +115,11 @@ export class LayoutComponent implements OnInit {
 
   generateConfig() {
     let widgetsFormatted = this.formatWidgetsConfig(this.mainSection);
+    console.log(widgetsFormatted)
     const dialogRef = this.dialog.open(OutputComponent, {
       width: '1000px',
       height: '500px',
-      data: {widgets: widgetsFormatted, site: this.formattedSiteConfig}
+      data: {widgets: widgetsFormatted, site: this.config}
     })
   }
 
@@ -277,8 +286,44 @@ export class LayoutComponent implements OnInit {
     
   }
   
+  getConfigFiles(){
+    this._ls.getConfig(this.configPath)
+        .subscribe( result => {
+          for(let i = 0; i < result.files.length; i++){
+            this.configFiles.push(result.files[i])
+          }
+        },
+        err => {
+          console.log("Error getting config files from ", this.configPath, err)
+        },
+        () => {
+          this.configFilesDone = true;
+        }
+          
+        )
+  }
   
+  setConfigValue(e){
+    console.log('setConfigValue',e)
+    if(e['key'].length === 0) {
+      copyObj(e['config'], this.config)
+    } else {
+      for(let i = 0; i < e['key'].length; i++ ){
+        this.config[e['key'][i]] = {};
+        copyObj(e['config'], this.config[e['key'][i]])
+      }
+    }
+  }
   
+}
 
+function copyObj(src, dest){
+  
+  for(let k in src) {
+    if(src.hasOwnProperty(k)){
+      dest[k] = src[k]
+    }
+  }
+  return dest
 }
 
