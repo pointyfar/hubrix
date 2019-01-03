@@ -18,7 +18,7 @@ import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
             </formly-field>
           </div>
           <div fxFlex="initial" fxFlexAlign="center">
-            <button mat-stroked-button color="warn" type="button" (click)="remove(i)">Remove</button>
+            <button mat-button type="button" (click)="remove(i)"><mat-icon>delete_forever</mat-icon></button>
           </div>
         </div>
       </div>

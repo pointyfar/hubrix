@@ -1,5 +1,8 @@
 <div class="dialog-container">
   <div class="dialog-body">
+    <div *ngIf="note">
+      {{note}}
+    </div>
     <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="tab($event)">
       <mat-tab label="JSON" *ngIf="jsonFormat">
         <pre id="copyJSON">{{jsonFormat | json}}</pre>

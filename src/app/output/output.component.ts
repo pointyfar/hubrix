@@ -21,7 +21,7 @@ export class OutputComponent implements OnInit {
   selectedCode = "JSON";
   hasY = false;
   hasT = false;
-  
+  note = "";
   selected = new FormControl(0);
   
   constructor(
@@ -30,11 +30,11 @@ export class OutputComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('--------------Output------------', this.data)
+    this.note = this.data.note? this.data.note : "";
+
     let site = stripNulls(this.data.site);
     let config = {};
-    config = site;
-    console.log('--------------Output', site)
+        config = site;
     
     if(this.data.widgets) {
       if (this.data.widgets.length > 0) {
@@ -115,7 +115,8 @@ export class OutputComponent implements OnInit {
   
   downloadCode(code) {
     let blob;
-    let filename = (this.data['file'] ? this.data['file'] : "config") + "." + this.codeOptions[code].toLowerCase();
+    let filename = (this.data['file'].length > 1 ? this.data['file'] : "config") + "." + this.codeOptions[code].toLowerCase();
+    console.log(filename)
     switch(this.codeOptions[code]) {
       case "JSON": {
         blob = new Blob([JSON.stringify(this.jsonFormat,null,2)], {type : 'application/json'});
