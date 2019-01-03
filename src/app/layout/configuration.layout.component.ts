@@ -14,7 +14,7 @@ import { OutputComponent } from './../output/output.component';
   template: `
   <div fxLayout="row" class="config-file">
     <div fxFlex="fill" >
-      <button fxFlex="fill" mat-raised-button color="primary" (click)="loadConfigDialog(configFile.url)">
+      <button fxFlex="fill" mat-raised-button color="primary" (click)="loadConfigDialog()">
         {{configFile.label}}
       </button>
       </div>
@@ -56,7 +56,7 @@ export class ConfigurationLayoutComponent implements OnInit {
       height: '90%',
       data: {
         title: `Configure ${this.configFile['label']} Options`,
-        notes: this.config['notes'],
+        note: this.config['notes'],
         inputModel: this.config['modelJson'],
         jsonSchemaFields: this.config['jsonFields']
       }
@@ -85,12 +85,7 @@ export class ConfigurationLayoutComponent implements OnInit {
   configured(c:any){
     let e = {};
     if(this.configFile['dynamic'] === true ){
-      e['config'] = {}
-      if(c['values']) {
-        for(let i = 0; i < c['values'].length; i++){
-          e['config'][c['values'][i]['key']] = c['values'][i]['value']
-        }
-      }
+      e['config'] = this.transformDynamic(c)
     } else {
       e['config'] = c;
     }
@@ -101,13 +96,28 @@ export class ConfigurationLayoutComponent implements OnInit {
     }
   }
   
+  transformDynamic(c){
+    let result = {};
+    
+    if(c['values']) {
+      for(let i = 0; i < c['values'].length; i++){
+        result[c['values'][i]['key']] = c['values'][i]['value']
+      }
+    }
+    return result;
+  }
+  
   saveConfig(){
     console.log(this.configResult);
-    let widgetsFormatted = this.config;
+    let out = this.configFile['dynamic'] ? this.transformDynamic(this.configResult) : this.configResult;
     const dialogRef = this.dialog.open(OutputComponent, {
       width: '1000px',
       height: '500px',
-      data: {site: this.configResult, file: this.configFile['key']}
+      data: {
+        site: out, 
+        file: this.configFile['key'], 
+        note: (this.configFile['destination']? `Suggested location: $${this.configFile['destination']}` : "")
+      }
     })
   }
 

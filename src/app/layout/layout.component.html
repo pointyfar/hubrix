@@ -16,10 +16,10 @@
       <!-------------- CONFIG LIST ----------------->
       <h2>Configuration</h2>
       <mat-accordion>
-        <mat-expansion-panel expanded="true">
+        <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Expand
+              Expand config options
             </mat-panel-title>
           </mat-expansion-panel-header>
 
@@ -30,8 +30,6 @@
           </div>
           
         </mat-expansion-panel>
-        
-        
       </mat-accordion>
       <!-------------- WIDGETS LIST ----------------->
       
@@ -75,20 +73,9 @@
     <div class="content-header">
     <div><h2>Drag widgets here</h2></div>
     <div  class="site-config-btn">
-      <button mat-raised-button color="primary" (click)="loadParamsConfigDialog()">
-        General Config
-      </button>
-      <button mat-raised-button color="primary" (click)="loadHugoConfigDialog()">
-        Hugo Config
-      </button>
-      <div *ngIf="siteConfigDone; else indeterminate">
-        <mat-icon>check_box</mat-icon>
-      </div>
-      <ng-template #indeterminate>
-        <div>
-          <mat-icon>indeterminate_check_box</mat-icon>
-        </div>
-      </ng-template>
+      <a mat-button href="#" target="_blank" matTooltip="WIP">
+        <mat-icon>help</mat-icon>
+      </a>
     </div>
     </div>
     <div class="main-section">

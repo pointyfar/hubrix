@@ -23,7 +23,7 @@ export class LayoutComponent implements OnInit {
   widgets: WidgetItem[] = [];
   isReady = false;
 
-  testurl = "assets/widgets-alt.json";
+  notes = "Save as config.(json/toml/yaml)"
   
   targetBuilderTools: any[] = [];
 
@@ -31,17 +31,7 @@ export class LayoutComponent implements OnInit {
 
   droppableItemClass = (item: any) => `${item.class} ${item.inputType}`;
 
-  formattedConfig: any = {};
-  
   groupedWidgets: any[] = [];
-  
-  siteConfig:any = {};
-  formattedSiteConfig: any = {};
-  siteConfigDone = false;
-  
-  paramsConfig = {};
-  paramsConfigDone = false;
-  formattedParamsConfig = {};
   
   containerWidgetConfig = {};
   containerWidgetForm = "";
@@ -62,13 +52,12 @@ export class LayoutComponent implements OnInit {
   }
 
   getWidgetsList() {
-    this._ls.getConfigs(this.widgetsPath)
+    this._ls.getWidgetsConfig(this.widgetsPath)
         .subscribe(
           config => {
+            console.log(config)
             this.widgets = config.widgets;
             this.groupedWidgets = this.processWidgets(config.widgets)
-            this.siteConfig = config.site;
-            this.paramsConfig = config.params;
           },
           err => {
             console.log(err)
@@ -119,7 +108,12 @@ export class LayoutComponent implements OnInit {
     const dialogRef = this.dialog.open(OutputComponent, {
       width: '1000px',
       height: '500px',
-      data: {widgets: widgetsFormatted, site: this.config}
+      data: {
+        widgets: widgetsFormatted, 
+        site: this.config,
+        note: this.notes
+        
+      }
     })
   }
 
@@ -151,94 +145,6 @@ export class LayoutComponent implements OnInit {
 
   }
 
-  
-  loadHugoConfigDialog(){
-    const dialogRef = this.dialog.open(ConfigComponent, {
-      width: '1000px',
-      height: '90%',
-      data: {
-        title: "Configure Hugo Site",
-        inputModel: this.siteConfig.modelJson,
-        jsonSchemaFields: this.siteConfig.jsonFields
-      }
-    });
-    
-    dialogRef.afterClosed()
-            .subscribe(result => {
-              if(result) {
-                this.formatSiteConfig(result);
-                this.siteConfigDone = true;
-              } 
-              },
-              err => {console.log(err)},
-              () => {
-              }
-            );
-  }
-  
-  loadParamsConfigDialog(){
-    const dialogRef = this.dialog.open(ConfigComponent, {
-      width: '1000px',
-      height: '90%',
-      data: {
-        title: "Configure Site Params",
-        inputModel: this.paramsConfig['modelJson'],
-        jsonSchemaFields: this.paramsConfig['jsonFields']
-      }
-    });
-    
-    dialogRef.afterClosed()
-            .subscribe(result => {
-              if(result) {
-                this.formatParamsConfig(result);
-                this.paramsConfigDone = true;
-              } 
-              },
-              err => {console.log(err)},
-              () => {
-              }
-            );
-  }
-  
-  formatSiteConfig(config){
-    /* Format Menus */
-    let menus = [];
-    if(config.hasOwnProperty("menu")){
-      if(config['menu']['menuConfig']){
-        if(config['menu']['menuConfig'].length > 0){
-          let c = config['menu']['menuConfig'];
-          for( let i = 0 ; i < c.length; i++ ){
-            let menu = {};
-            let label = c[i]['menuName'];
-            let items = c[i]['menuItems'];
-            menu[label] = items;
-            menus.push(menu);
-          }
-        }
-      }
-    }
-    if( menus.length > 0 ) {
-      config['menu'] = menus;
-    }
-    
-    for(let k in config){
-      this.formattedSiteConfig[k] = config[k]
-    }
-
-  }
-  
-  formatParamsConfig(config:any) {
-
-    if(!this.formattedSiteConfig.hasOwnProperty('params')) {
-      this.formattedSiteConfig['params'] = {};
-    }
-    
-    for(let k in config){
-      if(config.hasOwnProperty(k)){
-        this.formattedSiteConfig['params'][k] = config[k]
-      }
-    }
-  }
   
   getContainerConfig(e, m){
     if(!this.containerWidgetForm || (this.containerWidgetForm !== m['formConfig'])) {
@@ -304,7 +210,6 @@ export class LayoutComponent implements OnInit {
   }
   
   setConfigValue(e){
-    console.log('setConfigValue',e)
     if(e['key'].length === 0) {
       copyObj(e['config'], this.config)
     } else {

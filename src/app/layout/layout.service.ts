@@ -18,22 +18,12 @@ export class LayoutService {
     return this.http.get<any>(url);
   }
   
-  getConfigs(url): any {
+  getWidgetsConfig(url): any {
     return this.http.get<any>(url)
             .pipe(
-              mergeMap( (config):any => {
-                return forkJoin(
-                  this.getConfig(config.site)
-                      .pipe(map( site => ({site, config}) )),
-                  this.getConfig(config.params)
-                )}
-              )
-            ).pipe(
               map(combi => { 
-                let widgets = mapWidgetItem(combi[0]['config'])
-                let site = combi[0]['site']
-                let params = combi[1]
-                return {site, widgets, params}
+                let widgets = mapWidgetItem(combi)
+                return {widgets}
               })
             )
   }
