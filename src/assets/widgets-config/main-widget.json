@@ -1,0 +1,228 @@
+{
+  "modelJson" : {
+    "pagesize": 5,
+    "sections": ["posts"],
+    "display": "summary"
+  },
+  "jsonFields": [
+    {
+      "key": "homepage",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "Configure homepage"
+      },
+      "fieldGroup": [
+        {
+          "key" : "display",
+          "type": "select",
+          "templateOptions": {
+            "label": "What to display",
+            "description": "Selecting Content supersedes Summary. 'Authors' assumes frontmatter as authors: [\"Author One\"] or equivalent.",
+            "multiple": true,
+            "options": [
+              {"label":"Summary", "value":"summary"},
+              {"label":"Content", "value":"content"},
+              {"label":"Title", "value":"title"},
+              {"label":"Date", "value":"date"},
+              {"label":"Authors", "value":"authors"}
+            ]
+          }
+        },
+        {
+          "key": "listStyle",
+          "type": "select",
+          "templateOptions": {
+            "label": "List style to use",
+            "multiple": false,
+            "options": [
+              {"label":"Unordered List", "value":"ul"},
+              {"label":"Ordered List", "value":"ol"},
+              {"label":"Card", "value":"card"},
+              {"label":"Album", "value":"album"}
+            ]
+          }
+        },
+        {
+          "key": "sections",
+          "type": "array",
+          "fieldArray": {
+            "type": "input",
+            "templateOptions": {
+              "label": "Add content sections to include on homepage",
+              "placeholder": "posts"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "section",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "Configure section list page"
+      },
+      "fieldGroup": [
+        {
+          "key": "listStyle",
+          "type": "select",
+          "templateOptions": {
+            "label": "List style to use",
+            "multiple": false,
+            "options": [
+              {"label":"Unordered List", "value":"ul"},
+              {"label":"Ordered List", "value":"ol"},
+              {"label":"Card", "value":"card"},
+              {"label":"Album", "value":"album"}
+            ]
+          }
+        },
+        {
+          "key" : "display",
+          "type": "select",
+          "templateOptions": {
+            "label": "What to display",
+            "description": "Selecting Content supersedes Summary. 'Authors' assumes frontmatter as authors: [\"Author One\"] or equivalent.",
+            "multiple": true,
+            "options": [
+              {"label":"Summary", "value":"summary"},
+              {"label":"Content", "value":"content"},
+              {"label":"Date", "value":"date"},
+              {"label":"Authors", "value":"authors"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "page",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "Configure single page"
+      },
+      "fieldGroup": [
+        {
+          "key": "taxonomies",
+          "type": "array",
+          "fieldArray": {
+            "fieldGroupClassName": "row",
+            "templateOptions": {
+              "label": "Add taxonomies to display on single page"
+            },
+            "fieldGroup": [
+              {
+                "type": "input",
+                "key": "taxonomy",
+                "templateOptions": {
+                  "label": "Name of Taxonomy",
+                  "required": true,
+                  "placeholder": "tags"
+                }
+              },
+              {
+                "type": "select",
+                "key": "position",
+                "templateOptions": {
+                  "label": "Position",
+                  "multiple": false,
+                  "options": [
+                    {"label":"Top of content", "value":"top"},
+                    {"label":"Bottom of content", "value":"bottom"}
+                  ]
+                }
+              },
+              {
+                "type": "select",
+                "key": "style",
+                "templateOptions": {
+                  "label": "Style",
+                  "multiple": false,
+                  "options": [
+                    {"label":"Text", "value":"text"},
+                    {"label":"Button", "value":"button"}
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key" : "display",
+          "type": "select",
+          "templateOptions": {
+            "label": "What to display",
+            "description": "Selecting Content supersedes Summary. 'Authors' assumes frontmatter as authors: [\"Author One\"] or equivalent.",
+            "multiple": true,
+            "options": [
+              {"label":"Summary", "value":"summary"},
+              {"label":"Content", "value":"content"},
+              {"label":"Title", "value":"title"},
+              {"label":"Date", "value":"date"},
+              {"label":"Authors", "value":"authors"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "taxonomyTerms",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "Configure taxonomy terms list page (eg /tags/)"
+      },
+      "fieldGroup": [
+        {
+          "key": "listStyle",
+          "type": "select",
+          "templateOptions": {
+            "label": "List style to use",
+            "multiple": false,
+            "options": [
+              {"label":"Unordered List", "value":"ul"},
+              {"label":"Ordered List", "value":"ol"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "taxonomy",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "Configure taxonomy list page (eg /tags/tag/)"
+      },
+      "fieldGroup": [
+        {
+          "key": "listStyle",
+          "type": "select",
+          "templateOptions": {
+            "label": "List style to use",
+            "multiple": false,
+            "options": [
+              {"label":"Unordered List", "value":"ul"},
+              {"label":"Ordered List", "value":"ol"},
+              {"label":"Card", "value":"card"},
+              {"label":"Album", "value":"album"}
+            ]
+          }
+        },
+        {
+          "key" : "display",
+          "type": "select",
+          "templateOptions": {
+            "label": "What to display",
+            "description": "Selecting Content supersedes Summary. 'Authors' assumes frontmatter as authors: [\"Author One\"] or equivalent.",
+            "multiple": true,
+            "options": [
+              {"label":"Summary", "value":"summary"},
+              {"label":"Content", "value":"content"},
+              {"label":"Title", "value":"title"},
+              {"label":"Date", "value":"date"},
+              {"label":"Authors", "value":"authors"}
+            ]
+          }
+        }
+      ]
+    }
+    
+  ]
+}

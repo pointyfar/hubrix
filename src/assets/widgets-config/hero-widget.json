@@ -1,0 +1,25 @@
+{
+  "modelJson" : {
+    "title": "Placeholder Widget",
+    "background" : "img/hero-background-dark.jpeg",
+    "bgislight" : false
+  },
+  "jsonFields" : [
+    {
+      "key" : "background",
+      "type": "input",
+      "templateOptions": {
+        "label": "background",
+        "description": "Path to hero image"
+      }
+    },
+    {
+      "key" : "bgislight",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "bgislight",
+        "description": "Is hero image light?"
+      }
+    }
+  ]
+}

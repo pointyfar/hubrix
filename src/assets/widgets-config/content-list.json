@@ -49,24 +49,26 @@
       "key": "title",
       "type": "checkbox",
       "templateOptions": {
-        "label": "Show title",
-        "required": true
+        "label": "Show title"
+      },
+      "validation": {
+        "messages": {
+          "pattern": "(error, field: FormlyFieldConfig) => `${field.formControl.value} is not a valid IP Address`"
+        }
       }
     },
     {
       "key": "author",
       "type": "checkbox",
       "templateOptions": {
-        "label": "Show author",
-        "required": true
+        "label": "Show author"
       }
     },
     {
       "key": "date",
       "type": "checkbox",
       "templateOptions": {
-        "label": "Show date published",
-        "required": true
+        "label": "Show date published"
       }
     }
   ]

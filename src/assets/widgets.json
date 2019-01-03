@@ -1,6 +1,4 @@
 {
-  "site": "assets/forms/site.json",
-  "params": "assets/forms/params.json",
   "widgets" : [
     {
       "name": "widget-placeholder",
@@ -8,7 +6,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "pets",
-      "formConfig": "assets/forms/placeholder-widget.json"
+      "formConfig": "assets/widgets-config/placeholder-widget.json"
     },
     {
       "name": "section-quarter",
@@ -19,8 +17,8 @@
       "flex": 25,
       "group": "sections",
       "icon": "view_compact",
-      "formConfig": "assets/forms/container-widget.json"
-      
+      "formConfig": "assets/widgets-config/container-widget.json"
+
     },
     {
       "name": "section-third",
@@ -31,7 +29,8 @@
       "flex": 33.33,
       "group": "sections",
       "icon": "view_compact",
-      "formConfig": "assets/forms/container-widget.json"
+      "formConfig": "assets/widgets-config/container-widget.json"
+
     },
     {
       "name": "section-half",
@@ -42,7 +41,8 @@
       "flex": 50,
       "group": "sections",
       "icon": "view_compact",
-      "formConfig": "assets/forms/container-widget.json"
+      "formConfig": "assets/widgets-config/container-widget.json"
+
     },
     {
       "name": "section-full",
@@ -53,7 +53,8 @@
       "flex": 100,
       "group": "sections",
       "icon": "view_compact",
-      "formConfig": "assets/forms/container-widget.json"
+      "formConfig": "assets/widgets-config/container-widget.json"
+
     },
     {
       "name": "section-flex",
@@ -64,7 +65,8 @@
       "flex": 25,
       "group": "sections",
       "icon": "view_compact",
-      "formConfig": "assets/forms/container-widget.json"
+      "formConfig": "assets/widgets-config/container-widget.json"
+
       
     },
     {
@@ -73,7 +75,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "list",
-      "formConfig": "assets/forms/mega-config.json"
+      "formConfig": "assets/widgets-config/mega-config.json"
     },
     {
       "name": "widget-content-list",
@@ -81,7 +83,15 @@
       "class": "widget",
       "inputType": "content",
       "icon": "list",
-      "formConfig": "assets/forms/content-list.json"
+      "formConfig": "assets/widgets-config/content-list.json"
+    },
+    {
+      "name": "widget-content",
+      "label": "Content",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "notes",
+      "formConfig": "assets/widgets-config/content-list.json"
     },
     {
       "name": "widget-labeled-text",
@@ -90,7 +100,7 @@
       "inputType": "content",
       "icon": "list",
       "group": "main",
-      "formConfig": "assets/forms/labeled-text.json"
+      "formConfig": "assets/widgets-config/labeled-text.json"
     },
     {
       "name": "widget-hero",
@@ -99,16 +109,16 @@
       "inputType": "content",
       "icon": "photo",
       "group": "main",
-      "formConfig": "assets/forms/placeholder-widget.json"
+      "formConfig": "assets/widgets-config/hero-widget.json"
     },
     {
       "name": "widget-navigation",
       "label": "Navigation",
-      "class": "widget",
+      "class": "widget nav-container",
       "inputType": "content",
       "icon": "more_vert",
       "group": "main",
-      "formConfig": "assets/forms/placeholder-widget.json"
+      "formConfig": "assets/widgets-config/navbar-widget.json"
     },
     {
       "name": "widget-author",
@@ -117,7 +127,7 @@
       "inputType": "content",
       "icon": "account_circle",
       "group": "sidebar",
-      "formConfig": "assets/forms/placeholder-widget.json"
+      "formConfig": "assets/widgets-config/placeholder-widget.json"
     },
     {
       "name": "widget-social",
@@ -126,7 +136,7 @@
       "inputType": "content",
       "icon": "thumb_up",
       "group": "sidebar",
-      "formConfig": "assets/forms/placeholder-widget.json"
+      "formConfig": "assets/widgets-config/social-widget.json"
     },
     {
       "name": "widget-tags",
@@ -135,7 +145,31 @@
       "inputType": "content",
       "icon": "label",
       "group": "sidebar",
-      "formConfig": "assets/forms/placeholder-widget.json"
+      "formConfig": "assets/widgets-config/tagcloud-widget.json"
+    },
+    {
+      "name": "links-widget",
+      "label": "Links Widget",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "link",
+      "formConfig": "assets/widgets-config/widget-links.json"
+    },
+    {
+      "name": "text-widget",
+      "label": "Text Widget",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "create",
+      "formConfig": "assets/widgets-config/text-widget.json"
+    },
+    {
+      "name": "main-widget",
+      "label": "Main Content Widget",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "description",
+      "formConfig": "assets/widgets-config/main-widget.json"
     }
   ]
   

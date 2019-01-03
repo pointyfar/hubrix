@@ -1,0 +1,23 @@
+{
+  "modelJson" : {
+    "title": "Text Title",
+    "content": "Lorem Ipsum"
+  },
+  "jsonFields" : [
+    {
+      "key" : "title",
+      "type": "input",
+      "templateOptions": {
+        "label": "Placeholder"
+      }
+    },
+    {
+      "key" : "content",
+      "type": "textarea",
+      "templateOptions": {
+        "label": "Content",
+        "rows": 5
+      }
+    }
+  ]
+}

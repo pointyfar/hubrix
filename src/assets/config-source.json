@@ -4,45 +4,45 @@
       "label": "General",
       "key" : [],
       "url" : "assets/config/config.json",
-      "destination" : "configDir/_default/config.json"
+      "destination" : "configDir/_default/config.(json/yaml/toml)"
     },
     {
       "label": "Blackfriday",
       "key" : ["blackfriday"],
       "url" : "assets/config/blackfriday.json",
-      "destination" : "configDir/_default/blackfriday.json"
+      "destination" : "configDir/_default/blackfriday.(json/yaml/toml)"
     },
     {
       "label": "Imaging",
       "key" : ["imaging"],
       "url" : "assets/config/imaging.json",
-      "destination" : "configDir/_default/imaging.json"
+      "destination" : "configDir/_default/imaging.(json/yaml/toml)"
     },
     {
       "label": "Caches",
       "key" : ["caches"],
       "url" : "assets/config/caches.json",
-      "destination" : "configDir/_default/caches.json"
+      "destination" : "configDir/_default/caches.(json/yaml/toml)"
     },
     {
       "label": "Menus",
       "key" : ["menus"],
       "dynamic": true,
       "url" : "assets/config/menus.json",
-      "destination" : "configDir/_default/menus.json"
+      "destination" : "configDir/_default/menus.(json/yaml/toml)"
     },
     {
       "label": "Params",
       "key" : ["params"],
       "url" : "assets/config/params.json",
-      "destination" : "configDir/_default/params.json"
+      "destination" : "configDir/_default/params.(json/yaml/toml)"
     },
     {
       "label": "Taxonomies",
       "key" : ["taxonomies"],
       "dynamic": true,
       "url" : "assets/config/taxonomies.json",
-      "destination" : "configDir/_default/taxonomies.json"
+      "destination" : "configDir/_default/taxonomies.(json/yaml/toml)"
     }
   ]
 }

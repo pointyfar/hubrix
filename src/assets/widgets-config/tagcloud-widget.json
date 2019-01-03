@@ -1,0 +1,36 @@
+{
+  "modelJson" : {
+    "label" : "A Cloud of Tags",
+    "taxonomy" : "tags",
+    "threshold" : 1
+  },
+  "jsonFields" : [
+    {
+      "key" : "label",
+      "type": "input",
+      "templateOptions": {
+        "label": "Label",
+        "placeholder": "A cloud of tags"
+      }
+    },
+    {
+      "key" : "taxonomy",
+      "type": "input",
+      "templateOptions": {
+        "label": "Taxonomy",
+        "placeholder": "tags",
+        "description": "Which taxonomy terms to use to populate cloud"
+      }
+    },
+    {
+      "key" : "threshold",
+      "type": "input",
+      "templateOptions": {
+        "type": "number",
+        "label": "Threshold",
+        "description": "Display only 'terms' whose related content count are greater than or equal to threshold value.",
+        "placeholder": 1
+      }
+    }
+  ]
+}

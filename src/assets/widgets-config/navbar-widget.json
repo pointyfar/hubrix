@@ -1,0 +1,43 @@
+{
+  "modelJson" : {
+    "enabled" : true,
+    "icon" : true,
+    "label" : "fas fa-search"
+  },
+  "jsonFields" : [
+    {
+      "key" : "menuName",
+      "type": "input",
+      "templateOptions": {
+        "label": "Menu name",
+        "placeholder": "main",
+        "description": "Which menu to use on main navbar"
+      }
+    },
+    {
+      "key" : "enabled",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "enabled",
+        "description": "Is search enabled?"
+      }
+    },
+    {
+      "key" : "icon",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "icon",
+        "description": "Use icon label?"
+      }
+    },
+    {
+      "key" : "label",
+      "type": "input",
+      "templateOptions": {
+        "label": "label",
+        "placeholder": "fas fa-search",
+        "description": "Icon or text label to use"
+      }
+    }
+  ]
+}

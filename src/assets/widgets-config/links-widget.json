@@ -1,0 +1,68 @@
+{
+  "modelJson": {
+    "label": "Links",
+    "style": "span",
+    "list": [{
+      "text": "twitter",
+      "url": "http://www.twitter.com"
+    }]
+  },
+  "jsonFields": [
+    {
+      "key" : "label",
+      "type": "input",
+      "templateOptions": {
+        "label": "Message",
+        "placeholder": "Links!"
+      }
+    },
+    {
+      "key" : "class",
+      "type": "input",
+      "templateOptions": {
+        "label": "Class",
+        "placeholder": "list"
+      }
+    },
+    {
+      "key": "style",
+      "type": "select",
+      "templateOptions": {
+        "label": "List Style",
+        "multiple": false,
+        "options": [
+          {"label": "Ordered List", "value": "ol"},
+          {"label": "Unordered List", "value": "ul"},
+          {"label": "Bare List", "value": "span"},
+          {"label": "Button List", "value": "button"}
+        ],
+        "description": "Select list style"
+      }
+    },
+    {
+    "key": "list",
+    "type": "array",
+    "fieldArray": {
+      "fieldGroupClassName": "row",
+      "templateOptions": {
+        "label": "Add List Item"
+      },
+      "fieldGroup": [{
+          "key": "url",
+          "type": "input",
+          "templateOptions": {
+            "label": "URL"
+          }
+        },
+        {
+          "key": "text",
+          "type": "input",
+          "templateOptions": {
+            "label": "Link Text"
+          }
+        }
+      ]
+    }
+  }
+]
+}
