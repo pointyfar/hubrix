@@ -29,7 +29,6 @@
                   "type": "input",
                   "templateOptions": {
                     "label": "identifier",
-                    "placeholder": "en-us",
                     "description": "It is necessary to set a unique identifier manually if two or more menu entries have the same .Name."
                   }
                 },
@@ -75,7 +74,7 @@
                   "templateOptions": {
                     "label": "weight",
                     "type": "number",
-                    "placeholder": "English (US)",
+                    "placeholder": "100",
                     "description": "Weight of the menu item"
                   }
                 },

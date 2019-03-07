@@ -1,54 +1,61 @@
 {
-  "modelJson" : {
-    "labelposition": "above",
-    "arrangetext": "column",
-    "labeledtext": [
-      {
-        "label": "Label",
-        "text": "Text"
-      }
-    ]
+  "modelJson": {
+    "label": "Links",
+    "style": "span",
+    "list": [{
+      "text": "Lorem Ipsum"
+    }]
   },
-  "jsonFields" : {
-    "title": "Labeled Text List",
-    "type": "object",
-    "required": [
-      "title"
-    ],
-    "properties": {
-      "labelposition": {
-        "type": "string",
-        "title": "Select Label Position",
-        "enum": [
-          "above", "left"
-        ]
+  "jsonFields": [
+    {
+      "key" : "label",
+      "type": "input",
+      "templateOptions": {
+        "label": "Label",
+        "placeholder": "Links!"
+      }
+    },
+    {
+      "key" : "class",
+      "type": "input",
+      "templateOptions": {
+        "label": "Class",
+        "placeholder": "list"
+      }
+    },
+    {
+      "key": "style",
+      "type": "select",
+      "templateOptions": {
+        "label": "List Style",
+        "multiple": false,
+        "options": [
+          {"label": "Ordered List", "value": "ol"},
+          {"label": "Unordered List", "value": "ul"},
+          {"label": "Bare List", "value": "span"},
+          {"label": "Button List", "value": "button"}
+        ],
+        "description": "Select list style"
+      }
+    },
+    {
+    "key": "list",
+    "type": "array",
+    "fieldArray": {
+      "fieldGroupClassName": "row",
+      "templateOptions": {
+        "label": "Add List Item"
       },
-      "arrangetext": {
-        "type": "string",
-        "title": "Select Text Arrangement",
-        "enum": [
-          "column", "row"
-        ]
-      },
-      "labeledtext": {
-        "type": "array",
-        "title": "List of Labeled Text",
-        "items": {
-          "type": "object",
-          "title": "Labeled Text",
-          "properties": {
-            "label": {
-              "type" : "string",
-              "title": "Label"
-            },
-            "text": {
-              "type" : "string",
-              "title": "Text"
-            }
+      "fieldGroup": [
+        {
+          "key": "text",
+          "type": "input",
+          "templateOptions": {
+            "label": "List Item"
           }
         }
-      }
-      
+      ]
     }
   }
+]
 }

@@ -1,0 +1,94 @@
+{
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key": "values",
+      "type": "array",
+      "fieldArray": {
+        "wrappers": ["panel"],
+        "fieldGroup": [{
+            "key": "key",
+            "type": "select",
+            "templateOptions": {
+              "label": "output formats",
+              "multiple": false,
+              "options": [{
+                  "label": "page",
+                  "value": "page"
+                },
+                {
+                  "label": "home",
+                  "value": "home"
+                },
+                {
+                  "label": "section",
+                  "value": "section"
+                },
+                {
+                  "label": "taxonomyTerm",
+                  "value": "taxonomyTerm"
+                },
+                {
+                  "label": "taxonomy",
+                  "value": "taxonomy"
+                }
+                ],
+              "description": "Every Page has a Kind attribute, and the default Output Formats are set based on that.",
+              "required": true
+            }
+          },
+          {
+            "key": "value",
+            "type": "select",
+            "templateOptions": {
+              "label": "extensions",
+              "multiple": true,
+              "options": [{
+                  "label": "AMP",
+                  "value": "AMP"
+                },
+                {
+                  "label": "CSS",
+                  "value": "CSS"
+                },
+                {
+                  "label": "CSV",
+                  "value": "CSV"
+                },
+                {
+                  "label": "Calendar",
+                  "value": "Calendar"
+                },
+                {
+                  "label": "HTML",
+                  "value": "HTML"
+                },
+                {
+                  "label": "JSON",
+                  "value": "JSON"
+                },
+                {
+                  "label": "ROBOTS",
+                  "value": "ROBOTS"
+                },
+                {
+                  "label": "RSS",
+                  "value": "RSS"
+                },
+                {
+                  "label": "Sitemap",
+                  "value": "Sitemap"
+                }
+              ]
+            }
+          }
+        ],
+        "templateOptions": {
+          "label": "Add Output Format"
+        }
+      }
+    }
+  ]
+}

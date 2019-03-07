@@ -8,7 +8,7 @@
       "key" : "title",
       "type": "input",
       "templateOptions": {
-        "label": "Placeholder"
+        "label": "Title"
       }
     },
     {

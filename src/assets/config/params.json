@@ -49,6 +49,24 @@
       }
     },
     {
+      "key": "enableSearch",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "Configure search feature"
+      },
+      "fieldGroup": [
+        {
+          "key": "enable",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "Enable search feature ",
+            "description": "Make sure to configure output formats for home to include JSON, and to position the search widget."
+          }
+        }
+        
+      ]
+    },
+    {
       "key": "scss",
       "wrappers": ["panel"],
       "templateOptions": {

@@ -70,37 +70,22 @@
       
     },
     {
-      "name": "widget-sample",
-      "label": "Sample Mega",
-      "class": "widget",
-      "inputType": "content",
-      "icon": "list",
-      "formConfig": "assets/widgets-config/mega-config.json"
-    },
-    {
-      "name": "widget-content-list",
-      "label": "Content List",
-      "class": "widget",
-      "inputType": "content",
-      "icon": "list",
-      "formConfig": "assets/widgets-config/content-list.json"
-    },
-    {
-      "name": "widget-content",
-      "label": "Content",
-      "class": "widget",
-      "inputType": "content",
-      "icon": "notes",
-      "formConfig": "assets/widgets-config/content-list.json"
-    },
-    {
       "name": "widget-labeled-text",
       "label": "Labeled Text List",
       "class": "widget",
       "inputType": "content",
       "icon": "list",
-      "group": "main",
+      "group": "utilities",
       "formConfig": "assets/widgets-config/labeled-text.json"
+    },
+    {
+      "name": "widget-search",
+      "label": "Search Widget",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "photo",
+      "group": "utilities",
+      "formConfig": "assets/widgets-config/search-widget.json"
     },
     {
       "name": "widget-hero",
@@ -126,8 +111,8 @@
       "class": "widget",
       "inputType": "content",
       "icon": "account_circle",
-      "group": "sidebar",
-      "formConfig": "assets/widgets-config/placeholder-widget.json"
+      "group": "utilities",
+      "formConfig": "assets/widgets-config/author-widget.json"
     },
     {
       "name": "widget-social",
@@ -135,7 +120,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "thumb_up",
-      "group": "sidebar",
+      "group": "utilities",
       "formConfig": "assets/widgets-config/social-widget.json"
     },
     {
@@ -144,32 +129,44 @@
       "class": "widget",
       "inputType": "content",
       "icon": "label",
-      "group": "sidebar",
+      "group": "utilities",
       "formConfig": "assets/widgets-config/tagcloud-widget.json"
     },
     {
-      "name": "links-widget",
+      "name": "widget-links",
       "label": "Links Widget",
       "class": "widget",
       "inputType": "content",
       "icon": "link",
-      "formConfig": "assets/widgets-config/widget-links.json"
+      "group": "utilities",
+      "formConfig": "assets/widgets-config/links-widget.json"
     },
     {
-      "name": "text-widget",
+      "name": "widget-text",
       "label": "Text Widget",
       "class": "widget",
       "inputType": "content",
       "icon": "create",
+      "group": "utilities",
       "formConfig": "assets/widgets-config/text-widget.json"
     },
     {
-      "name": "main-widget",
+      "name": "widget-content",
       "label": "Main Content Widget",
       "class": "widget",
       "inputType": "content",
       "icon": "description",
+      "group": "main",
       "formConfig": "assets/widgets-config/main-widget.json"
+    },
+    {
+      "name": "widget-image",
+      "label": "Image Widget",
+      "class": "widget",
+      "inputType": "content",
+      "icon": "photo",
+      "group": "utilities",
+      "formConfig": "assets/widgets-config/image-widget.json"
     }
   ]
   

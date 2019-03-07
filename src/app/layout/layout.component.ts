@@ -55,7 +55,6 @@ export class LayoutComponent implements OnInit {
     this._ls.getWidgetsConfig(this.widgetsPath)
         .subscribe(
           config => {
-            console.log(config)
             this.widgets = config.widgets;
             this.groupedWidgets = this.processWidgets(config.widgets)
           },
@@ -104,13 +103,13 @@ export class LayoutComponent implements OnInit {
 
   generateConfig() {
     let widgetsFormatted = this.formatWidgetsConfig(this.mainSection);
-    console.log(widgetsFormatted)
     const dialogRef = this.dialog.open(OutputComponent, {
       width: '1000px',
       height: '500px',
       data: {
         widgets: widgetsFormatted, 
         site: this.config,
+        file: [], 
         note: this.notes
         
       }

@@ -1,0 +1,35 @@
+{
+  "modelJson": {
+    "label": "Search",
+    "button": "fas fa-search"
+  },
+  "jsonFields": [
+    {
+      "key" : "label",
+      "type": "input",
+      "templateOptions": {
+        "label": "Label",
+        "description": "Label text",
+        "placeholder": "Search"
+      }
+    },
+    {
+      "key" : "icon",
+      "type": "input",
+      "templateOptions": {
+        "label": "Button Icon",
+        "description": "Icon to use",
+        "placeholder": "fas fa-search"
+      }
+    },
+    {
+      "key" : "text",
+      "type": "input",
+      "templateOptions": {
+        "label": "Description text",
+        "description": "Text to include before search button",
+        "placeholder": "Click here to search"
+      }
+    }
+  ]
+}

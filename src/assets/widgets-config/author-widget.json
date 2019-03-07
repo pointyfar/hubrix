@@ -1,0 +1,91 @@
+{
+  "modelJson" : {
+    "authortaxo": "authors",
+    "usetaxo": true
+  },
+  "jsonFields" : [
+    {
+      "key" : "usetaxo",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "Use Taxonomy",
+        "description": "Configure featured author manually or using a Hugo Taxonomy",
+        "default": true
+      }
+    },
+    {
+      "key" : "authortaxo",
+      "type": "input",
+      "hideExpression": "!model.usetaxo",
+      "templateOptions": {
+        "label": "Author Taxonomy",
+        "description": "Taxonomy to use for authors",
+        "placeholder": "authors"
+      }
+    },
+    {
+      "key" : "featured",
+      "type": "input",
+      "hideExpression": "!model.usetaxo",
+      "templateOptions": {
+        "label": "Featured Author",
+        "description": "Featured Author",
+        "placeholder": "featured-author"
+      }
+    },
+    {
+      "key" : "authorname",
+      "type": "input",
+      "hideExpression": "model.usetaxo",
+      "templateOptions": {
+        "label": "Author Name",
+        "description": "Author's Name",
+        "placeholder": "Author Ipsum"
+      }
+    },
+    {
+      "key" : "authorblurb",
+      "type": "input",
+      "hideExpression": "model.usetaxo",
+      "type": "textarea",
+      "templateOptions": {
+        "label": "About the author",
+        "description": "Short text about author",
+        "placeholder": "Lorem Author",
+        "rows": 5
+      }
+    },
+    {
+      "key" : "authorimg",
+      "type": "input",
+      "hideExpression": "model.usetaxo",
+      "templateOptions": {
+        "label": "Author Image",
+        "description": "Path to author image to use",
+        "placeholder": "/author-img.png"
+      }
+    },
+    {
+      "key" : "authorheader",
+      "type": "input",
+      "hideExpression": "model.usetaxo",
+      "templateOptions": {
+        "label": "Author Header",
+        "description": "Header to use in author box"
+      }
+    },
+    {
+      "key" : "authorurl",
+      "type": "input",
+      "hideExpression": "model.usetaxo",
+      "templateOptions": {
+        "label": "Author Page URL",
+        "description": "URL to author page",
+        "placeholder": "/author-page"
+      }
+    }
+
+    
+    
+  ]
+}

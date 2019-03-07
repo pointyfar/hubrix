@@ -12,7 +12,7 @@
       "key" : "label",
       "type": "input",
       "templateOptions": {
-        "label": "Message",
+        "label": "Label",
         "placeholder": "Links!"
       }
     },

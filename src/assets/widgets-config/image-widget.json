@@ -1,0 +1,36 @@
+{
+  "modelJson": {
+    "image": "",
+    "alt": "",
+    "caption": ""
+  },
+  "jsonFields": [
+    {
+      "key" : "image",
+      "type": "input",
+      "templateOptions": {
+        "label": "Image",
+        "description": "Path to image",
+        "placeholder": "/img.png"
+      }
+    },
+    {
+      "key" : "alt",
+      "type": "input",
+      "templateOptions": {
+        "label": "Alt",
+        "description": "Alternative text",
+        "placeholder": "Alt text"
+      }
+    },
+    {
+      "key" : "caption",
+      "type": "input",
+      "templateOptions": {
+        "label": "Caption",
+        "description": "Image caption",
+        "placeholder": "Caption"
+      }
+    }
+  ]
+}

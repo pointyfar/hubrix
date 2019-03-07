@@ -115,8 +115,9 @@ export class OutputComponent implements OnInit {
   
   downloadCode(code) {
     let blob;
-    let filename = (this.data['file'].length > 1 ? this.data['file'] : "config") + "." + this.codeOptions[code].toLowerCase();
-    console.log(filename)
+
+    let filename = (this.data['file'].length > 0 ? this.data['file'] : "config") + "." + this.codeOptions[code].toLowerCase();
+
     switch(this.codeOptions[code]) {
       case "JSON": {
         blob = new Blob([JSON.stringify(this.jsonFormat,null,2)], {type : 'application/json'});
@@ -139,7 +140,7 @@ export class OutputComponent implements OnInit {
 }
 
 function stripNulls(o) {
-  console.log(o)
+
   let newObj = JSON.parse(JSON.stringify(o));
   for (var k in newObj) {
     if(newObj[k] === false) {

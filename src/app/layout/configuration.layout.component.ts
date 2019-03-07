@@ -108,7 +108,7 @@ export class ConfigurationLayoutComponent implements OnInit {
   }
   
   saveConfig(){
-    console.log(this.configResult);
+
     let out = this.configFile['dynamic'] ? this.transformDynamic(this.configResult) : this.configResult;
     const dialogRef = this.dialog.open(OutputComponent, {
       width: '1000px',
