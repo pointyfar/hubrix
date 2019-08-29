@@ -1,0 +1,42 @@
+.widget-list {
+  .ngx-dnd-container {
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ngx-dnd-item {
+    border: 1px solid map-get($mat-grey, 800);
+    background: rgba(black, .25);
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    &:hover {
+      border: 1px solid map-get($mat-grey, 900);
+    }
+
+  }
+
+  .widget-list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    .widget-icon {
+      margin-right: 0.5rem;
+      flex: 0 0 initial;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width:40px;
+      min-width:25px;
+      * {
+        width: 100%;
+      }
+    }
+    
+  }
+}
