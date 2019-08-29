@@ -22,8 +22,9 @@ export class LayoutService {
     return this.http.get<any>(url)
             .pipe(
               map(combi => { 
-                let widgets = mapWidgetItem(combi)
-                return {widgets}
+                let widgets = mapWidgetItem(combi);
+                let groups = combi.groups;
+                return {groups, widgets}
               })
             )
   }
@@ -60,11 +61,21 @@ function mapWidgetItem( wi: any ):WidgetItem[] {
     item['class'] = wi.widgets[i].class ? wi.widgets[i].class : "widget";
     item['inputType'] = wi.widgets[i].inputType ? wi.widgets[i].inputType : "widget";
     item['icon'] = wi.widgets[i].icon ? wi.widgets[i].icon : "widgets";
+    item['svg'] = wi.widgets[i].svg ? wi.widgets[i].svg : "";
     item['group'] = wi.widgets[i].group ? wi.widgets[i].group : "ungrouped";
     item['formConfig'] = wi.widgets[i].formConfig ? wi.widgets[i].formConfig : "";
-    
+    item['draggable'] = (wi.widgets[i].draggable != null) ? wi.widgets[i].draggable : "['contents']";
+    item['droppable'] = (wi.widgets[i].droppable != null) ? wi.widgets[i].droppable : "['default']";
+    item['removeOnSpill'] = (wi.widgets[i].removeOnSpill != null) ? wi.widgets[i].removeOnSpill : true;
+    item['removeable'] = (wi.widgets[i].removeable != null) ? wi.widgets[i].removeable : true;
+
     if( wi.widgets[i]['parent'] === true ){
       item['children'] = [] as any[];
+      if(wi.widgets[i]['children']) { 
+        let wchildren = wi.widgets[i]['children'];
+        item['children'] = mapWidgetItem({"widgets": wchildren})
+      }
+      
       item['flex'] =  wi.widgets[i].flex ? wi.widgets[i].flex : 100;
     } else {
       item['result'] = <any>{};

@@ -14,7 +14,7 @@
                fixedBottomGap="0">
     <div class="sidenav">
       <!-------------- CONFIG LIST ----------------->
-      <h2>Configuration</h2>
+      <h2>General Hugo Config</h2>
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
@@ -31,38 +31,48 @@
           
         </mat-expansion-panel>
       </mat-accordion>
-      <!-------------- WIDGETS LIST ----------------->
       
+      <!-------------- WIDGETS LIST ----------------->
       <h2>Widgets</h2>
       
       <div *ngIf="isReady">
       <ng-template ngFor let-wid [ngForOf]="groupedWidgets" let-i="index" [ngForTrackBy]="trackByFn">
       <mat-accordion>
-        <mat-expansion-panel>
+        <mat-expansion-panel expanded="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
               {{wid.group}}
             </mat-panel-title>
           </mat-expansion-panel-header>
-
-             <ngx-dnd-container
-               class="widget-list"
-               [model]="wid.items"
-               [dropZones]="['builder-target']"
-               [copy]="true"
-               [droppableItemClass]="droppableItemClass"
-               >
-               <ng-template let-item="model">
-                 <mat-icon>{{item.icon}}</mat-icon>
-                 <div class="widget-item">{{item.label}}</div>
-               </ng-template>
-             </ngx-dnd-container>
+          
+          <div class="ngx-dnd-container widget-list"
+              ngxDroppable="widgetlist"
+              [model]="wid.items"
+              copy="true"
+              >
+            <div class="ngx-dnd-item widget-list-item"
+              *ngFor="let item of wid.items"
+              [ngxDraggable]="item.draggable"
+              [model]="item"
+              >
+              <div class="widget-icon">
+                <div *ngIf="item.svg; else elseIconBlock">
+                  <img attr.src="{{item.svg}}">
+                </div>
+                <ng-template #elseIconBlock>
+                  <div><i class="{{item.icon}}"></i></div>
+                </ng-template>
+              </div>
+                
+                <div class="widget-item">{{item.label}}</div>
+            </div>
+          </div>
         </mat-expansion-panel>
         
         
       </mat-accordion>
       </ng-template>
-    </div>
+      </div>
     </div>
   </mat-sidenav>
 
@@ -70,64 +80,97 @@
 <!--    <div><pre>
       {{ config | json }}
     </pre></div>-->
-    <div class="content-header">
-    <div><h2>Drag widgets here</h2></div>
-    <div  class="site-config-btn">
-      <a mat-button href="#" target="_blank" matTooltip="WIP">
-        <mat-icon>help</mat-icon>
-      </a>
-    </div>
-    </div>
-    <div class="main-section">
+    <mat-card class="main-drop">
+      <mat-card-title>
+        <div class="title-text">Drag widgets here</div>
+        <div class="title-button">
+          <button mat-raised-button color="primary" (click)="printWidgets()">
+            <mat-icon>help</mat-icon>
+          </button>
+        </div>
+      </mat-card-title>
+      <mat-card-content>	
+        <div class="main-section main-drop-area">
       
-      <ngx-dnd-container
-        class="root-container"
-        [model]="mainSection"
-        dropZone="builder-target"
-        [removeOnSpill]="true"
-        [droppableItemClass]="droppableItemClass"
-        >
-        <ng-template let-model="model" let-template="template">
-          <div [ngSwitch]="model.inputType">
-            <div *ngSwitchCase="'section'">
-              
-                <div class="section-label">
-                  <button mat-button color="primary" (click)="getContainerConfig($event, model)">
-                    <mat-icon>settings</mat-icon>
-                  </button>
-                  <div class="label">{{model.label}}</div>
-
-                  <mat-icon ngxDragHandle>pan_tool</mat-icon>
-                  
-                </div>
-                <ngx-dnd-container
-                  dropZone="builder-target"
-                  [model]="model.children"
-                  [removeOnSpill]="true"
-                  [template]="template"
-                  [droppableItemClass]="droppableItemClass"
-                  >
-                </ngx-dnd-container>
-              
+      <div class="ngx-dnd-container row-container"
+          ngxDroppable="maindroppable"
+          [model]="mainSection"
+          removeOnSpill="true"
+          
+          >
+          <!-- --------------- ROWS --------------- -->
+        <div class="ngx-dnd-item row-item"
+          *ngFor="let row of mainSection"
+          ngxDraggable="['maindroppable']"
+          [model]="row"
+          >
+          <!-- --------------- ROW LABELS --------------- -->
+          <div class="section-label">
+            <div class="label">
+              <span *ngIf="row.removeable" ngxDragHandle><i class="fas fa-grip-vertical"></i></span>
+              <span *ngIf="!row.removeable" ngxDragHandle></span>
+              <div class="label-text">{{row.label}}</div>
             </div>
-            <div *ngSwitchCase="'content'" class="widget-container">
-              <hg-widget  [qpath]="model.formConfig" 
-                          [title]="model.label"  
-                          (widgetConfig)="attachConfig($event, model)" >
-              </hg-widget>
-              
-              <div class="icons">
-                <mat-icon ngxDragHandle>pan_tool</mat-icon>
-              </div>
-              
-            </div>
-            <div *ngSwitchDefault>
-              <label>{{model.name}}</label>
-              <input [attr.type]="model.inputType" [ngModel]="model.data">
+            <div class="settings">
+              <button mat-button (click)="getContainerConfig($event, row)"><i class="fas fa-cog"></i></button>
+              <button *ngIf="row.removeable" mat-button color="warn" (click)="getContainerConfig($event, row)"><i class="fas fa-trash-alt"></i></button>
             </div>
           </div>
-        </ng-template>
-      </ngx-dnd-container>
-    </div>
+          <!-- --------------- END ROW LABELS --------------- -->
+          
+          <!-- --------------- ROW COLS --------------- -->
+          <div class="ngx-dnd-container"
+              ngxDroppable="rowdrop"
+              [model]="row.children"
+              
+              >  
+              <div class="ngx-dnd-item {{col.class}}"
+                *ngFor="let col of row.children"
+                ngxDraggable="['disabledrag']"
+                [model]="col"
+                >
+                
+                <!-- --------------- CONTENTS --------------- -->
+                <div class="ngx-dnd-container"
+                    ngxDroppable="contents" 
+                    [model]="col.children"
+                    
+                    >  
+                    <div class="ngx-dnd-item"
+                      *ngFor="let item of col.children"
+                      ngxDraggable="['contents']"
+                      [model]="item"
+                      >
+                      <!-- --------------- WIDGET LABELS --------------- -->
+                      <div class="section-label">
+                        <div class="label">
+                          <span ngxDragHandle><i class="fas fa-grip-vertical"></i></span>
+                          <div class="label-text">{{item.label}}</div>
+                        </div>
+                      </div>
+                      <!-- --------------- END WIDGET LABELS --------------- -->
+                      <hg-widget  [qpath]="item.formConfig" 
+                        [title]="item.label"  
+                        (widgetConfig)="attachConfig($event, item)" >
+                      </hg-widget>
+                    </div>
+                </div>
+                <!-- --------------- END CONTENTS --------------- -->
+                
+              </div>
+          </div>
+          <!-- --------------- END ROW COLS --------------- -->
+          
+            
+        </div>
+        <!-- --------------- END ROWS --------------- -->
+        
+      </div>
+      
+
+        </div>
+    </mat-card-content>	
+    </mat-card>
+    
   </mat-sidenav-content>
 </mat-sidenav-container>

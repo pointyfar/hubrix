@@ -15,6 +15,7 @@ import { ConfigComponent } from './../config/config.component';
 export class LayoutComponent implements OnInit {
 
   @Input() public widgetsPath: string;
+  @Input() public structuresPath: string;
   @Input() public configPath: string;
   @Input() public assetsBasePath: string;
 
@@ -29,9 +30,11 @@ export class LayoutComponent implements OnInit {
 
   mainSection: any[] = [];
 
-  droppableItemClass = (item: any) => `${item.class} ${item.inputType}`;
+  droppableItemClass = (item: any) => `${item.class} ${item.inputType} x`;
 
   groupedWidgets: any[] = [];
+  structuresWidgets: any[] = [];
+  contentsWidgets: any[] = [];
   
   containerWidgetConfig = {};
   containerWidgetForm = "";
@@ -47,16 +50,38 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     this.getWidgetsList();
+/*    this.getStructuresList();*/
     this.assetsBasePath = this.assetsBasePath.slice(-1) == "/" ? this.assetsBasePath : this.assetsBasePath + "/";
     this.getConfigFiles();
   }
+  
+  printWidgets(){
+    console.log(this.mainSection)
+  }
+  
+/*  getStructuresList() {
+    this._ls.getWidgetsConfig(this.structuresPath)
+        .subscribe(
+          config => {
+            this.structuresWidgets = this.processWidgets(config.widgets)
+            console.log(config)
+          },
+          err => {
+            console.log(err)
+          },
+        () => {
+          this.isReady = true;
+        }
+      )
+      ;
+  }*/
 
   getWidgetsList() {
     this._ls.getWidgetsConfig(this.widgetsPath)
         .subscribe(
           config => {
             this.widgets = config.widgets;
-            this.groupedWidgets = this.processWidgets(config.widgets)
+            this.groupedWidgets = this.processWidgets(config.widgets, config.groups)
           },
           err => {
             console.log(err)
@@ -68,7 +93,7 @@ export class LayoutComponent implements OnInit {
       ;
   }
   
-  processWidgets(w){
+  processWidgets(w, s){
     let groups = [];
     let processed = [];
     
@@ -93,6 +118,21 @@ export class LayoutComponent implements OnInit {
         processed.push({group: g, items: item});
       }
     }
+    processed.sort((a,b) => { 
+      let val = 0;
+      let ai = s.indexOf(a.group);
+      let bi = s.indexOf(b.group);
+      if (ai < 0 ) {
+        if ( bi < 0 ) {
+          val = a.group < b.group ? -1 : 0 
+        } else { val = -1 }
+      } else {
+        if ( bi < 0  ) {
+          val = -1
+        } else { val = ai < bi ? -1 : 0 }
+      }
+      return val
+    })
 
     return processed
   }
