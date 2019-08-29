@@ -32,7 +32,7 @@
     "@ngx-formly/core": "^4.8.2",
     "@ngx-formly/material": "^4.8.2",
     "@swimlane/dragula": "^3.7.3",
-    "@swimlane/ngx-dnd": "^6.0.0",
+    "@swimlane/ngx-dnd": "^7.0.0",
     "core-js": "^2.5.4",
     "document-register-element": "^1.7.2",
     "file-saver": "^2.0.0",
