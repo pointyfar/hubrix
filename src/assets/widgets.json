@@ -1,80 +1,24 @@
 {
+  "groups" : [
+    "structure",
+    "main"
+    
+  ],
   "widgets" : [
     {
       "name": "widget-placeholder",
       "label": "Placeholder Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "pets",
+      "icon": "fas fa-dragon",
       "formConfig": "assets/widgets-config/placeholder-widget.json"
-    },
-    {
-      "name": "section-quarter",
-      "label": "Section: Quarter",
-      "class": "column is-one-quarter",
-      "parent": true,
-      "inputType": "section",
-      "flex": 25,
-      "group": "sections",
-      "icon": "view_compact",
-      "formConfig": "assets/widgets-config/container-widget.json"
-
-    },
-    {
-      "name": "section-third",
-      "label": "Section: One Third",
-      "class": "column is-one-third",
-      "parent": true,
-      "inputType": "section",
-      "flex": 33.33,
-      "group": "sections",
-      "icon": "view_compact",
-      "formConfig": "assets/widgets-config/container-widget.json"
-
-    },
-    {
-      "name": "section-half",
-      "label": "Section: Half",
-      "class": "column is-one-half",
-      "parent": true,
-      "inputType": "section",
-      "flex": 50,
-      "group": "sections",
-      "icon": "view_compact",
-      "formConfig": "assets/widgets-config/container-widget.json"
-
-    },
-    {
-      "name": "section-full",
-      "label": "Section: Full Width",
-      "class": "column is-full",
-      "parent": true,
-      "inputType": "section",
-      "flex": 100,
-      "group": "sections",
-      "icon": "view_compact",
-      "formConfig": "assets/widgets-config/container-widget.json"
-
-    },
-    {
-      "name": "section-flex",
-      "label": "Section: Flex Width",
-      "class": "column flex",
-      "parent": true,
-      "inputType": "section",
-      "flex": 25,
-      "group": "sections",
-      "icon": "view_compact",
-      "formConfig": "assets/widgets-config/container-widget.json"
-
-      
     },
     {
       "name": "widget-labeled-text",
       "label": "Labeled Text List",
       "class": "widget",
       "inputType": "content",
-      "icon": "list",
+      "icon": "fas fa-list",
       "group": "utilities",
       "formConfig": "assets/widgets-config/labeled-text.json"
     },
@@ -83,7 +27,7 @@
       "label": "Search Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "photo",
+      "icon": "fas fa-search",
       "group": "utilities",
       "formConfig": "assets/widgets-config/search-widget.json"
     },
@@ -92,7 +36,7 @@
       "label": "Hero Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "photo",
+      "icon": "fas fa-flag",
       "group": "main",
       "formConfig": "assets/widgets-config/hero-widget.json"
     },
@@ -101,7 +45,7 @@
       "label": "Navigation",
       "class": "widget nav-container",
       "inputType": "content",
-      "icon": "more_vert",
+      "icon": "fas fa-ellipsis-v",
       "group": "main",
       "formConfig": "assets/widgets-config/navbar-widget.json"
     },
@@ -110,7 +54,7 @@
       "label": "Author Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "account_circle",
+      "icon": "fas fa-user",
       "group": "utilities",
       "formConfig": "assets/widgets-config/author-widget.json"
     },
@@ -119,7 +63,7 @@
       "label": "Social Buttons Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "thumb_up",
+      "icon": "fas fa-thumbs-up",
       "group": "utilities",
       "formConfig": "assets/widgets-config/social-widget.json"
     },
@@ -128,7 +72,7 @@
       "label": "Tag Cloud Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "label",
+      "icon": "fas fa-tag",
       "group": "utilities",
       "formConfig": "assets/widgets-config/tagcloud-widget.json"
     },
@@ -137,7 +81,7 @@
       "label": "Links Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "link",
+      "icon": "fas fa-link",
       "group": "utilities",
       "formConfig": "assets/widgets-config/links-widget.json"
     },
@@ -146,7 +90,7 @@
       "label": "Text Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "create",
+      "icon": "fas fa-quote-left",
       "group": "utilities",
       "formConfig": "assets/widgets-config/text-widget.json"
     },
@@ -155,7 +99,7 @@
       "label": "Main Content Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "description",
+      "icon": "fas fa-file-alt",
       "group": "main",
       "formConfig": "assets/widgets-config/main-widget.json"
     },
@@ -164,10 +108,241 @@
       "label": "Image Widget",
       "class": "widget",
       "inputType": "content",
-      "icon": "photo",
+      "icon": "fas fa-image",
       "group": "utilities",
       "formConfig": "assets/widgets-config/image-widget.json"
+    },
+    
+    
+    {
+      "name": "one-three",
+      "label": "One-Three",
+      "class": "column is-full row",
+      "parent": true,
+      "inputType": "section",
+      "flex": 100,
+      "removeOnSpill": true,
+      "group": "structure",
+      "icon": "view_compact",
+      "svg": "assets/img/svg/row-13.svg#layer1",
+      "draggable": "['maindroppable']",
+      "droppable": "dragtest",
+      "formConfig": "assets/widgets-config/container-widget.json",
+      "children": [
+        {
+          "name": "one-quarter",
+          "label": "One Quarter",
+          "class": "column is-one-quarter",
+          "parent": true,
+          "inputType": "section",
+          "flex": 25,
+          "group": "structure",
+          "icon": "view_compact",
+          "removeOnSpill": false,
+          "removeable": false,
+          "draggable": "[]",
+          "formConfig": "assets/widgets-config/container-widget.json"
+
+        },
+        {
+          "name": "three-quarter",
+          "label": "Three Quarter",
+          "class": "column is-three-quarter",
+          "parent": true,
+          "inputType": "section",
+          "flex": 75,
+          "group": "structure",
+          "droppable": "droptest",
+          "draggable": "['dragtest']",
+          "removeOnSpill": false,
+          "removeable": false,
+          "icon": "view_compact",
+          "formConfig": "assets/widgets-config/container-widget.json"
+        }
+      ]
+
+    },
+    
+    {
+      "name": "one-two",
+      "label": "One-Two",
+      "class": "column is-full row",
+      "parent": true,
+      "inputType": "section",
+      "flex": 100,
+      "group": "structure",
+      "draggable": "['maindroppable']",
+      "svg": "assets/img/svg/row-12.svg",
+      "icon": "view_compact",
+      "formConfig": "assets/widgets-config/container-widget.json",
+      "children": [
+        {
+          "name": "one-third",
+          "label": "One Quarter",
+          "class": "column is-one-third",
+          "parent": true,
+          "inputType": "section",
+          "flex": 25,
+          "group": "structure",
+          "icon": "view_compact",
+          "removeOnSpill": false,
+          "removeable": false,
+          "draggable": false,
+          "formConfig": "assets/widgets-config/container-widget.json"
+        },
+        {
+          "name": "two-third",
+          "label": "Three Quarter",
+          "class": "column is-two-third",
+          "parent": true,
+          "inputType": "section",
+          "flex": 75,
+          "group": "structure",
+          "draggable": false,
+          "removeable": false,
+          "icon": "view_compact",
+          "formConfig": "assets/widgets-config/container-widget.json"
+        }
+
+      ]
+
+    },
+    
+        {
+          "name": "half-half",
+          "label": "Half-Half",
+          "class": "column is-full row",
+          "parent": true,
+          "inputType": "section",
+          "flex": 100,
+          "draggable": "['maindroppable']",
+          "group": "structure",
+          "svg": "assets/img/svg/row-11.svg",
+          "icon": "view_compact",
+          "formConfig": "assets/widgets-config/container-widget.json",
+          "children": [
+            {
+              "name": "half",
+              "label": "Half",
+              "class": "column is-one-half",
+              "parent": true,
+              "inputType": "section",
+              "flex": 50,
+              "group": "structure",
+              "draggable": false,
+              "removeable": false,
+              "icon": "view_compact",
+              "formConfig": "assets/widgets-config/container-widget.json"
+            },
+            {
+              "name": "half",
+              "label": "Half",
+              "class": "column is-one-half",
+              "parent": true,
+              "inputType": "section",
+              "flex": 50,
+              "group": "structure",
+              "draggable": false,
+              "removeable": false,
+              "icon": "view_compact",
+              "formConfig": "assets/widgets-config/container-widget.json"
+            }
+          ]
+
+        },
+        
+        
+
+        {
+          "name": "two-one",
+          "label": "Two-One",
+          "class": "column is-full row",
+          "parent": true,
+          "inputType": "section",
+          "flex": 100,
+          "group": "structure",
+          "draggable": "['maindroppable']",
+          "svg": "assets/img/svg/row-21.svg",
+          "icon": "view_compact",
+          "formConfig": "assets/widgets-config/container-widget.json",
+          "children": [
+            {
+              "name": "two-third",
+              "label": "Three Quarter",
+              "class": "column is-two-third",
+              "parent": true,
+              "inputType": "section",
+              "flex": 75,
+              "group": "structure",
+              "draggable": false,
+              "removeable": false,
+              "icon": "view_compact",
+              "formConfig": "assets/widgets-config/container-widget.json"
+            },
+            {
+              "name": "one-third",
+              "label": "One Quarter",
+              "class": "column is-one-third",
+              "parent": true,
+              "inputType": "section",
+              "flex": 25,
+              "group": "structure",
+              "icon": "view_compact",
+              "removeOnSpill": false,
+              "removeable": false,
+              "draggable": false,
+              "formConfig": "assets/widgets-config/container-widget.json"
+            }
+          ]
+
+        },
+    {
+      "name": "three-one",
+      "label": "Three-One",
+      "class": "column is-full row",
+      "parent": true,
+      "inputType": "section",
+      "flex": 100,
+      "group": "structure",
+      "draggable": "['maindroppable']",
+      "svg": "assets/img/svg/row-31.svg",
+      "icon": "view_compact",
+      "formConfig": "assets/widgets-config/container-widget.json",
+      "children": [
+        {
+          "name": "three-quarter",
+          "label": "Three Quarter",
+          "class": "column is-three-quarter",
+          "parent": true,
+          "inputType": "section",
+          "flex": 75,
+          "group": "structure",
+          "draggable": false,
+          "removeable": false,
+          "icon": "view_compact",
+          "formConfig": "assets/widgets-config/container-widget.json"
+        },
+        {
+          "name": "one-quarter",
+          "label": "One Quarter",
+          "class": "column is-one-quarter",
+          "parent": true,
+          "inputType": "section",
+          "flex": 25,
+          "group": "structure",
+          "icon": "view_compact",
+          "removeOnSpill": false,
+          "removeable": false,
+          "draggable": false,
+          "formConfig": "assets/widgets-config/container-widget.json"
+        }
+      ]
+
     }
+
+    
+
+
   ]
   
   }
