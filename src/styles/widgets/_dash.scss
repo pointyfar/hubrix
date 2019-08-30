@@ -36,7 +36,7 @@
     }
     
     .row-item {
-      border-bottom: 2px solid map-get($mat-teal,500);
+      border-bottom: 5px solid map-get($mat-teal,500);
       .section-label {
         display: flex;
         flex-direction: row;
@@ -111,7 +111,6 @@
   
   .ngx-dnd-item {
     margin: 0;
-    border: 0px solid map-get($mat-teal,500);
     background: map-get($mat-grey, 800);
     background: none;
     flex: 1 1 100%;
@@ -122,9 +121,22 @@
     height: auto;
     min-height: 50px;
     
+    &.widget-item:not(:last-child){
+      border-bottom: 1px solid map-get($mat-teal,500);
+    }
+    
     &.column {
       border: 1px solid map-get($mat-teal,500);
       border-left: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: stretch;
+      width: 100%;
+      
+      .ngx-dnd-container {
+        width: 100%;
+        height: 100%;
+      }
     }
     &.column:last-child {
       border-right: 0px;
@@ -136,7 +148,7 @@
 
     &:hover {
       // border: 1px solid map-get($mat-teal,500);
-      background: map-get($mat-grey, 700);
+      //background: map-get($mat-grey, 700);
     }
 
     &.section {
@@ -254,39 +266,5 @@
 
   .message {
     padding: 1rem;
-  }
-}
-
-.widget-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-
-  .mat-icon {
-    flex: 0 1 auto;
-  }
-
-  .widget {
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex: 1 1 100%;
-    width: 100%;
-
-    button.mat-button {
-      padding: 0.25rem;
-      min-width: 3rem;
-    }
-
-    h3 {
-      display: inline-block;
-      flex: 1 0 auto;
-      width: 100%;
-      margin: 0 0.25rem;
-      word-wrap: break-word;
-    }
   }
 }

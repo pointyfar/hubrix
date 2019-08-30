@@ -1,11 +1,19 @@
-<div *ngIf="qReady" class="widget">
-  <button mat-button color="primary" (click)="openDialog()"><mat-icon>settings</mat-icon></button>
-  <div *ngIf="hasResult; else indeterminate">
-    <mat-icon>check_box</mat-icon>
-  </div>
-  <ng-template #indeterminate>
-    <mat-icon>indeterminate_check_box</mat-icon>
-  </ng-template>
-  
-  <h3>{{title}}</h3>
-</div>
+<mat-card class="widget-card" *ngIf="qReady">
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      Configure
+    </button>
+    <button mat-button color="warn" >
+      <i class="fas fa-trash-alt"></i>
+    </button>
+    
+  </mat-card-actions>
+</mat-card>

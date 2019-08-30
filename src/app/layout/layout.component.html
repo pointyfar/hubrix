@@ -134,9 +134,10 @@
                 <div class="ngx-dnd-container"
                     ngxDroppable="contents" 
                     [model]="col.children"
+                    removeOnSpill="true"
                     
                     >  
-                    <div class="ngx-dnd-item"
+                    <div class="ngx-dnd-item widget-item"
                       *ngFor="let item of col.children"
                       ngxDraggable="['contents']"
                       [model]="item"

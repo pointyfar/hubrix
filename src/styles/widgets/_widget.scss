@@ -1,0 +1,46 @@
+
+.widget-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .mat-icon {
+    flex: 0 1 auto;
+  }
+
+  .widget {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1 1 100%;
+    width: 100%;
+
+    button.mat-button {
+      padding: 0.25rem;
+      min-width: 3rem;
+    }
+
+    h3 {
+      display: inline-block;
+      flex: 1 0 auto;
+      width: 100%;
+      margin: 0 0.25rem;
+      word-wrap: break-word;
+    }
+  }
+  
+  .mat-card-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.widget-card {
+  margin: .5rem;
+}
