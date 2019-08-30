@@ -68,6 +68,8 @@ function mapWidgetItem( wi: any ):WidgetItem[] {
     item['droppable'] = (wi.widgets[i].droppable != null) ? wi.widgets[i].droppable : "['default']";
     item['removeOnSpill'] = (wi.widgets[i].removeOnSpill != null) ? wi.widgets[i].removeOnSpill : true;
     item['removeable'] = (wi.widgets[i].removeable != null) ? wi.widgets[i].removeable : true;
+    item['image'] = wi.widgets[i].image ? wi.widgets[i].image : "";
+    item['content'] = wi.widgets[i].content ? wi.widgets[i].content : "";
 
     if( wi.widgets[i]['parent'] === true ){
       item['children'] = [] as any[];

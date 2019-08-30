@@ -11,6 +11,8 @@
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-dragon",
+      "image": "assets/img/svg/placeholder.svg",
+      "content": "assets/widgets-placeholders/lorem.md",
       "formConfig": "assets/widgets-config/placeholder-widget.json"
     },
     {

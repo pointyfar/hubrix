@@ -150,7 +150,10 @@
                         </div>
                       </div>
                       <!-- --------------- END WIDGET LABELS --------------- -->
-                      <hg-widget  [qpath]="item.formConfig" 
+                      <hg-widget  
+                        [image]="item.image"
+                        [contentUrl]="item.content"
+                        [qpath]="item.formConfig" 
                         [title]="item.label"  
                         (widgetConfig)="attachConfig($event, item)" >
                       </hg-widget>

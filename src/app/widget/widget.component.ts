@@ -3,12 +3,14 @@ import { LayoutService } from './../layout/layout.service';
 import { MatDialog } from '@angular/material';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { ConfigComponent } from './../config/config.component';
+import { WidgetService } from './widget.service';
 
 @Component({
   selector: 'hg-widget',
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated,
+  providers: [WidgetService]
 })
 export class WidgetComponent implements OnInit {
   data = "hello";
@@ -16,8 +18,11 @@ export class WidgetComponent implements OnInit {
   
   @Input() public qpath: string;
   @Input() public title: string;
+  @Input() public image: string;
+  @Input() public contentUrl: string;
   @Output() widgetConfig = new EventEmitter<any>();
   
+  content = "";
   model: any = {};
   formFields: FormlyFieldConfig[] = [];
   
@@ -27,11 +32,13 @@ export class WidgetComponent implements OnInit {
   
   constructor(
     private _ls: LayoutService,
+    private _ws: WidgetService,
     public dialog: MatDialog
   ) { }
 
   ngOnInit() {
     this.getQuestions();
+    this.getContent()
   }
   
   widgetConfigured(c:any){
@@ -85,6 +92,24 @@ export class WidgetComponent implements OnInit {
             this.qReady = true;
           }
         );
+  }
+  
+  getContent(){
+    let content = "";
+    this._ws.getContent(this.contentUrl)
+            .subscribe(
+              c => {
+                content = c;
+                this.content = content;
+              },
+              err => {
+                console.log(err)
+              },
+              () => {
+                console.log(content);
+                
+              }
+            )
   }
 
 }
