@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 
+import { MarkdownModule } from 'ngx-markdown';
+
 import { LayoutComponent } from './layout/layout.component';
 import { ConfigurationLayoutComponent } from './layout/configuration.layout.component';
 import { ArrayTypeComponent } from './models/formly.array';
@@ -39,6 +41,7 @@ import { PanelWrapperComponent } from './panel-wrapper/panel-wrapper.component';
     MaterialModule,
     FlexLayoutModule,
     NgxDnDModule,
+    MarkdownModule.forRoot(),
     HttpClientModule,
     FormlyMaterialModule,
     FormsModule,

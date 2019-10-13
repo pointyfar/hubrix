@@ -30,6 +30,7 @@
               "src/styles/main.scss"
             ],
             "scripts": [
+              "node_modules/marked/lib/marked.js",
               {
                 "input": "node_modules/document-register-element/build/document-register-element.js"
               },

@@ -43,6 +43,8 @@ export class LayoutComponent implements OnInit {
   configFiles = [];
   configFilesDone = true;
   
+  helpText = "";
+  
   constructor(
     public dialog: MatDialog,
     private _ls: LayoutService
@@ -82,6 +84,7 @@ export class LayoutComponent implements OnInit {
           config => {
             this.widgets = config.widgets;
             this.groupedWidgets = this.processWidgets(config.widgets, config.groups);
+            this.getHelp(config.helpPath);
           },
           err => {
             console.log(err)
@@ -270,7 +273,20 @@ export class LayoutComponent implements OnInit {
     
   }
   
-
+  getHelp(url){
+    console.log("Getting Help...", "url");
+    this._ls.getText(url)
+        .subscribe( result => {
+          console.log(result)
+          this.helpText = result;
+        },
+        err => {
+          console.log(err)
+        },
+        () => {
+        }
+      )
+  }
   
 }
 

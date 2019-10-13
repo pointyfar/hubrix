@@ -4,6 +4,7 @@
     "main"
     
   ],
+  "help" : "assets/widgets-config/help.md",
   "widgets" : [
     {
       "name": "widget-placeholder",

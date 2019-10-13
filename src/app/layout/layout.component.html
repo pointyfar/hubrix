@@ -91,6 +91,11 @@
       </mat-card-title>
       <mat-card-content>	
         <div class="main-section main-drop-area">
+          <div *ngIf="mainSection?.length == 0 && helpText" class="main-section-help">
+            <markdown ngPreserveWhitespaces>
+              {{ helpText }}
+            </markdown>
+          </div>
       
       <div class="ngx-dnd-container row-container"
           ngxDroppable="maindroppable"

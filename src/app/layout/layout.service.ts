@@ -27,7 +27,8 @@ export class LayoutService {
               map(combi => { 
                 let widgets = mapWidgetItem(combi);
                 let groups = combi.groups;
-                return {groups, widgets}
+                let helpPath = combi.help;
+                return {groups, widgets, helpPath}
               })
             )
   }
