@@ -1,6 +1,6 @@
 {
+  "description" : "This is a hero widget",
   "modelJson" : {
-    "title": "Placeholder Widget",
     "background" : "img/hero-background-dark.jpeg",
     "bgislight" : false
   },

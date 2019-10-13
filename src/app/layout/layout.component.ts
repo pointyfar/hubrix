@@ -81,7 +81,7 @@ export class LayoutComponent implements OnInit {
         .subscribe(
           config => {
             this.widgets = config.widgets;
-            this.groupedWidgets = this.processWidgets(config.widgets, config.groups)
+            this.groupedWidgets = this.processWidgets(config.widgets, config.groups);
           },
           err => {
             console.log(err)
@@ -139,6 +139,7 @@ export class LayoutComponent implements OnInit {
 
   attachConfig(e, m) {
     m.result = e.config;
+    console.log(m)
   }
 
   generateConfig() {
@@ -258,6 +259,18 @@ export class LayoutComponent implements OnInit {
       }
     }
   }
+  
+  removeFromLayout(e, i, j, k) {
+    console.log(this.mainSection, e, i, j, k)
+    if(k === false) {
+      this.mainSection.splice(i,1);
+    } else {
+      this.mainSection[i]['children'][j]['children'].splice(k,1);
+    }
+    
+  }
+  
+
   
 }
 

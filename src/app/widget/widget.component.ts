@@ -21,8 +21,9 @@ export class WidgetComponent implements OnInit {
   @Input() public image: string;
   @Input() public contentUrl: string;
   @Output() widgetConfig = new EventEmitter<any>();
+  @Output() removeWidget = new EventEmitter<any>();
   
-  content = "";
+  description = "";
   model: any = {};
   formFields: FormlyFieldConfig[] = [];
   
@@ -38,7 +39,6 @@ export class WidgetComponent implements OnInit {
 
   ngOnInit() {
     this.getQuestions();
-    this.getContent()
   }
   
   widgetConfigured(c:any){
@@ -83,6 +83,7 @@ export class WidgetComponent implements OnInit {
         .subscribe(
           r => {
             this.model = r.modelJson;
+            this.description = r.description;
             this.jsonSchemaFields = r.jsonFields;
           },
           err => {
@@ -94,22 +95,9 @@ export class WidgetComponent implements OnInit {
         );
   }
   
-  getContent(){
-    let content = "";
-    this._ws.getContent(this.contentUrl)
-            .subscribe(
-              c => {
-                content = c;
-                this.content = content;
-              },
-              err => {
-                console.log(err)
-              },
-              () => {
-                console.log(content);
-                
-              }
-            )
+  removeWidgetEvent(e){
+    this.removeWidget.emit(e);
+    
   }
-
+  
 }

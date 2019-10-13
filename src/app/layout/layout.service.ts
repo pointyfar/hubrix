@@ -18,6 +18,9 @@ export class LayoutService {
     return this.http.get<any>(url);
   }
   
+  getText(url): any {
+    return this.http.get<any>(url, { responseType: 'text' as 'json'})
+  }
   getWidgetsConfig(url): any {
     return this.http.get<any>(url)
             .pipe(

@@ -16,15 +16,6 @@
       "formConfig": "assets/widgets-config/placeholder-widget.json"
     },
     {
-      "name": "widget-labeled-text",
-      "label": "Labeled Text List",
-      "class": "widget",
-      "inputType": "content",
-      "icon": "fas fa-list",
-      "group": "utilities",
-      "formConfig": "assets/widgets-config/labeled-text.json"
-    },
-    {
       "name": "widget-search",
       "label": "Search Widget",
       "class": "widget",
@@ -113,6 +104,41 @@
       "icon": "fas fa-image",
       "group": "utilities",
       "formConfig": "assets/widgets-config/image-widget.json"
+    },
+    
+    
+    {
+      "name": "one",
+      "label": "One",
+      "class": "column is-full row",
+      "parent": true,
+      "inputType": "section",
+      "flex": 100,
+      "removeOnSpill": true,
+      "group": "structure",
+      "icon": "view_compact",
+      "svg": "assets/img/svg/row-1.svg#layer1",
+      "draggable": "['maindroppable']",
+      "droppable": "dragtest",
+      "formConfig": "assets/widgets-config/container-widget.json",
+      "children": [
+        {
+          "name": "full",
+          "label": "Full",
+          "class": "column is-full",
+          "parent": true,
+          "inputType": "section",
+          "flex": 100,
+          "group": "structure",
+          "icon": "view_compact",
+          "removeOnSpill": false,
+          "removeable": false,
+          "draggable": "[]",
+          "formConfig": "assets/widgets-config/container-widget.json"
+
+        }
+      ]
+
     },
     
     
@@ -337,6 +363,70 @@
           "removeable": false,
           "draggable": false,
           "formConfig": "assets/widgets-config/container-widget.json"
+        }
+      ]
+
+    },
+    
+    {
+      "name": "one-one-one",
+      "label": "One-One-One",
+      "class": "column is-full row",
+      "parent": true,
+      "inputType": "section",
+      "flex": 100,
+      "removeOnSpill": true,
+      "group": "structure",
+      "icon": "view_compact",
+      "svg": "assets/img/svg/row-111.svg#layer1",
+      "draggable": "['maindroppable']",
+      "droppable": "dragtest",
+      "formConfig": "assets/widgets-config/container-widget.json",
+      "children": [
+        {
+          "name": "one-third",
+          "label": "One Third",
+          "class": "column is-one-third",
+          "parent": true,
+          "inputType": "section",
+          "flex": 33.3,
+          "group": "structure",
+          "icon": "view_compact",
+          "removeOnSpill": false,
+          "removeable": false,
+          "draggable": "[]",
+          "formConfig": "assets/widgets-config/container-widget.json"
+
+        },
+        {
+          "name": "one-third",
+          "label": "One Third",
+          "class": "column is-one-third",
+          "parent": true,
+          "inputType": "section",
+          "flex": 33.3,
+          "group": "structure",
+          "icon": "view_compact",
+          "removeOnSpill": false,
+          "removeable": false,
+          "draggable": "[]",
+          "formConfig": "assets/widgets-config/container-widget.json"
+
+        },
+        {
+          "name": "one-third",
+          "label": "One Third",
+          "class": "column is-one-third",
+          "parent": true,
+          "inputType": "section",
+          "flex": 33.3,
+          "group": "structure",
+          "icon": "view_compact",
+          "removeOnSpill": false,
+          "removeable": false,
+          "draggable": "[]",
+          "formConfig": "assets/widgets-config/container-widget.json"
+
         }
       ]
 
