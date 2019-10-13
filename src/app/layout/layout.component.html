@@ -84,7 +84,7 @@
       <mat-card-title>
         <div class="title-text">Drag widgets here</div>
         <div class="title-button">
-          <button mat-raised-button color="primary" (click)="printWidgets()">
+          <button mat-raised-button color="primary" (click)="launchHelp(true)" *ngIf="mainSection?.length > 0">
             <mat-icon>help</mat-icon>
           </button>
         </div>
@@ -114,7 +114,7 @@
             <div class="label">
               <span *ngIf="row.removeable" ngxDragHandle><i class="fas fa-grip-vertical"></i></span>
               <span *ngIf="!row.removeable" ngxDragHandle></span>
-              <div class="label-text">{{row.label}} // i </div>
+              <div class="label-text">{{row.label}}</div>
             </div>
             <div class="settings">
               <button mat-button (click)="getContainerConfig($event, row)"><i class="fas fa-cog"></i></button>

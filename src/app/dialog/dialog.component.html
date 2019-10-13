@@ -1,0 +1,13 @@
+<div class="dialog-container">
+  <h3 *ngIf="title">{{title}}</h3>
+  <div class="dialog-body"  *ngIf="text">
+    <div *ngIf="markdownify; else plain">
+      <markdown ngPreserveWhitespaces>
+        {{text}}
+      </markdown>
+    </div>
+    <ng-template #plain>
+        {{text}}
+    </ng-template>
+  </div>
+</div>

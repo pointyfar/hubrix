@@ -1,14 +1,16 @@
 {
   "groups" : [
     "structure",
-    "main"
-    
+    "placeholder",
+    "main",
+    "feature widgets"
   ],
   "help" : "assets/widgets-config/help.md",
   "widgets" : [
     {
       "name": "widget-placeholder",
       "label": "Placeholder Widget",
+      "group": "placeholder",
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-dragon",
@@ -22,7 +24,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-search",
-      "group": "utilities",
+      "group": "feature widgets",
       "formConfig": "assets/widgets-config/search-widget.json"
     },
     {
@@ -49,7 +51,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-user",
-      "group": "utilities",
+      "group": "feature widgets",
       "formConfig": "assets/widgets-config/author-widget.json"
     },
     {
@@ -58,7 +60,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-thumbs-up",
-      "group": "utilities",
+      "group": "feature widgets",
       "formConfig": "assets/widgets-config/social-widget.json"
     },
     {
@@ -67,7 +69,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-tag",
-      "group": "utilities",
+      "group": "feature widgets",
       "formConfig": "assets/widgets-config/tagcloud-widget.json"
     },
     {
@@ -76,7 +78,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-link",
-      "group": "utilities",
+      "group": "feature widgets",
       "formConfig": "assets/widgets-config/links-widget.json"
     },
     {
@@ -85,7 +87,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-quote-left",
-      "group": "utilities",
+      "group": "feature widgets",
       "formConfig": "assets/widgets-config/text-widget.json"
     },
     {
@@ -103,7 +105,7 @@
       "class": "widget",
       "inputType": "content",
       "icon": "fas fa-image",
-      "group": "utilities",
+      "group": "feature widgets",
       "formConfig": "assets/widgets-config/image-widget.json"
     },
     

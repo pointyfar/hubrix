@@ -24,6 +24,7 @@ import { ConfigComponent } from './config/config.component';
 import { WidgetComponent } from './widget/widget.component';
 import { OutputComponent } from './output/output.component';
 import { PanelWrapperComponent } from './panel-wrapper/panel-wrapper.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PanelWrapperComponent } from './panel-wrapper/panel-wrapper.component';
     ConfigComponent,
     WidgetComponent,
     OutputComponent,
-    PanelWrapperComponent
+    PanelWrapperComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +87,7 @@ import { PanelWrapperComponent } from './panel-wrapper/panel-wrapper.component';
   entryComponents :  [
      LayoutComponent,
      ConfigComponent,
+     DialogComponent,
      OutputComponent
   ]})
 export class AppModule {

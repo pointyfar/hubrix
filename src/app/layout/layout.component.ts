@@ -4,6 +4,7 @@ import { WidgetItem } from './../models/widget.item';
 import { MatDialog } from '@angular/material';
 import { OutputComponent } from './../output/output.component';
 import { ConfigComponent } from './../config/config.component';
+import { DialogComponent } from './../dialog/dialog.component';
 
 @Component({
   selector: 'hg-layout',
@@ -232,6 +233,19 @@ export class LayoutComponent implements OnInit {
               () => {
               }
             );
+    
+  }
+  
+  launchHelp(m){
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '1000px',
+      height: '90%',
+      data: {
+        title: "Help",
+        text: this.helpText,
+        markdownify: m
+      }
+    });
     
   }
   
