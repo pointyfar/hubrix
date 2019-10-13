@@ -274,10 +274,8 @@ export class LayoutComponent implements OnInit {
   }
   
   getHelp(url){
-    console.log("Getting Help...", "url");
     this._ls.getText(url)
         .subscribe( result => {
-          console.log(result)
           this.helpText = result;
         },
         err => {

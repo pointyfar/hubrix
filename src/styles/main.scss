@@ -49,3 +49,12 @@ app-root {
 .widget-model {
   overflow: auto;
 }
+
+.main-section-help {
+  font-size: smaller;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid map-get($mat-grey, 800);
+  background: rgba(black, .25);
+  
+}
