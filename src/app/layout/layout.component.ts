@@ -143,7 +143,6 @@ export class LayoutComponent implements OnInit {
 
   attachConfig(e, m) {
     m.result = e.config;
-    console.log(m)
   }
 
   generateConfig() {
@@ -278,10 +277,11 @@ export class LayoutComponent implements OnInit {
   }
   
   removeFromLayout(e, i, j, k) {
-    console.log(this.mainSection, e, i, j, k)
     if(k === false) {
+      /* structure widget */
       this.mainSection.splice(i,1);
     } else {
+      /* feature widget */
       this.mainSection[i]['children'][j]['children'].splice(k,1);
     }
     
