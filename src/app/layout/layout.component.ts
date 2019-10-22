@@ -58,6 +58,7 @@ export class LayoutComponent implements OnInit {
     this.getConfigFiles();
   }
   
+  
   printWidgets(){
     console.log(this.mainSection)
   }
