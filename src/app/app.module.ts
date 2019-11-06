@@ -26,6 +26,9 @@ import { OutputComponent } from './output/output.component';
 import { PanelWrapperComponent } from './panel-wrapper/panel-wrapper.component';
 import { DialogComponent } from './dialog/dialog.component';
 
+import { ConfigBuilderComponent } from './config-builder/config-builder.component';
+import { WidgetBuilderComponent } from './widget-builder/widget-builder.component';
+
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -35,7 +38,9 @@ import { DialogComponent } from './dialog/dialog.component';
     WidgetComponent,
     OutputComponent,
     PanelWrapperComponent,
-    DialogComponent
+    DialogComponent,
+    ConfigBuilderComponent,
+    WidgetBuilderComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +93,9 @@ import { DialogComponent } from './dialog/dialog.component';
      LayoutComponent,
      ConfigComponent,
      DialogComponent,
-     OutputComponent
+     OutputComponent,
+     ConfigBuilderComponent,
+     WidgetBuilderComponent
   ]})
 export class AppModule {
   /*  ngDoBootstrap(){
@@ -97,9 +104,17 @@ export class AppModule {
     }*/
     
     constructor(private injector: Injector) {
-     const lc = createCustomElement(LayoutComponent, { injector });
-     customElements.define('hg-layout', lc);
    }
 
-   ngDoBootstrap() {}
+   ngDoBootstrap() {
+     
+     const lc = createCustomElement(LayoutComponent, { injector: this.injector });
+     customElements.define('hg-layout', lc);
+     
+     const cg = createCustomElement(ConfigBuilderComponent, { injector: this.injector });
+     customElements.define('hg-config-builder', cg);
+     
+     const wg = createCustomElement(WidgetBuilderComponent, { injector: this.injector });
+     customElements.define('hg-widget-builder', wg);
+   }
 }

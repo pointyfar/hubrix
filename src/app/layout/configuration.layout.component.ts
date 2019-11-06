@@ -12,17 +12,22 @@ import { OutputComponent } from './../output/output.component';
   encapsulation: ViewEncapsulation.Emulated,
   providers: [LayoutService],
   template: `
-  <div fxLayout="row" class="config-file">
-    <div fxFlex="fill" >
-      <button fxFlex="fill" mat-raised-button color="primary" (click)="loadConfigDialog()">
-        {{configFile.label}}
-      </button>
-      </div>
-    <div fxFlex="initial">
-      <button mat-icon-button matTooltip="Save in own file" [disabled]="!hasResult" (click)="saveConfig()">
-        <mat-icon>save</mat-icon>
-      </button>
-    </div>
+  <div fxLayout="row" fxFlexFill fxLayoutAlign="center stretch" class="config-file">
+    <mat-card fxFlex fxLayout="column">
+      <mat-card-title>{{configFile.label}}</mat-card-title>
+      <mat-card-content fxFlex>
+      <markdown ngPreserveWhitespaces>{{configFile.description}}</markdown>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-between start">
+        <button mat-raised-button color="primary" (click)="loadConfigDialog()">
+          Configure {{configFile.label}}
+        </button>
+        <button mat-icon-button matTooltip="Save in own file" [disabled]="!hasResult" (click)="saveConfig()">
+          <mat-icon>save</mat-icon>
+        </button>
+        
+      </mat-card-actions>
+    </mat-card>
   </div>
   `,
 })

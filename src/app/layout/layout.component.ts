@@ -30,6 +30,7 @@ export class LayoutComponent implements OnInit {
   targetBuilderTools: any[] = [];
 
   mainSection: any[] = [];
+  _ms: any[] = [];
 
   droppableItemClass = (item: any) => `${item.class} ${item.inputType} x`;
 
@@ -277,13 +278,13 @@ export class LayoutComponent implements OnInit {
     }
   }
   
-  removeFromLayout(e, i, j, k) {
-    if(k === false) {
+  removeFromLayout(e) {
+    if(e.k === false) {
       /* structure widget */
-      this.mainSection.splice(i,1);
+      this.mainSection.splice(e.i,1);
     } else {
       /* feature widget */
-      this.mainSection[i]['children'][j]['children'].splice(k,1);
+      this.mainSection[e.i]['children'][e.j]['children'].splice(e.k,1);
     }
     
   }

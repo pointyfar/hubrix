@@ -1,0 +1,13 @@
+<div *ngIf="configFilesDone" fxLayout="row wrap" fxFlex >
+  <div *ngFor="let confile of configFiles" 
+        fxFlex="33.33" 
+        fxLayout="row wrap"
+        style="padding:.5rem;">
+    <hg-config-item 
+        fxFlexFill
+        [configFile]="confile" 
+        (result)="emitConfigValue($event)"
+        >
+    </hg-config-item>
+  </div>
+</div>
