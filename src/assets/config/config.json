@@ -1,4 +1,8 @@
 {
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/getting-started/configuration/#all-configuration-settings)"
+  ],
+  "destination" : "configDir/_default/config.(json/yaml/toml)",
   "modelJson" : {
     "baseURL" : "http://example.org/",
     "languageCode" : "en-us",

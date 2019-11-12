@@ -1,4 +1,8 @@
 {
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/templates/output-formats/)"
+  ],
+  "destination" : "configDir/_default/outputs.(json/yaml/toml)",
   "modelJson": {
 
   },

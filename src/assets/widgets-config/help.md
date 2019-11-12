@@ -1,4 +1,14 @@
-## Widgets Introduction
+## Config Builder 
+
+Use the Config Builder ("Configure Hugo" tab) to set the various configuration options that Hugo has. 
+
+Each configuration object can be saved individually to your [`configDir`](https://gohugo.io/getting-started/configuration/). Alternatively, navigate to the 'Results' tab to download as a single `config.toml/yaml/json` file. Note that any layouts configured using the Layout Builder (in the Build Layout tab) will be included in the mega-file under the `params` key.
+
+---
+
+## Layout Builder 
+
+### Widgets Introduction
 
 There are two main types of widgets: **"Structure"** and **"Feature"** widgets. The structure widgets dictate the grid structure that the page will follow. The other feature widgets (ie **main** and **side** widgets) provide the actual features.
 
@@ -8,13 +18,13 @@ Drag the widgets from the sidebar on the left to the main drop zone area below. 
 
 You can reposition the widgets in the main drop area by dragging them using the drag handles: <i class="fas fa-grip-vertical"></i>.
 
-## Structure Widgets
+#### Structure Widgets
 
 Each structure widget is a **row**. Each row may be divided into columns, with pre-determined width ratio. The name of the structure widget reflects the ratio of its column widths to each other. This means that the `One-Two` structure has two columns, with the second column twice the width of the first.
 
 You can apply custom classes to each structure widget by clicking on the cog icon located at the top part of the structure card. You can delete the structure widget by clicking on the trach icon located at the top part of the structure card. You can also drag and drop the widget outside of the main drop zone to delete.
 
-## Feature Widgets 
+#### Feature Widgets 
 
 Each feature widget may have configuration options. This appears once it has been dropped into its structure widget container. The configuration options may be accessed by clicking the **"Configure"** button located at the bottom of the widget card.
 

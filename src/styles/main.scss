@@ -30,6 +30,13 @@ app-root {
   background-color: map-get($mat-grey, 300);
 }
 
+code {
+  color: map-get($dark-accent, 300);
+}
+
+.config-item-notes {
+  font-size: 90%;
+}
 
 .formly-array {
   margin: 2rem 0;

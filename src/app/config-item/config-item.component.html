@@ -2,7 +2,22 @@
   <mat-card fxFlex fxLayout="column">
     <mat-card-title>{{configFile.label}}</mat-card-title>
     <mat-card-content fxFlex>
-    <markdown ngPreserveWhitespaces>{{configFile.description}}</markdown>
+      <markdown ngPreserveWhitespaces>
+        {{configFile.description}}
+      </markdown>
+      <div *ngIf="configReady" class="config-item-notes">
+        <markdown ngPreserveWhitespaces>
+        <ng-template ngFor let-line [ngForOf]="config.notes">
+          {{line}}
+        </ng-template>
+        </markdown>
+        <markdown ngPreserveWhitespaces>
+        Suggested destination:
+        
+        `{{config?.destination}}`
+        
+        </markdown>
+      </div>
     </mat-card-content>
     <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-between start">
       <button mat-raised-button color="primary" (click)="loadConfigDialog()">

@@ -5,6 +5,7 @@
       <div *ngFor="let line of notes">
         {{line}}
       </div>
+      <hr>
     </div>
     <form [formGroup]="form" (ngSubmit)="saveForm()">
       <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">

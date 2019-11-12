@@ -29,6 +29,7 @@ export class FormComponent implements OnInit {
   
 
   ngOnInit() {
+    console.log(this.notes)
     this.model = this.data.inputModel
     this.fields = this.data.jsonSchemaFields
     this.title = this.data.title

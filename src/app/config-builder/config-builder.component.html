@@ -1,11 +1,10 @@
 <div fxLayout="column" fxLayoutAlign="center stretch">
 <div *ngIf="helpText" fxLayout="row wrap" fxFlexFill>
-  <markdown>{{ helpText }}
-  </markdown>
+  <markdown>{{ helpText }}</markdown>
 </div>
 <div *ngIf="configFilesDone" fxLayout="row wrap" fxFlexFill >
   <div *ngFor="let confile of configFiles" 
-        fxFlex="33.33" 
+        fxFlex="50" 
         fxLayout="row wrap"
         style="padding:.5rem;">
     <hg-config-item 

@@ -1,4 +1,8 @@
 {
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/content-management/image-processing/#image-processing-config)"
+  ],
+  "destination" : "configDir/_default/imaging.(json/yaml/toml)",
   "modelJson": {
     "resampleFilter": "box",
     "quality": "75",

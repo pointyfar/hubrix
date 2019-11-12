@@ -1,4 +1,8 @@
 {
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/variables/site/#the-site-params-variable)"
+  ],
+  "destination" : "configDir/_default/params.(json/yaml/toml)",
   "modelJson": {
     "subtitle": "My Awesome Site",
     "brandImage": "",

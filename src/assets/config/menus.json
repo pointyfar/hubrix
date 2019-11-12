@@ -1,4 +1,8 @@
 {
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/content-management/menus/#add-non-content-entries-to-a-menu)"
+  ],
+  "destination" : "configDir/_default/menus.(json/yaml/toml)",
   "modelJson": {
 
   },

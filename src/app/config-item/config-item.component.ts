@@ -17,19 +17,29 @@ export class ConfigItemComponent implements OnInit {
   config:any = {};
   configResult:any = {};
   hasResult = false;
+  
+  configReady = false;
+  
+  hasNotes = false;
+  notes = [];
+  
   constructor(
     public dialog: MatDialog,
     private _ls: SharedService
   ) { }
 
   ngOnInit() {
+    console.log(this.configFile['url'])
     this._ls.getUrl(this.configFile['url'])
         .subscribe(
           result => {
             this.config = result;
+            console.log(this.config)
           },
           err => console.log('Error getting config from ', this.configFile['url'], err),
-          () => {}
+          () => {
+            this.configReady = true;
+          }
         )
         
   }  
@@ -40,7 +50,7 @@ export class ConfigItemComponent implements OnInit {
       height: '90%',
       data: {
         title: `Configure ${this.configFile['label']} Options`,
-        note: this.config['notes'],
+        notes: [`Suggested destination: ${this.config['destination']}`],
         inputModel: this.config['modelJson'],
         jsonSchemaFields: this.config['jsonFields']
       }
