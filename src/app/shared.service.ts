@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 import { Observable, forkJoin } from 'rxjs';
 import { map, mergeMap, switchMap } from 'rxjs/operators';
-import { WidgetItem } from './../models/widget.item';
-import { FormlyFieldConfig } from '@ngx-formly/core';
+import { WidgetItem } from './models/widget.item';
 
-@Injectable()
-export class LayoutService {
+
+@Injectable({providedIn: 'root'})
+export class SharedService {
   
   configOrderUrl = "assets/config-order.json"
   

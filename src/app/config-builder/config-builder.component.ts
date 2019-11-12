@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
-import { LayoutService } from './../layout/layout.service';
+import { SharedService } from './../shared.service';
 
 @Component({
   selector: 'hg-cb',
@@ -20,7 +20,7 @@ export class ConfigBuilderComponent implements OnInit {
   helpText = "";
   
   constructor(
-    private _ls: LayoutService
+    private _ls: SharedService
     
   ) { }
 

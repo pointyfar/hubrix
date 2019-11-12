@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { DialogComponent } from './../dialog/dialog.component';
-import { LayoutService } from './../layout/layout.service';
+import { SharedService } from './../shared.service';
 import { MatDialog } from '@angular/material';
 import { WidgetItem } from './../models/widget.item';
 
@@ -31,7 +31,7 @@ export class WidgetBuilderComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private _ls: LayoutService
+    private _ls: SharedService
     
   ) { }
 

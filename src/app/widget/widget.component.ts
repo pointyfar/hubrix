@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
-import { LayoutService } from './../layout/layout.service';
+import { SharedService } from './../shared.service';
 import { MatDialog } from '@angular/material';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormComponent } from './../form/form.component';
@@ -32,7 +32,7 @@ export class WidgetComponent implements OnInit {
   hasResult = false;
   
   constructor(
-    private _ls: LayoutService,
+    private _ls: SharedService,
     private _ws: WidgetService,
     public dialog: MatDialog
   ) { }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
-import { LayoutService } from '../layout/layout.service';
+import { SharedService } from './../shared.service';
 import { MatDialog } from '@angular/material';
 import { FormComponent } from './../form/form.component';
 import { OutputComponent } from './../output/output.component';
@@ -8,7 +8,7 @@ import { OutputComponent } from './../output/output.component';
   selector: 'hg-config-item',
   styleUrls: ['./config-item.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
-  providers: [LayoutService],
+  providers: [SharedService],
   templateUrl: "./config-item.component.html"
 })
 export class ConfigItemComponent implements OnInit {
@@ -20,7 +20,7 @@ export class ConfigItemComponent implements OnInit {
   hasResult = false;
   constructor(
     public dialog: MatDialog,
-    private _ls: LayoutService
+    private _ls: SharedService
   ) { }
 
   ngOnInit() {

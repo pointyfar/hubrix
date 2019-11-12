@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { LayoutService } from './layout.service';
+import { SharedService } from './../shared.service';
 import { WidgetItem } from './../models/widget.item';
 import { MatDialog } from '@angular/material';
 import { OutputComponent } from './../output/output.component';
@@ -11,7 +11,7 @@ import { DialogComponent } from './../dialog/dialog.component';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
-  providers: [LayoutService]
+  providers: [SharedService]
 })
 export class LayoutComponent implements OnInit {
 
@@ -49,7 +49,7 @@ export class LayoutComponent implements OnInit {
   
   constructor(
     public dialog: MatDialog,
-    private _ls: LayoutService
+    private _ls: SharedService
   ) { }
 
   ngOnInit() {
