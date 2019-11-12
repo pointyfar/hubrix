@@ -1,11 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { LayoutService } from './../layout/layout.service';
-/*import { WidgetItem } from './../models/widget.item';
-import { MatDialog } from '@angular/material';
-import { OutputComponent } from './../output/output.component';
-import { ConfigComponent } from './../config/config.component';
-import { DialogComponent } from './../dialog/dialog.component';
-*/
 
 @Component({
   selector: 'hg-cb',

@@ -3,7 +3,7 @@ import { LayoutService } from './layout.service';
 import { WidgetItem } from './../models/widget.item';
 import { MatDialog } from '@angular/material';
 import { OutputComponent } from './../output/output.component';
-import { ConfigComponent } from './../config/config.component';
+import { FormComponent } from './../form/form.component';
 import { DialogComponent } from './../dialog/dialog.component';
 
 @Component({
@@ -214,7 +214,7 @@ export class LayoutComponent implements OnInit {
   
   launchContainerSettings(container, model) {
 
-    const dialogRef = this.dialog.open(ConfigComponent, {
+    const dialogRef = this.dialog.open(FormComponent, {
       width: '1000px',
       height: '90%',
       data: {

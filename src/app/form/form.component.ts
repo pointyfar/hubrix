@@ -3,13 +3,14 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {FormGroup} from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
+
 @Component({
-  selector: 'wec-config',
-  templateUrl: './config.component.html',
-  styleUrls: ['./config.component.scss'],
+  selector: 'hg-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class ConfigComponent implements OnInit {
+export class FormComponent implements OnInit {
   form = new FormGroup({});
   
   options: FormlyFormOptions = {};
@@ -21,7 +22,7 @@ export class ConfigComponent implements OnInit {
   notes = [];
   
   constructor(
-    public dialogRef: MatDialogRef<ConfigComponent>,
+    public dialogRef: MatDialogRef<FormComponent>,
             @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     

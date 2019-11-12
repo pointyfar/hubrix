@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output } fro
 import { LayoutService } from './../layout/layout.service';
 import { MatDialog } from '@angular/material';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { ConfigComponent } from './../config/config.component';
+import { FormComponent } from './../form/form.component';
 import { WidgetService } from './widget.service';
 
 @Component({
@@ -49,7 +49,7 @@ export class WidgetComponent implements OnInit {
   }
   
   openDialog(): void {
-    const dialogRef = this.dialog.open(ConfigComponent, {
+    const dialogRef = this.dialog.open(FormComponent, {
       width: '1000px',
       height: '500px',
       data: {

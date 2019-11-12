@@ -1,37 +1,17 @@
 import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
-import { LayoutService } from './layout.service';
-
+import { LayoutService } from '../layout/layout.service';
 import { MatDialog } from '@angular/material';
-
-import { ConfigComponent } from './../config/config.component';
+import { FormComponent } from './../form/form.component';
 import { OutputComponent } from './../output/output.component';
 
 @Component({
   selector: 'hg-config-item',
-  styleUrls: ['./layout.component.scss'],
+  styleUrls: ['./config-item.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
   providers: [LayoutService],
-  template: `
-  <div fxLayout="row" fxFlexFill fxLayoutAlign="center stretch" class="config-file">
-    <mat-card fxFlex fxLayout="column">
-      <mat-card-title>{{configFile.label}}</mat-card-title>
-      <mat-card-content fxFlex>
-      <markdown ngPreserveWhitespaces>{{configFile.description}}</markdown>
-      </mat-card-content>
-      <mat-card-actions fxLayout="row wrap" fxLayoutAlign="space-between start">
-        <button mat-raised-button color="primary" (click)="loadConfigDialog()">
-          Configure {{configFile.label}}
-        </button>
-        <button mat-icon-button matTooltip="Save in own file" [disabled]="!hasResult" (click)="saveConfig()">
-          <mat-icon>save</mat-icon>
-        </button>
-        
-      </mat-card-actions>
-    </mat-card>
-  </div>
-  `,
+  templateUrl: "./config-item.component.html"
 })
-export class ConfigurationLayoutComponent implements OnInit {
+export class ConfigItemComponent implements OnInit {
   @Input() configFile;
   @Output() result = new EventEmitter<any>();
 
@@ -56,7 +36,7 @@ export class ConfigurationLayoutComponent implements OnInit {
   }  
   
   loadConfigDialog() {
-    const dialogRef = this.dialog.open(ConfigComponent, {
+    const dialogRef = this.dialog.open(FormComponent, {
       width: '1000px',
       height: '90%',
       data: {

@@ -16,9 +16,7 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MarkdownModule } from 'ngx-markdown';
 
 import { LayoutComponent } from './layout/layout.component';
-import { ConfigurationLayoutComponent } from './layout/configuration.layout.component';
 import { ArrayTypeComponent } from './models/formly.array';
-import { ConfigComponent } from './config/config.component';
 
 /* Widgets */
 import { WidgetComponent } from './widget/widget.component';
@@ -27,20 +25,22 @@ import { PanelWrapperComponent } from './panel-wrapper/panel-wrapper.component';
 import { DialogComponent } from './dialog/dialog.component';
 
 import { ConfigBuilderComponent } from './config-builder/config-builder.component';
+import { ConfigItemComponent } from './config-item/config-item.component';
 import { WidgetBuilderComponent } from './widget-builder/widget-builder.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    ConfigurationLayoutComponent,
     ArrayTypeComponent,
-    ConfigComponent,
     WidgetComponent,
     OutputComponent,
     PanelWrapperComponent,
     DialogComponent,
     ConfigBuilderComponent,
-    WidgetBuilderComponent
+    WidgetBuilderComponent,
+    ConfigItemComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -91,18 +91,13 @@ import { WidgetBuilderComponent } from './widget-builder/widget-builder.componen
   //bootstrap: [LayoutBasicComponent],
   entryComponents :  [
      LayoutComponent,
-     ConfigComponent,
+     FormComponent,
      DialogComponent,
      OutputComponent,
      ConfigBuilderComponent,
      WidgetBuilderComponent
   ]})
 export class AppModule {
-  /*  ngDoBootstrap(){
-      const el = createCustomElement(ConfigComponent, {injector : this.injector});
-      customElements.define('wec-config',el);
-    }*/
-    
     constructor(private injector: Injector) {
    }
 
