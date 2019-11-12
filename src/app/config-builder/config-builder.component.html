@@ -1,4 +1,9 @@
-<div *ngIf="configFilesDone" fxLayout="row wrap" fxFlex >
+<div fxLayout="column" fxLayoutAlign="center stretch">
+<div *ngIf="helpText" fxLayout="row wrap" fxFlexFill>
+  <markdown>{{ helpText }}
+  </markdown>
+</div>
+<div *ngIf="configFilesDone" fxLayout="row wrap" fxFlexFill >
   <div *ngFor="let confile of configFiles" 
         fxFlex="33.33" 
         fxLayout="row wrap"
@@ -10,4 +15,5 @@
         >
     </hg-config-item>
   </div>
+</div>
 </div>

@@ -23,7 +23,8 @@ export class ConfigBuilderComponent implements OnInit {
   configFiles = [];
   configFilesDone = true;
   config: any = {};
-
+  helpText = "";
+  
   constructor(
     private _ls: LayoutService
     
@@ -40,6 +41,7 @@ export class ConfigBuilderComponent implements OnInit {
           for(let i = 0; i < result.files.length; i++){
             this.configFiles.push(result.files[i])
           }
+          this.helpText = result.help;
         },
         err => {
           console.log("Error getting config files from ", this.configPath, err)

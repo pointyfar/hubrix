@@ -1,4 +1,5 @@
 {
+  "help" : "Save each config file individually to your [`configDir`](https://gohugo.io/getting-started/configuration/), or navigate to the 'Results' tab to download as a single file.",
   "files" : [
     {
       "label": "General",
