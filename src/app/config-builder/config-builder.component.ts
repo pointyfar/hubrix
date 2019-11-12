@@ -4,7 +4,6 @@ import { SharedService } from './../shared.service';
 @Component({
   selector: 'hg-cb',
   templateUrl: './config-builder.component.html',
-  styleUrls: ['./config-builder.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class ConfigBuilderComponent implements OnInit {

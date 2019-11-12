@@ -8,7 +8,6 @@ import * as FileSaver from 'file-saver/src/FileSaver';
 @Component({
   selector: 'hg-output',
   templateUrl: './output.component.html',
-  styleUrls: ['./output.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class OutputComponent implements OnInit {

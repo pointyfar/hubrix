@@ -8,7 +8,6 @@ import { WidgetItem } from './../models/widget.item';
 @Component({
   selector: 'hg-wb',
   templateUrl: './widget-builder.component.html',
-  styleUrls: ['./widget-builder.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class WidgetBuilderComponent implements OnInit {

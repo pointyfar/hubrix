@@ -6,7 +6,6 @@ import { OutputComponent } from './../output/output.component';
 
 @Component({
   selector: 'hg-config-item',
-  styleUrls: ['./config-item.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
   providers: [SharedService],
   templateUrl: "./config-item.component.html"

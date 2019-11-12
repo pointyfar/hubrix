@@ -4,7 +4,6 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 @Component({
   selector: 'hg-dialog',
   templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class DialogComponent implements OnInit {

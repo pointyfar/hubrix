@@ -3,14 +3,11 @@ import { SharedService } from './../shared.service';
 import { MatDialog } from '@angular/material';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormComponent } from './../form/form.component';
-import { WidgetService } from './widget.service';
 
 @Component({
   selector: 'hg-widget',
   templateUrl: './widget.component.html',
-  styleUrls: ['./widget.component.scss'],
-  encapsulation: ViewEncapsulation.Emulated,
-  providers: [WidgetService]
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class WidgetComponent implements OnInit {
   data = "hello";
@@ -33,7 +30,6 @@ export class WidgetComponent implements OnInit {
   
   constructor(
     private _ls: SharedService,
-    private _ws: WidgetService,
     public dialog: MatDialog
   ) { }
 

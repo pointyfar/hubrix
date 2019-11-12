@@ -7,7 +7,6 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 @Component({
   selector: 'hg-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class FormComponent implements OnInit {
