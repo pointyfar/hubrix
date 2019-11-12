@@ -193,7 +193,7 @@ export class LayoutComponent implements OnInit {
   
   getContainerConfig(e, m){
     if(!this.containerWidgetForm || (this.containerWidgetForm !== m['formConfig'])) {
-      this._ls.getConfig(m['formConfig'])
+      this._ls.getUrl(m['formConfig'])
       .subscribe(
         c => {
           this.containerWidgetConfig = c
@@ -251,7 +251,7 @@ export class LayoutComponent implements OnInit {
   }
   
   getConfigFiles(){
-    this._ls.getConfig(this.configPath)
+    this._ls.getUrl(this.configPath)
         .subscribe( result => {
           for(let i = 0; i < result.files.length; i++){
             this.configFiles.push(result.files[i])

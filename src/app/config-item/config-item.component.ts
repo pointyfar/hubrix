@@ -24,7 +24,7 @@ export class ConfigItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._ls.getConfig(this.configFile['url'])
+    this._ls.getUrl(this.configFile['url'])
         .subscribe(
           result => {
             this.config = result;

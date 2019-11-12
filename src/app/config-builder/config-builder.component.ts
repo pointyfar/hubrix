@@ -30,7 +30,7 @@ export class ConfigBuilderComponent implements OnInit {
   }
   
   getConfigFiles(){
-    this._ls.getConfig(this.configPath)
+    this._ls.getUrl(this.configPath)
         .subscribe( result => {
           for(let i = 0; i < result.files.length; i++){
             this.configFiles.push(result.files[i])

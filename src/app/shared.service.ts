@@ -15,7 +15,7 @@ export class SharedService {
     
   }
   
-  getConfig(url): any {
+  getUrl(url): any {
     return this.http.get<any>(url);
   }
   
@@ -32,12 +32,6 @@ export class SharedService {
                 return {groups, widgets, helpPath}
               })
             )
-  }
-  
-
-  xgetWidgetsList(url): Observable<WidgetItem[]> {
-    return this.http.get<any>(url)
-                .pipe( map( wi => mapWidgetItem(wi) ) ) 
   }
   
   handleError(error: any) {
