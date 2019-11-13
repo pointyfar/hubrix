@@ -1,0 +1,42 @@
+{
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/content-management/urls/#permalinks)"
+  ],
+  "destination" : "configDir/_default/permalinks.(json/yaml/toml)",
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key": "values",
+      "type": "array",
+      "fieldArray": {
+        "wrappers": ["panel"],
+        "fieldGroup": [{
+            "key": "key",
+            "type": "input",
+            "templateOptions": {
+              "label": "Section",
+              "placeholder": "posts",
+              "description": "The permalinks option in your site configuration allows you to adjust the directory paths (i.e., the URLs) on a per-section basis.",
+              "required": true
+            }
+          },
+          {
+            "key": "value",
+            "type": "input",
+            "templateOptions": {
+              "label": "Config",
+              "placeholder": "/:year/:month/:title/",
+              "description": "Permalink Configuration Values",
+              "required": true
+            }
+          }
+        ],
+        "templateOptions": {
+          "label": "Add permalinks configuration"
+        }
+      }
+    }
+  ]
+}

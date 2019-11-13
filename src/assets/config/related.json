@@ -1,0 +1,86 @@
+{
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/content-management/related/#configure-related-content)",
+    "Without any related configuration set on the project, Hugo’s Related Content methods will use the following."
+  ],
+  "destination" : "configDir/_default/related.(json/yaml/toml)",
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key" : "threshold",
+      "type": "number",
+      "templateOptions": {
+        "label": "threshold",
+        "placeholder": 80,
+        "description": "A value between 0-100. Lower value will give more, but maybe not so relevant, matches."
+      }
+    },
+    {
+      "key" : "includeNewer",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "includeNewer",
+        "description": "Set to true to include pages newer than the current page in the related content listing. This will mean that the output for older posts may change as new related content gets added."
+      }
+    },
+    {
+      "key" : "toLower",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "toLower",
+        "description": "Set to true to lower case keywords in both the indexes and the queries. This may give more accurate results at a slight performance penalty. Note that this can also be set per index."
+      }
+    },
+    
+    {
+      "key": "indices",
+      "type": "array",
+      "fieldArray": {
+        "fieldGroup": [
+        {
+          "key": "name",
+          "type": "input",
+          "templateOptions": {
+            "label": "name",
+            "placeholder": "keywords",
+            "description": "The index name. This value maps directly to a page param."
+          }
+        },
+        {
+          "key": "weight",
+          "type": "number",
+          "templateOptions": {
+            "label": "weight",
+            "placeholder": 100,
+            "description": "An integer weight that indicates how important this parameter is relative to the other parameters. It can be 0, which has the effect of turning this index off, or even negative. Test with different values to see what fits your content best."
+          }
+        },
+        {
+          "key": "pattern",
+          "type": "input",
+          "templateOptions": {
+            "label": "pattern",
+            "placeholder":"2006",
+            "description": "This is currently only relevant for dates. When listing related content, we may want to list content that is also close in time. Setting “2006”"
+          }
+        }
+        
+        
+      ],
+        
+        "templateOptions": {
+          "label": "Add indices",
+          "description": "Config Options per Index"
+        }
+      },
+      "templateOptions": {
+        "label": "Indices"
+      }
+      
+      
+    }
+
+  ]
+}

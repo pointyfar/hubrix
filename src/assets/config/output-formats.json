@@ -1,0 +1,139 @@
+{
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/templates/output-formats/)",
+    "You can define new output formats or redefine built-in output formats; e.g., if you want to put AMP pages in a different path.",
+    "To add or modify an output format, define it in an `outputFormats` section in your site’s configuration file, either for all sites or for a given language."
+  ],
+  "destination" : "configDir/_default/outputFormats.(json/yaml/toml)",
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key": "values",
+      "type": "array",
+      "fieldArray": {
+        "wrappers": ["panel"],
+        "fieldGroup": [{
+            "key": "key",
+            "type": "input",
+            "templateOptions": {
+              "label": "Custom Output Format",
+              "placeholder": "MyEnrichedFormat",
+              "description": "Every Page has a Kind attribute, and the default Output Formats are set based on that.",
+              "required": true
+            }
+          },
+          
+          {
+            "key": "value",
+            "wrappers": ["panel"],
+            "templateOptions": {
+              "description": "Config options"
+            },
+            "fieldGroup": [
+              {
+                "key": "name",
+                "type": "input",
+                "templateOptions": {
+                  "label": "name",
+                  "placeholder": "",
+                  "description": "the output format identifier. This is used to define what output format(s) you want for your pages."
+                }
+              },
+              {
+                "key": "mediaType",
+                "type": "input",
+                "templateOptions": {
+                  "label": "mediaType",
+                  "placeholder": "",
+                  "description": "this must match the Type of a defined media type."
+                }
+              },
+              {
+                "key": "path",
+                "type": "input",
+                "templateOptions": {
+                  "label": "path",
+                  "placeholder": "",
+                  "description": "sub path to save the output files."
+                }
+              },
+              {
+                "key": "baseName",
+                "type": "input",
+                "templateOptions": {
+                  "label": "baseName",
+                  "placeholder": "index",
+                  "description": "the base filename for the list filenames (homepage, etc.)."
+                }
+              },
+              {
+                "key": "rel",
+                "type": "input",
+                "templateOptions": {
+                  "label": "rel",
+                  "placeholder": "alternate",
+                  "description": "can be used to create rel values in link tags."
+                }
+              },
+              {
+                "key": "protocol",
+                "type": "input",
+                "templateOptions": {
+                  "label": "protocol",
+                  "placeholder": "http://",
+                  "description": "will replace the “http://” or “https://” in your baseURL for this output format."
+                }
+              },
+              {
+                "key": "isPlainText",
+                "type": "checkbox",
+                "templateOptions": {
+                  "label": "isPlainText",
+                  "description": "use Go’s plain text templates parser for the templates."
+                }
+              },
+              {
+                "key": "isHTML",
+                "type": "checkbox",
+                "templateOptions": {
+                  "label": "isHTML",
+                  "description": "used in situations only relevant for HTML-type formats; e.g., page aliases."
+                }
+              },
+              {
+                "key": "noUgly",
+                "type": "checkbox",
+                "templateOptions": {
+                  "label": "noUgly",
+                  "description": "used to turn off ugly URLs If uglyURLs is set to true in your site."
+                }
+              },
+              {
+                "key": "notAlternative",
+                "type": "checkbox",
+                "templateOptions": {
+                  "label": "notAlternative",
+                  "description": "enable if it doesn’t make sense to include this format in an AlternativeOutputFormats format listing on Page (e.g., with CSS). Note that we use the term alternative and not alternate here, as it does not necessarily replace the other format."
+                }
+              },
+              {
+                "key": "permalinkable",
+                "type": "checkbox",
+                "templateOptions": {
+                  "label": "permalinkable",
+                  "description": "make .Permalink and .RelPermalink return the rendering Output Format rather than main (see below). This is enabled by default for HTML and AMP"
+                }
+              }
+              
+            ]
+          }
+        ],
+        "templateOptions": {
+          "label": "Add and Configure Output Format"
+        }
+      }
+    }
+  ]
+}

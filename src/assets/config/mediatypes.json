@@ -1,0 +1,53 @@
+{
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/templates/output-formats/#media-types)",
+    "You can add custom media types or change the defaults; e.g., if you want to change the suffix for text/html to asp."
+  ],
+  "destination" : "configDir/_default/mediaTypes.(json/yaml/toml)",
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key": "values",
+      "type": "array",
+      "fieldArray": {
+        "wrappers": ["panel"],
+        "fieldGroup": [{
+            "key": "key",
+            "type": "input",
+            "templateOptions": {
+              "label": "Custom Output Format",
+              "placeholder": "text/enriched",
+              "description": "Every Page has a Kind attribute, and the default Output Formats are set based on that.",
+              "required": true
+            }
+          },
+          
+          {
+            "key": "value",
+            "wrappers": ["panel"],
+            "templateOptions": {
+              "description": "Config options"
+            },
+            "fieldGroup": [
+              {
+                "key": "suffix",
+                "type": "input",
+                "templateOptions": {
+                  "label": "suffix",
+                  "placeholder": "",
+                  "description": "suffix"
+                }
+              }
+              
+            ]
+          }
+        ],
+        "templateOptions": {
+          "label": "Add or Configure Media Type"
+        }
+      }
+    }
+  ]
+}

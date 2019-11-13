@@ -1,6 +1,7 @@
 {
   "notes" : [
-    "[Docs Reference](https://gohugo.io/templates/output-formats/)"
+    "[Docs Reference](https://gohugo.io/templates/output-formats/)",
+    "A Page in Hugo can be rendered to multiple output formats on the file system."
   ],
   "destination" : "configDir/_default/outputs.(json/yaml/toml)",
   "modelJson": {

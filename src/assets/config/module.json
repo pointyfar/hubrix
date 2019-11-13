@@ -1,0 +1,172 @@
+{
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/hugo-modules/configuration/)",
+    "Configure Hugo Modules."
+  ],
+  "destination" : "configDir/_default/module.(json/yaml/toml)",
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key" : "noProxy",
+      "type": "input",
+      "templateOptions": {
+        "label": "noProxy",
+        "placeholder": "none",
+        "description": "Comma separated glob list matching paths that should not use the proxy configured above."
+      }
+    },
+    {
+      "key" : "private",
+      "type": "input",
+      "templateOptions": {
+        "label": "private",
+        "placeholder": "*.*",
+        "description": "Comma separated glob list matching paths that should be treated as private."
+      }
+    },
+    {
+      "key" : "proxy",
+      "type": "input",
+      "templateOptions": {
+        "label": "noProxy",
+        "placeholder": "direct",
+        "description": "Defines the proxy server to use to download remote modules. Default is direct, which means “git clone” and similar."
+      }
+    },
+    
+    
+    
+    {
+      "key": "hugoVersion",
+      "wrappers": ["panel"],
+      "templateOptions": {
+        "label": "hugoVersion",
+        "description": "If your module requires a particular version of Hugo to work, you can indicate that"
+      },
+      "fieldGroup": [
+        {
+          "key": "extended",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "extended",
+            "description": "Whether the extended version of Hugo is required."
+          }
+        },
+        {
+          "key": "max",
+          "type": "input",
+          "templateOptions": {
+            "label": "max",
+            "placeholder": "",
+            "description": "The maximum Hugo version supported, e.g. 0.55.0"
+          }
+        },
+        {
+          "key": "min",
+          "type": "input",
+          "templateOptions": {
+            "label": "min",
+            "placeholder": "",
+            "description": "The minimum Hugo version supported, e.g. 0.55.0"
+          }
+        }
+        
+      ]
+    },
+    
+    
+    
+    {
+      "key": "imports",
+      "type": "array",
+      "fieldArray": {
+        "fieldGroup": [
+        {
+          "key": "disable",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "disable",
+            "description": "Set to `true` to disable the module off while keeping any version info in the go.* files."
+          }
+        },
+        {
+          "key": "ignoreConfig",
+          "type": "checkbox",
+          "templateOptions": {
+            "label": "ignoreConfig",
+            "description": "If enabled, any module configuration file, e.g. config.toml, will not be loaded. Note that this will also stop the loading of any transitive module dependencies."
+          }
+        },
+        {
+          "key": "path",
+          "type": "input",
+          "templateOptions": {
+            "label": "path",
+            "description": "Can be either a valid Go Module module path, e.g. github.com/gohugoio/myShortcodes, or the directory name for the module as stored in your themes folder."
+          }
+        }
+        
+        
+      ],
+        
+        "templateOptions": {
+          "label": "Add imports",
+          "description": "Configure module imports."
+        }
+      },
+      "templateOptions": {
+        "label": "Module imports"
+      }
+      
+      
+    },
+    
+    {
+      "key": "mounts",
+      "type": "array",
+      "fieldArray": {
+        "fieldGroup": [
+        {
+          "key": "source",
+          "type": "input",
+          "templateOptions": {
+            "label": "source",
+            "description": "The source directory of the mount. For the main project, this can be either project-relative or absolute and even a symbolic link. For other modules it must be project-relative."
+          }
+        },
+        {
+          "key": "target",
+          "type": "input",
+          "templateOptions": {
+            "label": "target",
+            "description": "Where it should be mounted into Hugo’s virtual filesystem. It must start with one of Hugo’s component folders: static, content, layouts, data, assets, i18n, or archetypes. E.g. content/blog."
+          }
+        },
+        {
+          "key": "lang",
+          "type": "input",
+          "templateOptions": {
+            "label": "lang",
+            "description": "The language code, e.g. “en”. Only relevant for content mounts, and static mounts when in multihost mode."
+          }
+        }
+        
+        
+      ],
+        
+        "templateOptions": {
+          "label": "Add mounts",
+          "description": "Configure module mounts."
+        }
+      },
+      "templateOptions": {
+        "label": "Module mounts"
+      }
+      
+      
+    }
+
+  ]
+}

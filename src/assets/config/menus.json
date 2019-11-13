@@ -1,6 +1,7 @@
 {
   "notes" : [
-    "[Docs Reference](https://gohugo.io/content-management/menus/#add-non-content-entries-to-a-menu)"
+    "[Docs Reference](https://gohugo.io/content-management/menus/#add-non-content-entries-to-a-menu)",
+    "Add entries to menus that aren’t attached to a piece of content."
   ],
   "destination" : "configDir/_default/menus.(json/yaml/toml)",
   "modelJson": {

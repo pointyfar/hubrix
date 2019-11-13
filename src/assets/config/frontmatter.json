@@ -1,0 +1,66 @@
+{
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/getting-started/configuration/#configure-front-matter)",
+    "Dates are important in Hugo, and you can configure how Hugo assigns dates to your content pages."
+  ],
+  "destination" : "configDir/_default/frontmatter.(json/yaml/toml)",
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key": "date",
+      "type": "array",
+      "fieldArray": {
+        "type": "input",
+        "templateOptions": {
+          "label": "Add date parameter"
+        }
+      },
+      "templateOptions": {
+        "label": "date"
+      }
+    },
+    {
+      "key": "lastmod",
+      "type": "array",
+      "fieldArray": {
+        "type": "input",
+        "templateOptions": {
+          "label": "Add date parameter"
+        }
+      },
+      "templateOptions": {
+        "label": "lastmod"
+      }
+    },
+    {
+      "key": "publishDate",
+      "type": "array",
+      "fieldArray": {
+        "type": "input",
+        "templateOptions": {
+          "label": "Add date parameter"
+        }
+      },
+      "templateOptions": {
+        "label": "publishDate"
+      }
+    },
+    {
+      "key": "expiryDate",
+      "type": "array",
+      "fieldArray": {
+        "type": "input",
+        "templateOptions": {
+          "label": "Add date parameter"
+        }
+      },
+      "templateOptions": {
+        "label": "expiryDate"
+      }
+    }    
+
+
+  ]
+}

@@ -12,14 +12,19 @@
       "url" : "assets/config/blackfriday.json"
     },
     {
-      "label": "Imaging",
-      "key" : ["imaging"],
-      "url" : "assets/config/imaging.json"
-    },
-    {
       "label": "Caches",
       "key" : ["caches"],
       "url" : "assets/config/caches.json"
+    },
+    {
+      "label": "Frontmatter",
+      "key" : ["frontmatter"],
+      "url" : "assets/config/frontmatter.json"
+    },
+    {
+      "label": "Imaging",
+      "key" : ["imaging"],
+      "url" : "assets/config/imaging.json"
     },
     {
       "label": "Menus",
@@ -28,15 +33,44 @@
       "url" : "assets/config/menus.json"
     },
     {
+      "label": "Module",
+      "key" : ["module"],
+      "url" : "assets/config/module.json"
+    },
+    {
+      "label": "MediaTypes",
+      "key" : ["mediaTypes"],
+      "dynamic": true,
+      "url" : "assets/config/mediatypes.json"
+    },
+
+    {
       "label": "Outputs",
       "key" : ["outputs"],
       "dynamic": true,
       "url" : "assets/config/outputs.json"
     },
     {
-      "label": "Params",
-      "key" : ["params"],
-      "url" : "assets/config/params.json"
+      "label": "Output Formats",
+      "key" : ["outputFormats"],
+      "dynamic": true,
+      "url" : "assets/config/output-formats.json"
+    },
+    {
+      "label": "Permalinks",
+      "key" : ["permalinks"],
+      "dynamic": true,
+      "url" : "assets/config/permalinks.json"
+    },
+    {
+      "label": "Related",
+      "key" : ["related"],
+      "url" : "assets/config/related.json"
+    },
+    {
+      "label": "Sitemap",
+      "key" : ["sitemap"],
+      "url" : "assets/config/sitemap.json"
     },
     {
       "label": "Taxonomies",

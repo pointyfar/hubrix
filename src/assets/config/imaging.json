@@ -1,6 +1,7 @@
 {
   "notes" : [
-    "[Docs Reference](https://gohugo.io/content-management/image-processing/#image-processing-config)"
+    "[Docs Reference](https://gohugo.io/content-management/image-processing/#image-processing-config)",
+    "You can configure an imaging section in config.toml with default image processing options."
   ],
   "destination" : "configDir/_default/imaging.(json/yaml/toml)",
   "modelJson": {

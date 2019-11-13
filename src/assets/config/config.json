@@ -177,6 +177,14 @@
       }
     },
     {
+      "key" : "disableAliases",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "disableAliases",
+        "description": "Will disable generation of alias redirects. Note that even if `disableAliases` is set, the aliases themselves are preserved on the page. The motivation with this is to be able to generate 301 redirects in an `.htaccess`, a Netlify `_redirects` file or similar using a custom output format."
+      }
+    },
+    {
       "key" : "disableHugoGeneratorInject",
       "type": "checkbox",
       "templateOptions": {
@@ -237,6 +245,14 @@
       }
     },
     {
+      "key" : "enableInlineShortcodes",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "enableInlineShortcodes",
+        "description": "Enable inline shortcode support."
+      }
+    },
+    {
       "key" : "enableMissingTranslationPlaceholders",
       "type": "checkbox",
       "templateOptions": {
@@ -276,6 +292,22 @@
         "description": "If true, auto-detect Chinese/Japanese/Korean Languages in the content. This will make .Summary and .WordCount behave correctly for CJK languages."
       }
     },
+    
+    {
+      "key": "disableLanguages",
+      "type": "array",
+      "fieldArray": {
+        "type": "input",
+        "templateOptions": {
+          "label": "Language code",
+          "placeholder": "en",
+          "description": "Disable one or more languages."
+        }
+      },
+      "templateOptions": {
+        "label": "disableLanguages"
+      }
+    },
     {
       "key" : "layoutDir",
       "type": "input",
@@ -299,20 +331,6 @@
       "templateOptions": {
         "label": "logFile",
         "description": "Log File path (if set, logging enabled automatically)."
-      }
-    },
-    {
-      "key": "metaDataFormat",
-      "type": "select",
-      "templateOptions": {
-        "label": "metaDataFormat",
-        "multiple": false,
-        "options": [
-          {"label": "TOML", "value": "toml"},
-          {"label": "YAML", "value": "yaml"},
-          {"label": "JSON", "value": "json"}
-        ],
-        "description": "Front matter meta-data format. Valid values: 'toml', 'yaml', or 'json'."
       }
     },
     {
@@ -357,20 +375,29 @@
       }
     },
     {
-      "key" : "preserveTaxonomyNames",
-      "type": "checkbox",
-      "templateOptions": {
-        "label": "preserveTaxonomyNames",
-        "description": "Preserve special characters in taxonomy names (“Gérard Depardieu” vs “Gerard Depardieu”)."
-      }
-    },
-    {
       "key" : "publishDir",
       "type": "input",
       "templateOptions": {
         "label": "publishDir",
         "placeholder": "public",
         "description": "The directory to where Hugo will write the final static site (the HTML files etc.)."
+      }
+    },
+    {
+      "key" : "pygmentsOptions",
+      "type": "input",
+      "templateOptions": {
+        "label": "pygmentsOptions",
+        "placeholder": "",
+        "description": "A comma separated list of options for syntax highlighting. See the [Syntax Highlighting Options](https://gohugo.io/content-management/syntax-highlighting/#options) for the full list of available options."
+      }
+    },
+    {
+      "key" : "pygmentsCodeFences",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "pygmentsCodeFences",
+        "description": "Enables syntax highlighting in code fences with a language tag in markdown."
       }
     },
     {
@@ -396,6 +423,14 @@
       "templateOptions": {
         "label": "pygmentsUseClasses",
         "description": "Enable using external CSS for syntax highlighting."
+      }
+    },
+    {
+      "key" : "pygmentsUseClassic",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "pygmentsUseClassic",
+        "description": "Enable using Pygments instead of the much faster Chroma for syntax highlighting."
       }
     },
     {
@@ -446,14 +481,6 @@
       }
     },
     {
-      "key" : "stepAnalysis",
-      "type": "checkbox",
-      "templateOptions": {
-        "label": "stepAnalysis",
-        "description": "Display memory and timing of different steps of the program."
-      }
-    },
-    {
       "key" : "summaryLength",
       "type": "input",
       "templateOptions": {
@@ -471,6 +498,15 @@
         "type": "number",
         "placeholder": 10000,
         "description": "Timeout for generating page contents, in milliseconds (defaults to 10 seconds). Note: this is used to bail out of recursive content generation, if your pages are slow to generate (e.g., because they require large image processing or depend on remote contents) you might need to raise this limit."
+      }
+    },
+    {
+      "key" : "titleCaseStyle",
+      "type": "input",
+      "templateOptions": {
+        "label": "titleCaseStyle",
+        "placeholder": "AP",
+        "description": "Set `titleCaseStyle` to specify the title style used by the title template function and the automatic section titles in Hugo. It defaults to AP Stylebook for title casing, but you can also set it to Chicago or Go (every word starts with a capital letter)."
       }
     },
     {

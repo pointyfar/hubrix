@@ -1,6 +1,7 @@
 {
   "notes": [
-    "[Docs Reference](https://gohugo.io/getting-started/configuration/#configure-file-caches)"
+    "[Docs Reference](https://gohugo.io/getting-started/configuration/#configure-file-caches)",
+    "Since Hugo 0.52 you can configure more than just the cacheDir."
   ],
   "destination" : "configDir/_default/caches.(json/yaml/toml)",
   "modelJson": {

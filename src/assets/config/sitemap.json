@@ -1,0 +1,40 @@
+{
+  "notes" : [
+    "[Docs Reference](https://gohugo.io/templates/sitemap-template/#configure-sitemap-xml)"
+  ],
+  "destination" : "configDir/_default/sitemap.(json/yaml/toml)",
+  "modelJson": {
+
+  },
+  "jsonFields": [
+    {
+      "key" : "changefreq",
+      "type": "input",
+      "templateOptions": {
+        "label": "changefreq",
+        "placeholder": "monthly",
+        "description": "changefreq"
+      }
+    },
+    {
+      "key" : "filename",
+      "type": "input",
+      "templateOptions": {
+        "label": "filename",
+        "placeholder": "sitemap.xml",
+        "description": "filename"
+      }
+    },
+    {
+      "key" : "priority",
+      "type": "number",
+      "templateOptions": {
+        "label": "priority",
+        "placeholder": 0.5,
+        "description": "priority"
+      }
+    }
+
+
+  ]
+}
