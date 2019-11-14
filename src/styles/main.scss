@@ -62,12 +62,12 @@ code {
 }
 
 .main-section-help {
-  font-size: 90%;
+  font-size: 85%;
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
   border: 1px solid map-get($mat-grey, 800);
   background: rgba(black, .25);
-  max-height: 100px;
+  max-height: 200px;
   overflow: auto;
   
 }

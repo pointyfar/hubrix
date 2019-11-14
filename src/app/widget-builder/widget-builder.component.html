@@ -1,5 +1,24 @@
 <div fxFlexFill flexLayout="row" fxLayoutGap="10px" style="padding:.5rem;">
   <div fxFlex="30">
+    <div>
+    <mat-accordion>
+      
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Help
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <div *ngIf="helpText" class="main-section-help">
+          <markdown ngPreserveWhitespaces>
+            {{ helpText }}
+          </markdown>
+        </div>
+      </mat-expansion-panel>
+        
+      </mat-accordion>
+    </div>
     <h2>Widgets</h2>
     
       <div *ngIf="isReady">
@@ -46,19 +65,10 @@
     <mat-card class="main-drop">
       <mat-card-title>
         <div class="title-text">Drag widgets here</div>
-        <div class="title-button">
-          <button mat-raised-button color="primary" (click)="launchHelp(true)" *ngIf="mainSection?.length > 0">
-            <mat-icon>help</mat-icon>
-          </button>
-        </div>
       </mat-card-title>
       <mat-card-content>	
         <div class="main-section main-drop-area">
-          <div *ngIf="mainSection?.length == 0 && helpText" class="main-section-help">
-            <markdown ngPreserveWhitespaces>
-              {{ helpText }}
-            </markdown>
-          </div>
+          
       
       <div class="ngx-dnd-container row-container"
           ngxDroppable="maindroppable"
