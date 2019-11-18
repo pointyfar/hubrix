@@ -88,7 +88,9 @@
     }
 
     &:nth-child(odd) {
-      background-color: rgba(0, 0, 0, 0.2);
+      //background-color: rgba(0, 0, 0, 0.2);
+      //background-color: rgba(200, 200, 200, 0.2);
+      background-color: rgba(map-get($mat-teal,500),0.1);
     }
 
     .ex-moved {
@@ -102,7 +104,9 @@
     .handle {
       padding: 0 5px;
       margin-right: 5px;
-      background-color: rgba(0, 0, 0, 0.4);
+      //background-color: rgba(0, 0, 0, 0.4);
+      //background-color: rgba(200, 200, 200, 0.4);
+      background-color: rgba(map-get($mat-teal,500),0.4);
       cursor: move;
     }
 
