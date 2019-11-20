@@ -24,7 +24,7 @@
       <div *ngIf="isReady">
         <ng-template ngFor let-wid [ngForOf]="groupedWidgets" let-i="index" [ngForTrackBy]="trackByFn">
           <mat-accordion>
-            <mat-expansion-panel>
+            <mat-expansion-panel expanded="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   {{wid.group}}
