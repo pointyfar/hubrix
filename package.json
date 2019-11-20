@@ -33,7 +33,7 @@
     "@swimlane/dragula": "^3.8.0",
     "@swimlane/ngx-dnd": "^8.1.0",
     "core-js": "^3.4.1",
-    "document-register-element": "^1.7.2",
+    "document-register-element": "1.7.2",
     "file-saver": "^2.0.0",
     "gulp-rename": "^1.4.0",
     "ngx-markdown": "^8.2.1",
