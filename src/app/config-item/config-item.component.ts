@@ -29,12 +29,10 @@ export class ConfigItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.configFile['url'])
     this._ls.getUrl(this.configFile['url'])
         .subscribe(
           result => {
             this.config = result;
-            console.log(this.config)
           },
           err => console.log('Error getting config from ', this.configFile['url'], err),
           () => {

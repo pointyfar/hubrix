@@ -32,7 +32,7 @@ import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
   `,
 })
 export class ArrayTypeComponent extends FieldArrayType {
-  constructor(builder: FormlyFormBuilder) {
-    super(builder);
+  constructor() {
+    super();
   }
 }

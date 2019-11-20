@@ -6,6 +6,6 @@ import { FieldWrapper } from '@ngx-formly/core';
   templateUrl: './panel-wrapper.component.html'
 })
 export class PanelWrapperComponent extends FieldWrapper {
-  @ViewChild('fieldComponent', {read: ViewContainerRef}) fieldComponent: ViewContainerRef;
+  @ViewChild('fieldComponent', {read: ViewContainerRef, static: true}) fieldComponent: ViewContainerRef;
 
 }
